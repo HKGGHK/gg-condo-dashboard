@@ -66,6 +66,17 @@
         .icon { width: 1.25em; height: 1.25em; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
 
 
+
+        /* Loading skeleton */
+        .skeleton { background: linear-gradient(90deg, rgba(255,255,255,0.04) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.04) 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 8px; }
+        @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+        .skeleton-text { height: 14px; margin-bottom: 8px; }
+        .skeleton-title { height: 20px; width: 60%; margin-bottom: 12px; }
+        .skeleton-card { height: 120px; }
+        /* Empty state */
+        .empty-state { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 3rem 1rem; text-align: center; color: var(--text-muted); }
+        .empty-state .icon { width: 48px; height: 48px; margin-bottom: 1rem; opacity: 0.5; }
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -795,7 +806,7 @@
     <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:var(--z-modal);padding:0.5rem 1rem;background:var(--primary-accent);color:#000;font-weight:600;border-radius:0 0 8px 0;" onfocus="this.style.left=0;this.style.top=0;this.style.width='auto';this.style.height='auto';" onblur="this.style.left='-9999px';this.style.top='auto';this.style.width='1px';this.style.height='1px';">Skip to content</a>
 
     <!-- Beautiful Glassmorphic Landing & Login Page -->
-    <div id="login-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #0a0618 0%, #110d24 100%); z-index: var(--z-overlay); display: flex; flex-direction: column; overflow-y: auto; justify-content: flex-start; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);">
+    <div id="login-overlay" role="dialog" aria-modal="true" aria-label="Login" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #0a0618 0%, #110d24 100%); z-index: var(--z-overlay); display: flex; flex-direction: column; overflow-y: auto; justify-content: flex-start; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);">
         
         <div class="landing-container">
             
@@ -983,10 +994,10 @@
     </header>
 
     <!-- Main Workspace -->
-    <main>
+    <main id="main-content">
         
         <!-- Sidebar Profile Card -->
-        <div class="sidebar">
+        <aside class="sidebar" aria-label="User profile">
             <div class="glass-card">
                 <div class="profile-header">
                     <div class="profile-avatar"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M12 11v2M6 21v-2a6 6 0 0 1 12 0v2"/></svg></div>
@@ -1018,10 +1029,10 @@
             </div>
 
 
-        </div>
+        </aside>
 
         <!-- Dashboard Content Area -->
-        <div class="content-area">
+        <section class="content-area" aria-label="Dashboard content">
             
             <!-- Tab System (Moved to the top) -->
             <div class="tab-container" style="margin-bottom: 2rem;">
