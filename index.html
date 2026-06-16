@@ -7,2582 +7,1477 @@
     <meta property="og:title" content="DLV Thong Lo 20 - Juristic Portal 2.0">
     <meta property="og:description" content="Digital juristic management for premium condominium living in Bangkok">
     <meta property="og:type" content="website">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'><svg class="icon" viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l8-4 8 4v14M8 21V12a4 4 0 0 1 8 0v9"/></svg></text></svg>">
-    <title>DLV Thong Lo 20 - Juristic Portal 2.0</title>
-    <!-- Modern Premium Typography -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏢</text></svg>">
+    <title>DLV Thong Lo 20 — Juristic Portal</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
     <style>
-        /* Modern Premium Dark Mode — DLV Brand Colors */
+        /* ═══════════════════════════════════════════
+           DLV THONG LO 20 — JURISTIC PORTAL v3.0
+           Minimalist redesign. Single accent: warm gold.
+           ═══════════════════════════════════════════ */
+
         :root {
-            /* Background: deep warm navy, not pure black */
-            --bg-base: #0d1117;
-            --bg-gradient: linear-gradient(135deg, #0d1117 0%, #111827 50%, #0a0f14 100%);
-            --glass-bg: rgba(17, 24, 39, 0.65);
-            --glass-border: rgba(255, 255, 255, 0.06);
-            --glass-hover: rgba(255, 255, 255, 0.10);
+            /* Background */
+            --bg: #0d1117;
+            --bg-surface: #161b27;
+            --bg-elevated: #1c2333;
+            --bg-input: #0d1117;
 
-            /* Single accent: warm gold — premium, Thai-appropriate, NOT purple */
-            --primary-accent: #d4a853;
-            --primary-accent-light: #e8c97a;
-            --primary-accent-dark: #b8923f;
-            --primary-gradient: linear-gradient(135deg, #d4a853 0%, #e8c97a 100%);
+            /* Borders */
+            --border: rgba(255,255,255,0.06);
+            --border-hover: rgba(255,255,255,0.12);
 
-            /* Text: warm whites, not cool violet-tinted */
-            --text-main: #f0f2f5;
-            --text-muted: #8b95a5;
+            /* Single accent: warm gold */
+            --accent: #d4a853;
+            --accent-light: #e8c97a;
+            --accent-dark: #b8923f;
+            --accent-bg: rgba(212,168,83,0.08);
+            --accent-border: rgba(212,168,83,0.25);
 
-            /* Shadows: warm-tinted, not purple */
-            --shadow-glow: 0 8px 32px 0 rgba(212, 168, 83, 0.12);
-            --card-shadow: 0 16px 36px 0 rgba(0, 0, 0, 0.45);
+            /* Text */
+            --text: #e6e8ec;
+            --text-muted: #7a8599;
+            --text-dim: #4a5568;
 
             /* Semantic */
             --success: #22c55e;
             --warn: #f59e0b;
             --danger: #ef4444;
 
-            /* Spacing Tokens */
-            --space-xs: 0.5rem;
-            --space-sm: 0.75rem;
-            --space-md: 1.25rem;
-            --space-lg: 2rem;
-            --space-xl: 3rem;
+            /* Spacing */
+            --space-xs: 0.375rem;
+            --space-sm: 0.625rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2.5rem;
 
-            /* Animation */
-            --focus-ring: 0 0 0 3px rgba(212, 168, 83, 0.30);
-            --border-glow: rgba(212, 168, 83, 0.20);
-            --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            /* Radius */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
 
-            /* Z-index scale */
-            --z-base: 1;
-            --z-dropdown: 100;
-            --z-sticky: 200;
+            /* Transitions */
+            --ease: cubic-bezier(0.25, 0.8, 0.25, 1);
+            --transition: all 0.25s var(--ease);
+
+            /* Z-index */
+            --z-nav: 100;
             --z-overlay: 500;
-            --z-modal: 1000;
         }
 
-        /* SVG Icon System */
-        .icon { width: 1.25em; height: 1.25em; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
-
-
-
-        /* Loading skeleton */
-        .skeleton { background: linear-gradient(90deg, rgba(255,255,255,0.04) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.04) 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 8px; }
-        @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
-        .skeleton-text { height: 14px; margin-bottom: 8px; }
-        .skeleton-title { height: 20px; width: 60%; margin-bottom: 12px; }
-        .skeleton-card { height: 120px; }
-        /* Empty state */
-        .empty-state { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 3rem 1rem; text-align: center; color: var(--text-muted); }
-        .empty-state .icon { width: 48px; height: 48px; margin-bottom: 1rem; opacity: 0.5; }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Outfit', sans-serif;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* Custom Modern Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.2);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
-            transition: var(--transition-smooth);
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary-accent);
-        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            background: var(--bg-gradient);
-            color: var(--text-main);
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.5;
         }
 
-        /* Glassmorphic Navbar */
-        header {
-            background: rgba(15, 12, 27, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--glass-border);
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        /* ── Skip link ── */
+        .skip-link {
+            position: absolute; left: -9999px; top: 0;
+            padding: var(--space-sm) var(--space-md);
+            background: var(--accent); color: #000; font-weight: 600;
+            border-radius: 0 0 var(--radius-sm) 0;
+            z-index: 9999; text-decoration: none; font-size: 0.85rem;
+        }
+        .skip-link:focus { left: 0; }
+
+        /* ── Focus styles ── */
+        :focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+            border-radius: var(--radius-sm);
         }
 
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
+        /* ── Icons ── */
+        .icon {
+            width: 1.25em; height: 1.25em;
+            fill: none; stroke: currentColor;
+            stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+            flex-shrink: 0;
         }
 
-        .brand-logo {
-            width: 40px;
-            height: 40px;
-            background: var(--primary-gradient);
-            border-radius: 12px;
+        /* ── Buttons ── */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            gap: var(--space-sm);
+            padding: 0.7rem 1.25rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            background: var(--bg-surface);
+            color: var(--text);
+            font-size: 0.9rem; font-weight: 500;
+            cursor: pointer; transition: var(--transition);
+            text-decoration: none; line-height: 1.2;
+        }
+        .btn:hover { border-color: var(--border-hover); background: var(--bg-elevated); }
+        .btn:active { transform: scale(0.98); }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #000;
+            border-color: var(--accent);
+            font-weight: 600;
+        }
+        .btn-primary:hover {
+            background: var(--accent-light);
+            border-color: var(--accent-light);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            border-color: transparent;
+        }
+        .btn-ghost:hover {
+            background: var(--bg-elevated);
+            border-color: transparent;
+        }
+
+        .btn-sm { padding: 0.4rem 0.75rem; font-size: 0.8rem; border-radius: var(--radius-sm); }
+
+        /* ── Inputs ── */
+        .input {
+            width: 100%;
+            padding: 0.7rem 0.85rem;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            color: var(--text);
+            font-size: 0.9rem;
+            font-family: inherit;
+            transition: var(--transition);
+            outline: none;
+        }
+        .input:focus { border-color: var(--accent); }
+        .input::placeholder { color: var(--text-dim); }
+
+        label {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: var(--space-xs);
+            font-weight: 500;
+        }
+
+        /* ── Select / Dropdown ── */
+        .select-wrap {
+            position: relative;
+        }
+        .select-wrap select {
+            appearance: none;
+            width: 100%;
+            padding: 0.7rem 2.5rem 0.7rem 0.85rem;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            color: var(--text);
+            font-size: 0.9rem;
+            font-family: inherit;
+            cursor: pointer;
+            transition: var(--transition);
+            outline: none;
+        }
+        .select-wrap select:focus { border-color: var(--accent); }
+        .select-wrap .icon-chevron {
+            position: absolute;
+            right: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1em;
+            height: 1em;
+            color: var(--text-muted);
+            pointer-events: none;
+        }
+
+        /* ── Cards ── */
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+        }
+
+        /* ── LOGIN OVERLAY ── */
+        .login-overlay {
+            position: fixed; inset: 0;
+            background: var(--bg);
+            z-index: var(--z-overlay);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 700;
-            color: #fff;
-            box-shadow: 0 0 15px rgba(212, 168, 83, 0.4);
+            padding: var(--space-lg);
+            transition: opacity 0.3s var(--ease), visibility 0.3s;
+        }
+        .login-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
         }
 
-        .brand-name h1 {
+        .login-box {
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .login-logo {
+            width: 48px; height: 48px;
+            background: var(--accent-bg);
+            border: 1px solid var(--accent-border);
+            border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto var(--space-lg);
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        .login-box h1 {
             font-size: 1.25rem;
             font-weight: 600;
-            letter-spacing: 0.5px;
+            margin-bottom: var(--space-xs);
         }
-
-        .brand-name p {
-            font-size: 0.75rem;
+        .login-box .subtitle {
+            font-size: 0.85rem;
             color: var(--text-muted);
+            margin-bottom: var(--space-xl);
         }
 
-        .nav-actions {
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+            text-align: left;
+        }
+
+        .login-form .btn-primary {
+            width: 100%;
+            margin-top: var(--space-sm);
+        }
+
+        .divider {
             display: flex;
             align-items: center;
-            gap: 1.25rem;
+            gap: var(--space-md);
+            margin: var(--space-lg) 0;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+        }
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
         }
 
-        /* Premium Globals Dual Language Switcher Button */
+        .quick-login {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+        .quick-login .btn {
+            justify-content: flex-start;
+            font-size: 0.85rem;
+        }
+        .quick-login .btn .unit-badge {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-left: auto;
+        }
+
+        /* ── NAVBAR ── */
+        .navbar {
+            position: sticky; top: 0;
+            background: rgba(13, 17, 23, 0.9);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
+            padding: var(--space-md) var(--space-lg);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: var(--z-nav);
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+        .navbar-brand .logo {
+            width: 32px; height: 32px;
+            background: var(--accent-bg);
+            border: 1px solid var(--accent-border);
+            border-radius: var(--radius-sm);
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; color: var(--accent); font-size: 0.8rem;
+        }
+        .navbar-brand h1 {
+            font-size: 1rem; font-weight: 600;
+        }
+        .navbar-brand .subtitle {
+            font-size: 0.7rem; color: var(--text-muted);
+        }
+
+        .navbar-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
         .lang-toggle {
             display: flex;
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 2px;
-            cursor: pointer;
-            position: relative;
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
         }
-
-        .lang-btn {
-            background: none;
-            border: none;
+        .lang-toggle button {
+            background: none; border: none;
             color: var(--text-muted);
-            padding: 0.25rem 0.75rem;
-            font-size: 0.75rem;
-            font-weight: 600;
-            border-radius: 18px;
-            transition: all 0.3s;
-            cursor: pointer;
+            padding: 0.35rem 0.65rem;
+            font-size: 0.75rem; font-weight: 600;
+            cursor: pointer; transition: var(--transition);
+        }
+        .lang-toggle button.active {
+            background: var(--accent);
+            color: #000;
+        }
+        .lang-toggle button:not(.active):hover {
+            color: var(--text);
         }
 
-        .lang-btn.active {
-            background: var(--primary-gradient);
-            color: white;
-            box-shadow: 0 0 10px rgba(212, 168, 83, 0.5);
-        }
-
-        .badge-pilot {
-            background: rgba(212, 168, 83, 0.07);
-            border: 1px solid var(--primary-accent);
-            color: var(--primary-accent);
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            box-shadow: 0 0 10px rgba(212, 168, 83, 0.10);
-        }
-
-        /* Main Workspace */
-        main {
-            flex: 1;
-            max-width: 1400px;
-            width: 100%;
-            margin: 2rem auto;
-            padding: 0 2rem;
+        /* ── LAYOUT ── */
+        .layout {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: var(--space-lg);
             display: grid;
-            grid-template-columns: 350px 1fr;
-            gap: 2rem;
-            transition: var(--transition-smooth);
+            grid-template-columns: 280px 1fr;
+            gap: var(--space-lg);
         }
 
-        @media (max-width: 1024px) {
-            main {
-                grid-template-columns: 1fr;
-                padding: 0 1rem;
-            }
+        @media (max-width: 900px) {
+            .layout { grid-template-columns: 1fr; }
         }
 
-        /* Sidebar Profile Card */
+        /* ── SIDEBAR ── */
         .sidebar {
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            gap: var(--space-md);
         }
 
-        .glass-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 1.75rem;
-            box-shadow: var(--card-shadow);
-            transition: var(--transition-smooth);
-            position: relative;
-        }
-
-        .glass-card:hover {
-            border-color: var(--border-glow);
-            box-shadow: var(--shadow-glow);
-            transform: translateY(-2px);
-        }
-
-        /* Premium glass: only for login card and key hero elements */
-        .glass-card-premium {
-            background: var(--glass-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 1.75rem;
-            box-shadow: var(--card-shadow);
-            transition: var(--transition-smooth);
-            position: relative;
-        }
-
-        .profile-header {
+        .profile-card {
             text-align: center;
-            border-bottom: 1px solid var(--glass-border);
-            padding-bottom: 1.25rem;
-            margin-bottom: 1.25rem;
+            padding: var(--space-lg);
         }
-
         .profile-avatar {
-            width: 80px;
-            height: 80px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid var(--glass-border);
+            width: 56px; height: 56px;
+            background: var(--accent-bg);
+            border: 1px solid var(--accent-border);
             border-radius: 50%;
-            margin: 0 auto 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
+            margin: 0 auto var(--space-md);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--accent);
         }
-
         .profile-name {
-            font-size: 1.1rem;
-            font-weight: 600;
+            font-size: 0.95rem; font-weight: 600;
+            margin-bottom: 2px;
         }
-
         .profile-role {
-            font-size: 0.8rem;
-            color: var(--primary-accent);
-            text-transform: uppercase;
+            font-size: 0.75rem; color: var(--accent);
             font-weight: 500;
-            margin-top: 0.25rem;
         }
 
-        .details-list {
+        .detail-list {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--border);
         }
-
-        .details-item {
+        .detail-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-
-        .details-label {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .details-value {
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        /* Dashboard Content Area */
-        .content-area {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        /* Metric Grid */
-        .metric-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .metric-card {
-            display: flex;
-            align-items: center;
-            gap: 1.25rem;
-        }
-
-        .metric-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-        }
-
-        .bg-purple {
-            background: rgba(212, 168, 83, 0.10);
-            color: var(--primary-accent);
-        }
-
-        .bg-cyan {
-            background: rgba(139, 149, 165, 0.08);
-            color: var(--text-muted);
-        }
-
-        .bg-gold {
-            background: rgba(212, 168, 83, 0.06);
-            color: var(--primary-accent-dark);
-        }
-
-        .metric-info h3 {
-            font-size: 1.35rem;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        .metric-info p {
             font-size: 0.8rem;
-            color: var(--text-muted);
-            font-weight: 500;
-            text-transform: uppercase;
         }
+        .detail-label { color: var(--text-muted); }
+        .detail-value { font-weight: 500; }
 
-        /* Tab Container */
-        .tab-container {
+        /* ── TABS ── */
+        .tabs {
             display: flex;
-            gap: 1rem;
-            border-bottom: 1px solid var(--glass-border);
-            padding-bottom: 0.5rem;
+            gap: 2px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: var(--space-lg);
+            overflow-x: auto;
         }
-
         .tab-btn {
-            background: none;
-            border: none;
+            background: none; border: none;
             color: var(--text-muted);
-            padding: 0.5rem 1rem;
-            font-size: 0.95rem;
-            font-weight: 500;
+            padding: var(--space-sm) var(--space-md);
+            font-size: 0.85rem; font-weight: 500;
             cursor: pointer;
-            position: relative;
-            transition: color 0.3s;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -1px;
+            transition: var(--transition);
+            white-space: nowrap;
         }
-
-        .tab-btn:hover {
-            color: var(--text-main);
-        }
-
+        .tab-btn:hover { color: var(--text); }
         .tab-btn.active {
-            color: var(--primary-accent);
+            color: var(--accent);
+            border-bottom-color: var(--accent);
         }
 
-        .tab-btn.active::after {
-            content: '';
-            position: absolute;
-            bottom: -0.6rem;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--primary-gradient);
-            border-radius: 3px 3px 0 0;
-            box-shadow: 0 0 10px rgba(212, 168, 83, 0.6);
-        }
-
-        /* Feature Section */
-        .feature-section {
-            display: none;
-        }
-
-        .feature-section.active {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            animation: fadeIn 0.4s ease-out;
-        }
+        /* ── TAB PANELS ── */
+        .tab-panel { display: none; }
+        .tab-panel.active { display: block; animation: fadeIn 0.3s ease; }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(6px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Payment Feature Layout */
-        .payment-layout {
+        /* ── METRICS ── */
+        .metrics {
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+        .metric {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+        .metric-icon {
+            width: 44px; height: 44px;
+            border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .metric-icon.gold {
+            background: var(--accent-bg);
+            color: var(--accent);
+            border: 1px solid var(--accent-border);
+        }
+        .metric-icon.neutral {
+            background: rgba(122,133,153,0.08);
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+        }
+        .metric-value {
+            font-size: 1.25rem; font-weight: 700;
+            line-height: 1.2;
+        }
+        .metric-label {
+            font-size: 0.75rem; color: var(--text-muted);
+            font-weight: 500;
         }
 
-        @media (max-width: 900px) {
-            .payment-layout {
-                grid-template-columns: 1fr;
-            }
+        /* ── TABLE ── */
+        .table-wrap {
+            overflow-x: auto;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
         }
-
-        .billing-table {
+        table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 1rem;
+            font-size: 0.85rem;
         }
-
-        .billing-table th, .billing-table td {
+        th, td {
+            padding: 0.7rem 0.85rem;
             text-align: left;
-            padding: 0.85rem 1rem;
-            border-bottom: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--border);
         }
-
-        .billing-table th {
+        th {
             color: var(--text-muted);
             font-weight: 500;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
+            letter-spacing: 0.03em;
+            background: var(--bg-elevated);
         }
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background: rgba(255,255,255,0.01); }
 
-        .billing-table td {
-            font-size: 0.9rem;
-        }
-
-        .input-group {
-            margin-top: 1rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .input-group label {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .input-field {
-            background: rgba(0, 0, 0, 0.35);
-            border: 1px solid var(--glass-border);
-            padding: 0.75rem 1rem;
-            border-radius: 12px;
-            color: var(--text-main);
-            font-size: 1rem;
-            width: 100%;
-            outline: none;
-            transition: var(--transition-smooth);
-        }
-
-        .input-field:focus {
-            border-color: var(--primary-accent);
-            box-shadow: var(--focus-ring);
-            background: rgba(0, 0, 0, 0.45);
-        }
-
-        .btn-pay {
-            background: var(--primary-gradient);
-            border: none;
-            color: white;
-            padding: 0.85rem 1.5rem;
-            border-radius: 12px;
+        /* ── BADGES ── */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 0.15rem 0.5rem;
+            border-radius: 6px;
+            font-size: 0.7rem;
             font-weight: 600;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(212, 168, 83, 0.25);
-            transition: var(--transition-smooth);
-            margin-top: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
+        }
+        .badge-gold {
+            background: var(--accent-bg);
+            color: var(--accent);
+            border: 1px solid var(--accent-border);
+        }
+        .badge-neutral {
+            background: rgba(122,133,153,0.08);
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+        }
+        .badge-success {
+            background: rgba(34,197,94,0.08);
+            color: var(--success);
+            border: 1px solid rgba(34,197,94,0.2);
+        }
+        .badge-danger {
+            background: rgba(239,68,68,0.08);
+            color: var(--danger);
+            border: 1px solid rgba(239,68,68,0.2);
         }
 
-        .btn-pay:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(212, 168, 83, 0.45);
+        /* ── PROGRESS BAR ── */
+        .progress {
+            height: 6px;
+            background: var(--bg-elevated);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .progress-bar {
+            height: 100%;
+            background: var(--accent);
+            border-radius: 3px;
+            transition: width 0.5s var(--ease);
         }
 
-        .qr-card {
+        /* ── QR SECTION ── */
+        .qr-section {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            padding: 2rem;
+            gap: var(--space-md);
+            padding: var(--space-xl);
+            border: 1px dashed var(--border);
+            border-radius: var(--radius-lg);
             text-align: center;
-            background: rgba(15, 12, 27, 0.4);
-            border-radius: 20px;
-            border: 1px dashed var(--glass-border);
         }
-
         .qr-placeholder {
-            width: 220px;
-            height: 220px;
-            background: white;
-            padding: 10px;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            width: 180px; height: 180px;
+            background: #fff;
+            border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center;
         }
 
-        .qr-placeholder img {
-            max-width: 100%;
-            display: block;
-        }
-
-        /* Maintenance Ticket List */
-        .ticket-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .ticket-item {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            padding: 1.25rem;
+        /* ── TICKET LIST ── */
+        .ticket {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: var(--space-md);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            gap: var(--space-md);
         }
+        .ticket-title { font-weight: 600; font-size: 0.9rem; }
+        .ticket-meta { font-size: 0.75rem; color: var(--text-muted); margin-top: 2px; }
 
-        .ticket-info {
-            display: flex;
-            flex-direction: column;
-            gap: 0.35rem;
-        }
-
-        .ticket-title {
-            font-weight: 600;
-            font-size: 1rem;
-        }
-
-        .ticket-desc {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .ticket-meta {
-            display: flex;
-            gap: 1rem;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-top: 0.25rem;
-        }
-
-        .priority-badge {
-            padding: 0.15rem 0.5rem;
-            border-radius: 8px;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        .priority-high {
-            background: rgba(255,77,77,0.15);
-            color: var(--danger);
-            border: 1px solid rgba(255,77,77,0.3);
-        }
-
-        .status-badge {
-            background: rgba(212, 168, 83, 0.05);
-            color: var(--primary-accent);
-            border: 1px solid rgba(212, 168, 83, 0.10);
-            padding: 0.25rem 0.75rem;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        /* Translation Feature Layout */
-        .translation-layout {
+        /* ── TRANSLATION ── */
+        .trans-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
+            gap: var(--space-md);
         }
-
+        @media (max-width: 700px) {
+            .trans-grid { grid-template-columns: 1fr; }
+        }
         .trans-box {
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;
+            gap: var(--space-sm);
+        }
+        .trans-box textarea {
+            min-height: 120px;
+            resize: vertical;
         }
 
-        .trans-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        /* ── GLOSSARY ── */
+        .glossary {
+            margin-top: var(--space-md);
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--border);
         }
-
-        .glossary-terms {
-            margin-top: 1rem;
-            border-top: 1px solid var(--glass-border);
-            padding-top: 1rem;
-        }
-
         .glossary-title {
-            font-size: 0.9rem;
-            color: var(--primary-accent);
+            font-size: 0.8rem;
+            color: var(--accent);
             font-weight: 600;
-            margin-bottom: 0.5rem;
+            margin-bottom: var(--space-sm);
         }
-
         .glossary-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 0.5rem;
-            font-size: 0.8rem;
+            gap: var(--space-xs) var(--space-md);
+            font-size: 0.75rem;
             color: var(--text-muted);
         }
 
-        .glossary-grid div {
-            padding: 0.25rem;
-            border-bottom: 1px dashed rgba(255,255,255,0.03);
-        }
-
-        /* Footer */
-        footer {
-            border-top: 1px solid var(--glass-border);
-            padding: 1.5rem;
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-top: 3rem;
-            background: rgba(10, 8, 20, 0.9);
-        }
-
-        /* Marketing Landing Page Styles */
-        .landing-container {
-            width: 100%;
-            max-width: 1250px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 5rem;
-            padding: 2rem 1rem;
-            z-index: 10;
-        }
-
-        .landing-hero-section {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        @media (max-width: 1024px) {
-            .landing-hero-section {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-        }
-
-        .hero-text h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            line-height: 1.25;
-            background: linear-gradient(135deg, #fff 30%, #e8c97a 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.5px;
-        }
-
-        .hero-text p {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-            margin-bottom: 2.5rem;
-        }
-
-        .facility-gallery-section {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .gallery-grid {
+        /* ── UNIT DIRECTORY ── */
+        .unit-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
+            gap: var(--space-md);
         }
-
-        .gallery-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: var(--transition-smooth);
+        .unit-card {
+            padding: var(--space-md);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            transition: var(--transition);
+        }
+        .unit-card:hover {
+            border-color: var(--border-hover);
+        }
+        .unit-header {
             display: flex;
-            flex-direction: column;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-sm);
         }
-
-        .gallery-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--border-glow);
-            box-shadow: var(--shadow-glow);
-        }
-
-        .gallery-image-wrapper {
-            position: relative;
-            width: 100%;
-            height: 200px;
-            overflow: hidden;
-            background: rgba(0,0,0,0.2);
-        }
-
-        .gallery-image-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition-smooth);
-        }
-
-        .gallery-card:hover .gallery-image-wrapper img {
-            transform: scale(1.05);
-        }
-
-        .gallery-card-info {
-            padding: 1.25rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .gallery-card-title {
-            font-size: 1.05rem;
+        .unit-number {
             font-weight: 600;
-            color: #fff;
+            font-size: 0.95rem;
         }
-
-        .gallery-card-desc {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            line-height: 1.4;
-        }
-
-        .cta-inquiry-section {
+        .unit-details {
             display: grid;
-            grid-template-columns: 1fr 1.1fr;
-            gap: 4rem;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 3rem;
-            box-shadow: var(--card-shadow);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xs);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        .unit-details .val {
+            color: var(--text);
+            font-weight: 500;
         }
 
-        @media (max-width: 900px) {
-            .cta-inquiry-section {
-                grid-template-columns: 1fr;
-                padding: 2rem;
-                gap: 2rem;
-            }
+        /* ── LOADING SKELETON ── */
+        .skeleton {
+            background: linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.06) 50%, rgba(255,255,255,0.03) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: var(--radius-sm);
         }
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        .skeleton-text { height: 12px; margin-bottom: 6px; }
+        .skeleton-title { height: 18px; width: 50%; margin-bottom: 10px; }
+
+        /* ── EMPTY STATE ── */
+        .empty {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-xl);
+            text-align: center;
+            color: var(--text-muted);
+        }
+        .empty .icon { width: 40px; height: 40px; margin-bottom: var(--space-md); opacity: 0.4; }
+
+        /* ── FOOTER ── */
+        .footer {
+            border-top: 1px solid var(--border);
+            padding: var(--space-md) var(--space-lg);
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            margin-top: var(--space-xl);
+        }
+
+        /* ── SCROLLBAR ── */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
     </style>
-    <!-- Firebase SDK client compat integration -->
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 </head>
 <body>
-    <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:var(--z-modal);padding:0.5rem 1rem;background:var(--primary-accent);color:#000;font-weight:600;border-radius:0 0 8px 0;" onfocus="this.style.left=0;this.style.top=0;this.style.width='auto';this.style.height='auto';" onblur="this.style.left='-9999px';this.style.top='auto';this.style.width='1px';this.style.height='1px';">Skip to content</a>
 
-    <!-- Beautiful Glassmorphic Landing & Login Page -->
-    <div id="login-overlay" role="dialog" aria-modal="true" aria-label="Login" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #0a0618 0%, #110d24 100%); z-index: var(--z-overlay); display: flex; flex-direction: column; overflow-y: auto; justify-content: flex-start; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);">
-        
-        <div class="landing-container">
-            
-            <!-- Hero & Login Section -->
-            <div class="landing-hero-section">
-                <div class="hero-text">
-                    <div class="brand-logo" style="width: 50px; height: 50px; font-size: 1.5rem; margin-bottom: 1.5rem;">DLV</div>
-                    <h1>DLV Thong Lo 20</h1>
-                    <p style="font-size: 1.40rem; font-weight: 500; color: var(--primary-accent); margin-bottom: 1rem;">Experience Premium Urban Living in Bangkok</p>
-                    <p>Located in the heart of Sukhumvit 55 (Thong Lo), DLV Thong Lo 20 offers exclusive, high-end residential living. Boasting modern architecture, complete privacy, and elite amenities including a state-of-the-art fitness center, a full-length swimming pool, and pristine Finnish saunas.</p>
-                    <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 2rem;">
-                        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); padding: 1rem; border-radius: 16px; min-width: 140px; text-align: center;">
-                            <h3 style="color: var(--primary-accent); font-size: 1.5rem; font-weight: 700;">55.1 - 262.46</h3>
-                            <p style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; margin-top: 0.25rem;">Square Meters</p>
-                        </div>
-                        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); padding: 1rem; border-radius: 16px; min-width: 140px; text-align: center;">
-                            <h3 style="color: var(--primary-accent); font-size: 1.5rem; font-weight: 700;">Sukhumvit 55</h3>
-                            <p style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; margin-top: 0.25rem;">Prime Location</p>
-                        </div>
-                    </div>
-                </div>
+<a href="#main" class="skip-link">Skip to content</a>
 
-                <!-- Glassmorphic Login Card -->
-                <div class="glass-card" style="padding: 2.5rem; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: var(--card-shadow); display: flex; flex-direction: column; gap: 1.25rem; overflow: hidden; position: relative;">
-                    <div style="position: absolute; top: -10%; left: -10%; width: 120px; height: 120px; background: rgba(212, 168, 83, 0.15); border-radius: 50%; filter: blur(40px);"></div>
-                    <div style="position: absolute; bottom: -10%; right: -10%; width: 120px; height: 120px; background: rgba(212, 168, 83, 0.07); border-radius: 50%; filter: blur(40px);"></div>
-                    
-                    <h2 style="font-size: 1.4rem; font-weight: 700; color: #fff; letter-spacing: 0.5px;">Resident Sign In</h2>
-                    <p style="font-size: 0.85rem; color: var(--text-muted);">Access juristic services, water billing, and documents</p>
-                    
-                    <form onsubmit="handleCustomLogin(event)" style="display: flex; flex-direction: column; gap: 1rem; text-align: left;">
-                        <div class="input-group" style="margin-top: 0;">
-                            <label for="login-email" style="font-size: 0.8rem; color: var(--text-muted); font-weight: 500;">Email Address</label>
-                            <input type="email" id="login-email" class="input-field" placeholder="e.g. gaetanhk@gmail.com" required style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);">
-                        </div>
-                        <div class="input-group" style="margin-top: 0;">
-                            <label for="login-password" style="font-size: 0.8rem; color: var(--text-muted); font-weight: 500;">Password (use 'password' for demo)</label>
-                            <input type="password" id="login-password" class="input-field" value="password" required style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);">
-                        </div>
-                        <button type="submit" class="btn-pay" style="width: 100%; margin-top: 0.5rem; background: var(--primary-gradient);"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg> Sign In</button>
-                    </form>
-                    
-                    <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 1rem; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
-                        <p style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;"><svg class="icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Quick Demo Access:</p>
-                        <div style="display: grid; grid-template-columns: 1fr; gap: 0.4rem;">
-                            <button class="lang-btn" onclick="demoLogin('gaetanhk@gmail.com')" style="padding: 0.4rem; text-align: left; font-size: 0.7rem; border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; width: 100%; background: rgba(212, 168, 83, 0.1);"><svg class="icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> <strong>Unit 18/78</strong> (Committee: Gaetan)</button>
-                            <button class="lang-btn" onclick="demoLogin('benjamin.pla@example.com')" style="padding: 0.4rem; text-align: left; font-size: 0.7rem; border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; width: 100%; background: rgba(212, 168, 83, 0.03);"><svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg> <strong>Unit 18/79</strong> (Co-owner: Benjamin & Pla)</button>
-                            <button class="lang-btn" onclick="demoLogin('alice.tenant@example.com')" style="padding: 0.4rem; text-align: left; font-size: 0.7rem; border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; width: 100%; background: rgba(255, 255, 255, 0.04);"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> <strong>Unit 18/12</strong> (Tenant: Alice)</button>
-                            <button class="lang-btn" onclick="demoLogin('manager.juristic@dlv20.com')" style="padding: 0.4rem; text-align: left; font-size: 0.7rem; border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; width: 100%; background: rgba(255, 215, 0, 0.06);"><svg class="icon" viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l8-4 8 4v14M8 21V12a4 4 0 0 1 8 0v9"/></svg> <strong>Juristic</strong> (Manager: Ubon)</button>
-                        </div>
-                    </div>
+<!-- ═══════════════════════════════════════
+     LOGIN — Minimalist
+     ═══════════════════════════════════════ -->
+<div id="login-overlay" class="login-overlay" role="dialog" aria-modal="true" aria-label="Sign in">
+    <div class="login-box">
+        <div class="login-logo">DLV</div>
+        <h1>DLV Thong Lo 20</h1>
+        <p class="subtitle">Juristic Portal 2.0</p>
+
+        <form class="login-form" onsubmit="handleLogin(event)">
+            <div>
+                <label for="unit-select">Select your unit</label>
+                <div class="select-wrap">
+                    <select id="unit-select" class="input" onchange="onUnitSelect(this.value)">
+                        <option value="">— Choose a unit —</option>
+                    </select>
+                    <svg class="icon icon-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
                 </div>
             </div>
-
-            <!-- Facilities Visual Gallery Section -->
-            <div class="facility-gallery-section">
-                <h2 style="font-size: 1.8rem; font-weight: 700; background: linear-gradient(135deg, #fff 40%, #a5aedb 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Premium Facilities & Gallery</h2>
-                <p style="color: var(--text-muted); font-size: 0.95rem; max-width: 600px; margin-bottom: 1rem;">Take a look at the state-of-the-art facilities and elegant architectural details designed for ultimate comfort and wellness.</p>
-                
-                <div class="gallery-grid">
-                    <div class="gallery-card">
-                        <div class="gallery-image-wrapper">
-                            <img src="DLV%20Photos/DLV20%20-%20front%20building.webp" alt="DLV Thong Lo 20 Building Exterior">
-                        </div>
-                        <div class="gallery-card-info">
-                            <h3 class="gallery-card-title">Front Architecture</h3>
-                            <p class="gallery-card-desc">Modern glass and concrete architectural facades located in Sukhumvit 55.</p>
-                        </div>
-                    </div>
-                    <div class="gallery-card">
-                        <div class="gallery-image-wrapper">
-                            <img src="DLV%20Photos/DLV20%20-%20inside%20building.webp" alt="DLV Inside Lobby">
-                        </div>
-                        <div class="gallery-card-info">
-                            <h3 class="gallery-card-title">Lobby & Inside Building</h3>
-                            <p class="gallery-card-desc">Frosted glass details, modern premium common lobby spaces.</p>
-                        </div>
-                    </div>
-                    <div class="gallery-card">
-                        <div class="gallery-image-wrapper">
-                            <img src="DLV%20Photos/DLV20%20-%20Pool%20length.webp" alt="Swimming Pool length">
-                        </div>
-                        <div class="gallery-card-info">
-                            <h3 class="gallery-card-title">Swimming Pool Length</h3>
-                            <p class="gallery-card-desc">Full-length swimming pool designed for lap swimming and exercise.</p>
-                        </div>
-                    </div>
-                    <div class="gallery-card">
-                        <div class="gallery-image-wrapper">
-                            <img src="DLV%20Photos/DLV20%20-%20Gym.webp" alt="Fitness Gym Center">
-                        </div>
-                        <div class="gallery-card-info">
-                            <h3 class="gallery-card-title">Fitness Gym Center</h3>
-                            <p class="gallery-card-desc">Fully equipped professional strength and cardio gymnasium overlooking the pool.</p>
-                        </div>
-                    </div>
-                    <div class="gallery-card">
-                        <div class="gallery-image-wrapper">
-                            <img src="DLV%20Photos/DLV20%20-%20Sauna.webp" alt="Finnish Saunas">
-                        </div>
-                        <div class="gallery-card-info">
-                            <h3 class="gallery-card-title">Finnish Sauna Rooms</h3>
-                            <p class="gallery-card-desc">Pristine heated wood saunas for muscle recovery and relaxation.</p>
-                        </div>
-                    </div>
-                    <div class="gallery-card">
-                        <div class="gallery-image-wrapper">
-                            <img src="DLV%20Photos/DLV20%20-%20Pool%20chairs%20%26%20showers.webp" alt="Pool Chairs & Showers">
-                        </div>
-                        <div class="gallery-card-info">
-                            <h3 class="gallery-card-title">Pool Chairs & Showers</h3>
-                            <p class="gallery-card-desc">Relaxing outdoor sun loungers and external rinse showers.</p>
-                        </div>
-                    </div>
-                    <div class="gallery-card">
-                        <div class="gallery-image-wrapper">
-                            <img src="DLV%20Photos/DLV20%20-%20Pool%20chairs%20and%20gym%20view.webp" alt="Pool Deck & Gym View">
-                        </div>
-                        <div class="gallery-card-info">
-                            <h3 class="gallery-card-title">Pool Deck & Gym View</h3>
-                            <p class="gallery-card-desc">Beautifully landscaped pool deck area with panoramic fitness views.</p>
-                        </div>
-                    </div>
-                    <div class="gallery-card">
-                        <div class="gallery-image-wrapper">
-                            <img src="DLV%20Photos/DLV20%20-%20Gym%20pool%20view.webp" alt="Gym Pool View">
-                        </div>
-                        <div class="gallery-card-info">
-                            <h3 class="gallery-card-title">Gym Pool Panorama</h3>
-                            <p class="gallery-card-desc">Scenic view from the elevated gym center overlooking the water deck.</p>
-                        </div>
-                    </div>
-                </div>
+            <div id="email-field" style="display:none">
+                <label for="login-email">Email</label>
+                <input type="email" id="login-email" class="input" placeholder="your@email.com">
             </div>
-
-            <!-- Juristic Office Info Section -->
-            <div class="cta-inquiry-section" style="grid-template-columns: 1fr; max-width: 800px; margin: 0 auto; text-align: center;">
-                <div style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
-                    <h2 style="font-size: 1.8rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem;">Juristic Office & Administration</h2>
-                    <p style="color: var(--text-muted); line-height: 1.6; max-width: 600px; margin-bottom: 1rem;">
-                        The DLV Thong Lo 20 Juristic Office is dedicated to managing building maintenance, resident services, and community administration. Please contact the office directly for key card registration, maintenance requests, and water bill inquiries.
-                    </p>
-                    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; font-size: 1rem; color: var(--text-main); width: 100%;">
-                        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); padding: 1.25rem 2rem; border-radius: 16px; flex: 1; min-width: 200px;">
-                            <span style="font-size: 1.5rem; display: block; margin-bottom: 0.5rem;"><svg class="icon" viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l8-4 8 4v14M8 21V12a4 4 0 0 1 8 0v9"/></svg></span>
-                            <strong>Office Hours:</strong><br>Daily 9:00 AM – 6:00 PM
-                        </div>
-                        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); padding: 1.25rem 2rem; border-radius: 16px; flex: 1; min-width: 200px;">
-                            <span style="font-size: 1.5rem; display: block; margin-bottom: 0.5rem;"><svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
-                            <strong>Phone Number:</strong><br>+66 (0) 2 123 4567
-                        </div>
-                        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); padding: 1.25rem 2rem; border-radius: 16px; flex: 1; min-width: 200px;">
-                            <span style="font-size: 1.5rem; display: block; margin-bottom: 0.5rem;"><svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
-                            <strong>Email Address:</strong><br>office.juristic@dlv20.com
-                        </div>
-                    </div>
-                </div>
+            <div id="password-field" style="display:none">
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" class="input" placeholder="••••••••" value="password">
             </div>
+            <button type="submit" class="btn btn-primary" id="btn-signin" disabled>
+                <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Sign In
+            </button>
+        </form>
 
-            <!-- Landing Page Footer -->
-            <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 2rem; color: var(--text-muted); font-size: 0.8rem;">
-                <p>&copy; 2026 DLV Thong Lo 20 Juristic Office. Built with premium design systems. Privacy & terms apply.</p>
-            </div>
+        <div class="divider">or quick access</div>
+
+        <div class="quick-login" id="quick-login">
+            <!-- Populated by JS -->
         </div>
     </div>
+</div>
 
-    <!-- Premium Navbar -->
-    <header>
-        <div class="brand">
-            <div class="brand-logo">DLV</div>
-            <div class="brand-name">
-                <h1 id="brand-title">DLV Thong Lo 20</h1>
-                <p id="brand-subtitle">Digital Juristic Management 2.0</p>
+<!-- ═══════════════════════════════════════
+     MAIN APP
+     ═══════════════════════════════════════ -->
+<header class="navbar" id="navbar" style="display:none">
+    <div class="navbar-brand">
+        <div class="logo">DLV</div>
+        <div>
+            <h1>DLV Thong Lo 20</h1>
+            <div class="subtitle" id="navbar-subtitle">Juristic Portal</div>
+        </div>
+    </div>
+    <div class="navbar-actions">
+        <div class="lang-toggle">
+            <button class="active" id="lang-en" onclick="setLang('en')">EN</button>
+            <button id="lang-th" onclick="setLang('th')">TH</button>
+        </div>
+        <button class="btn btn-sm btn-ghost" onclick="signOut()">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            Sign Out
+        </button>
+    </div>
+</header>
+
+<main id="main" class="layout" style="display:none">
+    <aside class="sidebar" aria-label="User profile">
+        <div class="card profile-card">
+            <div class="profile-avatar">
+                <svg class="icon" viewBox="0 0 24 24" style="width:24px;height:24px"><circle cx="12" cy="7" r="4"/><path d="M12 11v2M6 21v-2a6 6 0 0 1 12 0v2"/></svg>
+            </div>
+            <div class="profile-name" id="profile-name">—</div>
+            <div class="profile-role" id="profile-role">—</div>
+            <div class="detail-list" id="profile-details">
+                <!-- Populated by JS -->
             </div>
         </div>
-        <div class="nav-actions">
-            <!-- Global Premium Dual Language Toggle -->
-            <div class="lang-toggle">
-                <button class="lang-btn active" id="btn-lang-en" onclick="setLanguage('EN')">EN</button>
-                <button class="lang-btn" id="btn-lang-th" onclick="setLanguage('TH')">TH</button>
-            </div>
-            <button class="lang-btn" id="btn-logout" style="border: 1px solid rgba(255, 77, 77, 0.3); color: var(--danger); border-radius: 20px; font-size: 0.75rem; padding: 0.25rem 0.75rem; background: rgba(255, 77, 77, 0.08); font-weight:600;" onclick="handleSignOut()">Sign Out</button>
-            <span class="badge-pilot" id="badge-pilot-text">Unit 18/78 Pilot Dashboard</span>
+    </aside>
+
+    <section aria-label="Dashboard content">
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('payment')">Payments</button>
+            <button class="tab-btn" onclick="switchTab('maintenance')">Maintenance</button>
+            <button class="tab-btn" onclick="switchTab('directory')">Unit Directory</button>
+            <button class="tab-btn" onclick="switchTab('documents')">Documents</button>
+            <button class="tab-btn" onclick="switchTab('translation')" id="tab-translation">Translation</button>
         </div>
-    </header>
 
-    <!-- Main Workspace -->
-    <main id="main-content">
-        
-        <!-- Sidebar Profile Card -->
-        <aside class="sidebar" aria-label="User profile">
-            <div class="glass-card">
-                <div class="profile-header">
-                    <div class="profile-avatar"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M12 11v2M6 21v-2a6 6 0 0 1 12 0v2"/></svg></div>
-                    <div class="profile-name" id="profile-name-text">Gosset Gaetan Alexandre P.</div>
-                    <div class="profile-role" id="profile-role-text">Committee Member</div>
+        <!-- PAYMENTS TAB -->
+        <div class="tab-panel active" id="tab-payment">
+            <div class="metrics" id="payment-metrics">
+                <!-- Populated by JS -->
+            </div>
+
+            <div class="card" style="margin-bottom:var(--space-lg)">
+                <h3 style="font-size:1rem;font-weight:600;margin-bottom:var(--space-md)">Semi-Annual Fee Breakdown</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Fee Component</th>
+                                <th>Monthly Rate</th>
+                                <th>Period</th>
+                                <th style="text-align:right">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody id="fee-table">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
                 </div>
-                <div class="details-list">
-                    <div class="details-item">
-                        <span class="details-label" id="lbl-unit">Designated Unit</span>
-                        <span class="details-value">18/78</span>
-                    </div>
-                    <div class="details-item">
-                        <span class="details-label" id="lbl-floor">Floor</span>
-                        <span class="details-value" id="val-floor">7th Floor</span>
-                    </div>
-                    <div class="details-item">
-                        <span class="details-label" id="lbl-size">Area Size</span>
-                        <span class="details-value" id="val-size">222.12 SQ.M</span>
-                    </div>
-                    <div class="details-item">
-                        <span class="details-label" id="lbl-ratio">Ownership Ratio</span>
-                        <span class="details-value" id="val-ratio">387.52 ratio</span>
-                    </div>
-                    <div class="details-item">
-                        <span class="details-label" id="lbl-resident">Resident Type</span>
-                        <span class="details-value" id="val-resident">Foreign Owner</span>
+                <div style="margin-top:var(--space-md);display:flex;align-items:center;gap:var(--space-md);flex-wrap:wrap">
+                    <div style="flex:1;min-width:200px">
+                        <div style="display:flex;justify-content:space-between;font-size:0.8rem;margin-bottom:4px">
+                            <span>Annual Progress <span id="progress-pct">0%</span></span>
+                            <span style="color:var(--text-muted)" id="progress-label"></span>
+                        </div>
+                        <div class="progress"><div class="progress-bar" id="progress-bar" style="width:0%"></div></div>
                     </div>
                 </div>
             </div>
 
-
-        </aside>
-
-        <!-- Dashboard Content Area -->
-        <section class="content-area" aria-label="Dashboard content">
-            
-            <!-- Tab System (Moved to the top) -->
-            <div class="tab-container" style="margin-bottom: 2rem;">
-                <button class="tab-btn active" id="tab-btn-payment" onclick="switchTab('payment')">Semi-Annual Payments</button>
-                <button class="tab-btn" id="tab-btn-maintenance" onclick="switchTab('maintenance')">Preventative Maintenance</button>
-                <button class="tab-btn" id="tab-btn-translation" onclick="switchTab('translation')">Bilingual translation</button>
-                <button class="tab-btn" id="tab-btn-documents" onclick="switchTab('documents')">Juristic Documents</button>
-                <button class="tab-btn" id="tab-btn-admin" style="display: none;" onclick="switchTab('admin')">Juristic Office</button>
-            </div>
-
-            <!-- Dynamic Metric Grid -->
-            <div class="metric-grid">
-                <div class="glass-card metric-card" id="card-metric-juristic">
-                    <div class="metric-icon bg-purple">฿</div>
-                    <div class="metric-info">
-                        <h3 id="widget-effective-cam">THB 85,693.92</h3>
-                        <p id="lbl-metric-juristic">Semi-Annual Juristic Fee</p>
-                    </div>
-                </div>
-                <div class="glass-card metric-card" id="card-metric-maintenance">
-                    <div class="metric-icon bg-cyan"><svg class="icon" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
-                    <div class="metric-info">
-                        <h3 id="widget-active-maintenance">1 Active</h3>
-                        <p id="lbl-metric-sauna">Sauna Sensor Repair</p>
-                    </div>
-                </div>
-                <div class="glass-card metric-card" id="card-metric-progress">
-                    <div class="metric-icon bg-gold"><svg class="icon" viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div>
-                    <div class="metric-info">
-                        <h3 id="widget-cam-progress">78% Target</h3>
-                        <p id="lbl-metric-progress">CAM Fees Collected</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Feature Panel 1: Payments -->
-            <div id="panel-payment" class="feature-section active">
-                <div class="glass-card">
-                    <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem;" id="lbl-payment-title">Semi-Annual PromptPay QR Payment Generator</h3>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;" id="lbl-payment-subtitle">
-                        This widget generates dynamic PromptPay QR payloads for Semi-Annual billing (6-month period cycles) with dynamic CRC16 calculations.
-                    </p>
-                    
-                    <div class="payment-layout">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-lg)">
+                <div class="card">
+                    <h3 style="font-size:1rem;font-weight:600;margin-bottom:var(--space-md)">PromptPay QR Generator</h3>
+                    <div style="display:flex;flex-direction:column;gap:var(--space-sm)">
                         <div>
-                            <table class="billing-table">
-                                <thead>
-                                    <tr>
-                                        <th id="th-component">Fee Component</th>
-                                        <th id="th-rate">Monthly Rate</th>
-                                        <th id="th-period" style="text-align: center;">Billed Period</th>
-                                        <th id="th-total">Amount Billed</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td id="td-cam-base">Common Area Maintenance (CAM Base)</td>
-                                        <td id="td-cam-base-rate">THB 45.00 / sq.m</td>
-                                        <td id="td-cam-base-period" style="text-align: center;">6 Months</td>
-                                        <td id="td-cam-base-total">THB 59,972.40</td>
-                                    </tr>
-                                    <tr>
-                                        <td id="td-cam-special">Special Maintenance Fund (Sec 40)</td>
-                                        <td id="td-cam-special-rate">THB 14.00 / sq.m</td>
-                                        <td id="td-cam-special-period" style="text-align: center;">12 Months</td>
-                                        <td id="td-cam-special-total">THB 37,316.16</td>
-                                    </tr>
-                                    <tr>
-                                        <td id="td-sf-agenda">Sinking Fund contribution (Agenda 7)</td>
-                                        <td id="td-sf-agenda-rate">THB 5.30 / sq.m</td>
-                                        <td id="td-sf-agenda-period" style="text-align: center;">12 Months</td>
-                                        <td id="td-sf-agenda-total">THB 14,126.83</td>
-                                    </tr>
-                                    <tr style="border-top: 2px solid var(--glass-border); font-weight: 600;">
-                                        <td id="td-total-juristic">Total Payment Invitation</td>
-                                        <td id="td-total-juristic-rate">THB 64.30 / sq.m</td>
-                                        <td id="td-total-juristic-period" style="text-align: center;">—</td>
-                                        <td id="td-total-juristic-total">THB 111,415.39</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
-                            <!-- Yearly Progress Bar Container -->
-                            <div id="yearly-progress-container" style="margin: 1.5rem 0; background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); padding: 1.25rem; border-radius: 16px;">
-                                <h4 style="font-size: 0.9rem; font-weight: 600; color: #fff; margin-bottom: 0.5rem; display: flex; justify-content: space-between; margin-top: 0;">
-                                    <span id="lbl-progress-title">Annual Common Fees Progress (2026)</span>
-                                    <span id="lbl-progress-percent" style="color: var(--primary-accent);">65.0% Paid</span>
-                                </h4>
-                                <div style="width: 100%; height: 10px; background: rgba(255,255,255,0.08); border-radius: 5px; overflow: hidden; margin-bottom: 0.75rem; position: relative;">
-                                    <div id="progress-bar-fill" style="width: 65.0%; height: 100%; background: linear-gradient(90deg, var(--primary-accent), var(--primary-accent)); transition: width 0.8s ease-in-out;"></div>
-                                </div>
-                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.75rem; color: var(--text-muted);">
-                                    <div>
-                                        <span style="display:inline-block; width: 6px; height: 6px; background: var(--primary-accent); border-radius: 50%; margin-right: 4px; vertical-align: middle;"></span>
-                                        <strong style="color: #fff;" id="lbl-prog-paid-text">Paid to Date (July Inv.):</strong>
-                                        <span id="lbl-prog-paid-val">THB 111,415.39</span>
-                                    </div>
-                                    <div style="text-align: right;">
-                                        <span style="display:inline-block; width: 6px; height: 6px; background: rgba(255,255,255,0.3); border-radius: 50%; margin-right: 4px; vertical-align: middle;"></span>
-                                        <strong style="color: #fff;" id="lbl-prog-unpaid-text">Outstanding (Next Cycle):</strong>
-                                        <span id="lbl-prog-unpaid-val">THB 59,972.40</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="input-group">
-                                <label for="promptpay-id" id="lbl-promptpay-input">PromptPay Recipient (Phone or 13-digit Tax ID):</label>
-                                <input type="text" id="promptpay-id" class="input-field" value="0812345678" oninput="updatePaymentTotal()">
-                            </div>
-
-                            <div class="input-group">
-                                <label for="water-fee" id="lbl-water-input">Add Monthly Water Meter Fee (THB):</label>
-                                <input type="number" id="water-fee" class="input-field" value="350" oninput="updatePaymentTotal()">
-                            </div>
-
-                            <div class="input-group">
-                                <label for="custom-amount" id="lbl-custom-amount">Or Enter Custom Payment Amount (THB - overrides total):</label>
-                                <input type="number" id="custom-amount" class="input-field" placeholder="e.g. 5000" oninput="updatePaymentTotal()">
-                            </div>
-
-                            <button class="btn-pay" onclick="generatePromptPayQR()">
-                                <span id="lbl-btn-generate"><svg class="icon" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg> Generate Dynamic PromptPay QR</span>
-                            </button>
+                            <label>PromptPay ID (Phone or Tax ID)</label>
+                            <input type="text" class="input" id="qr-pp-id" placeholder="0812345678" value="0812345678">
                         </div>
-
-                        <!-- Dynamic QR Card -->
-                        <div class="qr-card">
-                            <h4 style="font-size: 0.95rem; margin-bottom: 0.75rem; color: var(--primary-accent);" id="lbl-qr-title">Dynamic PromptPay QR</h4>
-                            <div class="qr-placeholder" id="qr-container">
-                                <p style="font-size: 0.8rem; color: #15102a; font-weight: 600;" id="lbl-qr-generate-hint">Tap Generate to load EMVCo code</p>
-                            </div>
-                            <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem;" id="qr-status-text">Ready for payment simulation</p>
-                            <code style="font-size: 0.65rem; color: #ffd700; word-break: break-all; margin-top: 0.5rem; display: block;" id="qr-payload-code"></code>
+                        <div>
+                            <label>Water Meter Fee (THB)</label>
+                            <input type="number" class="input" id="qr-water" value="350" min="0">
                         </div>
+                        <div>
+                            <label>Custom Amount (overrides total)</label>
+                            <input type="number" class="input" id="qr-custom" placeholder="Optional" min="0">
+                        </div>
+                        <button class="btn btn-primary" onclick="generateQR()" style="width:100%">
+                            <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="2" width="8" height="8" rx="1"/><rect x="14" y="2" width="8" height="8" rx="1"/><rect x="2" y="14" width="8" height="8" rx="1"/><rect x="14" y="14" width="2" height="2"/><rect x="20" y="14" width="2" height="2"/><rect x="14" y="20" width="2" height="2"/><rect x="20" y="20" width="2" height="2"/></svg>
+                            Generate QR
+                        </button>
                     </div>
                 </div>
-            </div>
-
-            <!-- Feature Panel 2: Maintenance -->
-            <div id="panel-maintenance" class="feature-section">
-                <div class="glass-card">
-                    <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem;" id="lbl-maint-title">Asset Life-Cycle & Preventive Logs</h3>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;" id="lbl-maint-subtitle">
-                        Track large scale building assets. Upload before and after photos of repairs for juristic transparency.
-                    </p>
-
-                    <div class="ticket-list" id="ticket-container">
-                        <!-- Simulated Sauna Sensor repair ticket -->
-                        <div class="ticket-item">
-                            <div class="ticket-info">
-                                <div style="display: flex; align-items: center; gap: 0.75rem;">
-                                    <span class="ticket-title" id="maint-sauna-title">Sauna Room Heating Sensor</span>
-                                    <span class="priority-badge priority-high" id="maint-badge-high">High Priority</span>
-                                </div>
-                                <span class="ticket-desc" id="maint-sauna-desc">Replace broken heating sensor inside 2nd Floor Sauna Room (AGM voted to repair and retain).</span>
-                                <div class="ticket-meta">
-                                    <span>Asset ID: SAUNA-2FL</span>
-                                    <span>Logged: 2026-05-22</span>
-                                    <span id="maint-sauna-unit">Unit: 18/78 (Pilot)</span>
-                                </div>
-                            </div>
-                            <span class="status-badge" style="background: rgba(255, 215, 0, 0.15); color: #ffd700; border-color: rgba(255, 215, 0, 0.3);" id="status-in-progress">IN PROGRESS</span>
-                        </div>
-
-                        <!-- Simulated Elevator maintenance ticket -->
-                        <div class="ticket-item">
-                            <div class="ticket-info">
-                                <div style="display: flex; align-items: center; gap: 0.75rem;">
-                                    <span class="ticket-title" id="maint-lift-title">Elevator 1 KONE Spares</span>
-                                    <span class="priority-badge" style="background: rgba(212, 168, 83, 0.07); color: #d4a853; border: 1px solid rgba(212, 168, 83, 0.15);" id="maint-badge-med">Medium</span>
-                                </div>
-                                <span class="ticket-desc" id="maint-lift-desc">Scheduled preventative maintenance for lift guide rails (spares ordered directly from KONE Public Company Limited).</span>
-                                <div class="ticket-meta">
-                                    <span>Asset ID: LIFT-1</span>
-                                    <span>Scheduled: 2026-05-28</span>
-                                    <span id="maint-lift-mandate">Juristic Mandate</span>
-                                </div>
-                            </div>
-                            <span class="status-badge" id="status-scheduled">SCHEDULED</span>
-                        </div>
+                <div class="card qr-section">
+                    <h3 style="font-size:0.95rem;font-weight:600">Dynamic PromptPay QR</h3>
+                    <div class="qr-placeholder" id="qr-display">
+                        <span style="color:#999;font-size:0.8rem">QR will appear here</span>
                     </div>
+                    <code id="qr-payload" style="font-size:0.65rem;color:var(--accent);word-break:break-all;display:none"></code>
                 </div>
             </div>
-
-            <!-- Feature Panel 3: Translation -->
-            <div id="panel-translation" class="feature-section">
-                <div class="glass-card">
-                    <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem;" id="lbl-trans-title">Bilingual DeepL Translation Glossaries</h3>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;" id="lbl-trans-subtitle">
-                        This module simulates official bi-directional translations, enforcing precise juristic terms between Thai staff and foreign residents.
-                    </p>
-
-                    <div class="translation-layout">
-                        <!-- English to Thai -->
-                        <div class="trans-box">
-                            <div class="trans-header">
-                                <h4 style="font-size: 0.9rem; color: var(--primary-accent);" id="lbl-trans-en-hdr">English Draft (Notice / Invoices)</h4>
-                                <button class="btn-pay" style="padding: 0.35rem 0.75rem; font-size: 0.75rem; margin-top:0;" onclick="translateEnToTh()" id="btn-trans-en">Translate EN <svg class="icon" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg> TH</button>
-                            </div>
-                            <textarea id="trans-en-input" class="input-field" style="height: 120px; font-size: 0.85rem; resize: none;">Dear Residents, the AGM is on Saturday. Please cast your e-voting vote or delegate a proxy. Sinking Fund updates are pending.</textarea>
-                            <div id="trans-th-output" class="input-field" style="height: 120px; font-size: 0.85rem; background: rgba(0,0,0,0.4); color: var(--text-muted); border-style: dashed; overflow-y: auto;">
-                                Thai Translation output will appear here...
-                            </div>
-                        </div>
-
-                        <!-- Thai to English -->
-                        <div class="trans-box">
-                            <div class="trans-header">
-                                <h4 style="font-size: 0.9rem; color: var(--primary-accent);" id="lbl-trans-th-hdr">Thai Draft (Staff Input)</h4>
-                                <button class="btn-pay" style="padding: 0.35rem 0.75rem; font-size: 0.75rem; margin-top:0;" onclick="translateThToEn()" id="btn-trans-th">Translate TH <svg class="icon" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg> EN</button>
-                            </div>
-                            <textarea id="trans-th-input" class="input-field" style="height: 120px; font-size: 0.85rem; resize: none;">แจ้งข่าวสารการซ่อมแซมจากนิติบุคคลอาคารชุด: การซ่อมแซมเสร็จสิ้นแล้วสำหรับ เครื่องเซ็นเซอร์ความร้อนใน ห้องซาวน่า</textarea>
-                            <div id="trans-en-output" class="input-field" style="height: 120px; font-size: 0.85rem; background: rgba(0,0,0,0.4); color: var(--text-muted); border-style: dashed; overflow-y: auto;">
-                                English Translation output will appear here...
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="glossary-terms">
-                        <h4 class="glossary-title" id="lbl-gloss-hdr">Custom Enforced Glossaries (DLV 2.0 Library)</h4>
-                        <div class="glossary-grid" id="glossary-table">
-                            <div><strong>English Term</strong></div>
-                            <div><strong>Thai Enforced Translation</strong></div>
-                            <div>Sinking Fund</div>
-                            <div>เงินกองทุน</div>
-                            <div>CAM fee</div>
-                            <div>ค่าส่วนกลาง</div>
-                            <div>Juristic Person</div>
-                            <div>นิติบุคคลอาคารชุด</div>
-                            <div>AGM</div>
-                            <div>การประชุมใหญ่สามัญประจำปี</div>
-                            <div>Sauna Room</div>
-                            <div>ห้องซาวน่า</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Feature Panel 4: Juristic Office Admin Panel -->
-            <div id="panel-admin" class="feature-section">
-                <div class="glass-card">
-                    <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem;" id="lbl-admin-title">Juristic Office & Administrative Desk</h3>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;" id="lbl-admin-subtitle">
-                        Administrative workspace for logging water meters, registering courier packages, and dispatching building work orders.
-                    </p>
-                    
-                    <div class="translation-layout" style="grid-template-columns: 1fr 1.2fr; gap: 2rem;">
-                        <div class="trans-box">
-                            <h4 style="font-size: 0.95rem; color: var(--primary-accent); margin-bottom: 0.5rem;">1. Log Water Meter</h4>
-                            <div class="input-group">
-                                <label for="admin-meter-unit">Select Unit:</label>
-                                <select id="admin-meter-unit" class="input-field" onchange="loadAdminUnitData()"></select>
-                            </div>
-                            <div class="input-group">
-                                <label for="admin-meter-val">Current Month Water Due (THB):</label>
-                                <input type="number" id="admin-meter-val" class="input-field" value="350">
-                            </div>
-                            <button class="btn-pay" onclick="saveAdminMeter()" style="margin-top: 1rem; width: 100%;"><svg class="icon" viewBox="0 0 24 24"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg> Save Meter Reading</button>
-                        </div>
-                        
-                        <div class="trans-box">
-                            <h4 style="font-size: 0.95rem; color: var(--primary-accent); margin-bottom: 0.5rem;">2. Courier Package Logger</h4>
-                            <div class="input-group">
-                                <label for="admin-pkg-unit">Recipient Unit:</label>
-                                <select id="admin-pkg-unit" class="input-field"></select>
-                            </div>
-                            <div class="input-group">
-                                <label for="admin-pkg-carrier">Carrier Service / Tracking No.:</label>
-                                <input type="text" id="admin-pkg-carrier" class="input-field" placeholder="e.g. Kerry, Flash, DHL">
-                            </div>
-                            <button class="btn-pay" onclick="logPackage()" style="margin-top: 1rem; width: 100%;"><svg class="icon" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Register Incoming Courier</button>
-                        </div>
-                    </div>
-
-                    <!-- Document Registration Form -->
-                    <div class="trans-box" style="margin-top: 2rem;">
-                        <h4 style="font-size: 0.95rem; color: var(--primary-accent); margin-bottom: 0.5rem;" id="lbl-admin-doc-title">3. Register Bilingual Juristic Document</h4>
-                        <form onsubmit="registerNewDocument(event)" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; text-align: left;">
-                            <div style="display: flex; flex-direction: column; gap: 1rem;">
-                                <div class="input-group">
-                                    <label for="doc-reg-title-en">Document Title (English):</label>
-                                    <input type="text" id="doc-reg-title-en" class="input-field" placeholder="e.g. 2026 Q2 Board Meeting Minutes" required>
-                                </div>
-                                <div class="input-group">
-                                    <label for="doc-reg-desc-en">Description (English):</label>
-                                    <textarea id="doc-reg-desc-en" class="input-field" style="height: 80px; resize: none;" placeholder="Provide brief context..."></textarea>
-                                </div>
-                                <div class="input-group">
-                                    <label for="doc-reg-file-en">English File Name:</label>
-                                    <input type="text" id="doc-reg-file-en" class="input-field" placeholder="e.g. minutes_q2.pdf" required>
-                                </div>
-                                <div class="input-group">
-                                    <label for="doc-reg-size-en">English File Size:</label>
-                                    <input type="text" id="doc-reg-size-en" class="input-field" placeholder="e.g. 2.4 MB" value="2.4 MB">
-                                </div>
-                            </div>
-                            
-                            <div style="display: flex; flex-direction: column; gap: 1rem;">
-                                <div class="input-group">
-                                    <label for="doc-reg-title-th">Document Title (Thai):</label>
-                                    <input type="text" id="doc-reg-title-th" class="input-field" placeholder="e.g. รายงานการประชุมคณะกรรมการ ไตรมาส 2/2569" required>
-                                </div>
-                                <div class="input-group">
-                                    <label for="doc-reg-desc-th">Description (Thai):</label>
-                                    <textarea id="doc-reg-desc-th" class="input-field" style="height: 80px; resize: none;" placeholder="อธิบายสั้นๆ เกี่ยวกับเอกสาร..."></textarea>
-                                </div>
-                                <div class="input-group">
-                                    <label for="doc-reg-file-th">Thai File Name (leave empty to fallback to EN):</label>
-                                    <input type="text" id="doc-reg-file-th" class="input-field" placeholder="e.g. minutes_q2_th.pdf">
-                                </div>
-                                <div class="input-group">
-                                    <label for="doc-reg-size-th">Thai File Size:</label>
-                                    <input type="text" id="doc-reg-size-th" class="input-field" placeholder="e.g. 2.4 MB">
-                                </div>
-                            </div>
-                            
-                            <div style="grid-column: span 2; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem;">
-                                <div class="input-group">
-                                    <label for="doc-reg-category">Category:</label>
-                                    <select id="doc-reg-category" class="input-field">
-                                        <option value="Bylaws">Bylaws / ข้อบังคับ</option>
-                                        <option value="AGM Minutes">AGM Minutes / ประชุม AGM</option>
-                                        <option value="Meeting Minutes">Meeting Minutes / ประชุมกรรมการ</option>
-                                        <option value="Committee Minutes">Committee Minutes / บันทึกประชุมคณะกรรมการ</option>
-                                        <option value="Announcements">Announcements / ประกาศนิติ</option>
-                                    </select>
-                                </div>
-                                <div class="input-group">
-                                    <label for="doc-reg-audience">Target Audience Restriction:</label>
-                                    <select id="doc-reg-audience" class="input-field">
-                                        <option value="all">Public (All Residents)</option>
-                                        <option value="owners">Co-owners Only (Hide from Tenants)</option>
-                                        <option value="committee">Board Only (Committee & Staff Only)</option>
-                                    </select>
-                                </div>
-                                <div class="input-group">
-                                    <label for="doc-reg-date">Publish Date:</label>
-                                    <input type="date" id="doc-reg-date" class="input-field" value="2026-05-30" required>
-                                </div>
-                            </div>
-                            
-                            <button type="submit" class="btn-pay" style="grid-column: span 2; margin-top: 1rem; background: var(--primary-gradient);"><svg class="icon" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> Publish Bilingual Document to Firestore</button>
-                        </form>
-                    </div>
-
-                    <!-- Live System Audit Logs -->
-                    <div class="trans-box" style="margin-top: 2rem;">
-                        <h4 style="font-size: 0.95rem; color: var(--danger); margin-bottom: 0.5rem;" id="lbl-admin-audit-title">4. Live System Audit Logs (FileSystem: login_audit.log)</h4>
-                        <pre id="admin-audit-log-box" style="height: 200px; overflow-y: auto; background: rgba(0,0,0,0.5); color: #ffd700; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; padding: 1rem; font-family: monospace; font-size: 0.75rem; text-align: left; white-space: pre-wrap; margin-bottom: 1rem; box-shadow: inset 0 2px 8px rgba(0,0,0,0.5);"></pre>
-                        <button class="btn-pay" onclick="loadAuditLogs()" style="font-size:0.75rem; padding: 0.4rem 1rem;" id="lbl-btn-refresh-log"><svg class="icon" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg> Refresh Log File</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Feature Panel 5: Documents -->
-            <div id="panel-documents" class="feature-section">
-                <div class="glass-card">
-                    <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem;" id="lbl-docs-title">Bilingual Juristic Documents & Archives</h3>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;" id="lbl-docs-subtitle">
-                        Access official bylaws, AGM minutes, board meeting minutes, and juristic announcements in English and Thai.
-                    </p>
-
-                    <div style="display: grid; grid-template-columns: 200px 1fr; gap: 2rem; align-items: start;">
-                        <!-- Category Sidebar filter -->
-                        <div class="trans-box" style="padding: 1rem; display: flex; flex-direction: column; gap: 0.5rem;">
-                            <h4 style="font-size: 0.9rem; color: var(--primary-accent); margin-bottom: 0.5rem;" id="lbl-docs-categories">Filter Categories</h4>
-                            <button class="lang-btn active" id="btn-doc-filter-all" onclick="filterDocuments('all')" style="width:100%; text-align:left; border-radius: 8px; font-size:0.8rem; padding: 0.5rem 0.75rem;"><svg class="icon" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> All Documents</button>
-                            <button class="lang-btn" id="btn-doc-filter-bylaws" onclick="filterDocuments('Bylaws')" style="width:100%; text-align:left; border-radius: 8px; font-size:0.8rem; padding: 0.5rem 0.75rem;"><svg class="icon" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Bylaws</button>
-                            <button class="lang-btn" id="btn-doc-filter-agm" onclick="filterDocuments('AGM Minutes')" style="width:100%; text-align:left; border-radius: 8px; font-size:0.8rem; padding: 0.5rem 0.75rem;">🗳️ AGM Minutes</button>
-                            <button class="lang-btn" id="btn-doc-filter-minutes" onclick="filterDocuments('Meeting Minutes')" style="width:100%; text-align:left; border-radius: 8px; font-size:0.8rem; padding: 0.5rem 0.75rem;"><svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg> Board Minutes</button>
-                            <button class="lang-btn" id="btn-doc-filter-committee" onclick="filterDocuments('Committee Minutes')" style="width:100%; text-align:left; border-radius: 8px; font-size:0.8rem; padding: 0.5rem 0.75rem;"><svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Committee Minutes</button>
-                            <button class="lang-btn" id="btn-doc-filter-announcements" onclick="filterDocuments('Announcements')" style="width:100%; text-align:left; border-radius: 8px; font-size:0.8rem; padding: 0.5rem 0.75rem;"><svg class="icon" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><line x1="9" y1="10" x2="15" y2="10"/><line x1="12" y1="7" x2="12" y2="13"/></svg> Announcements</button>
-                        </div>
-
-                        <!-- Documents Grid -->
-                        <div id="docs-list-container" style="display: flex; flex-direction: column; gap: 1rem;">
-                            <!-- Dynamically loaded document cards will appear here -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
 
-    </main>
+        <!-- MAINTENANCE TAB -->
+        <div class="tab-panel" id="tab-maintenance">
+            <div id="ticket-list">
+                <!-- Populated by JS -->
+            </div>
+        </div>
 
-    <!-- Footer -->
-    <footer>
-        <p id="lbl-footer">&copy; 2026 DLV Thong Lo 20 Juristic Person. Built under supervision of the Co-owners Committee. All rights reserved.</p>
-    </footer>
+        <!-- UNIT DIRECTORY TAB -->
+        <div class="tab-panel" id="tab-directory">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-md);flex-wrap:wrap;gap:var(--space-sm)">
+                <div class="select-wrap" style="width:200px">
+                    <select id="dir-filter" class="input" onchange="renderDirectory()">
+                        <option value="all">All Units (79)</option>
+                        <option value="Owner-occupied">Owner-occupied</option>
+                        <option value="Rented">Rented</option>
+                        <option value="Foreign">Foreign Owner</option>
+                        <option value="Thai">Thai Owner</option>
+                    </select>
+                    <svg class="icon icon-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <input type="text" class="input" id="dir-search" placeholder="Search unit or name…" oninput="renderDirectory()" style="width:240px">
+            </div>
+            <div class="unit-grid" id="unit-directory">
+                <!-- Populated by JS -->
+            </div>
+        </div>
 
-    <!-- Interactive Javascript Interface Engine -->
-    <script>
-        // Firebase client config parameters
-        const firebaseConfig = {
-            apiKey: "AIzaSyDummyKeyForDLV20LiveIntegration",
-            authDomain: "dlv-thong-lo-20.firebaseapp.com",
-            projectId: "dlv-thong-lo-20",
-            storageBucket: "dlv-thong-lo-20.appspot.com",
-            messagingSenderId: "105087481415",
-            appId: "1:105087481415:web:dlvthonglo20webclient"
-        };
+        <!-- DOCUMENTS TAB -->
+        <div class="tab-panel" id="tab-documents">
+            <div class="card" style="margin-bottom:var(--space-lg)">
+                <h3 style="font-size:1rem;font-weight:600;margin-bottom:var(--space-md)">Register Document</h3>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-md)">
+                    <div><label>Title (EN)</label><input type="text" class="input" id="doc-title-en"></div>
+                    <div><label>Title (TH)</label><input type="text" class="input" id="doc-title-th"></div>
+                    <div><label>Description (EN)</label><input type="text" class="input" id="doc-desc-en"></div>
+                    <div><label>Description (TH)</label><input type="text" class="input" id="doc-desc-th"></div>
+                    <div><label>File Name (EN)</label><input type="text" class="input" id="doc-file-en"></div>
+                    <div><label>File Name (TH)</label><input type="text" class="input" id="doc-file-th"></div>
+                </div>
+                <div style="margin-top:var(--space-md)">
+                    <label>Audience</label>
+                    <div class="select-wrap" style="max-width:300px">
+                        <select id="doc-audience" class="input">
+                            <option value="All">All Residents</option>
+                            <option value="Committee">Committee Only</option>
+                            <option value="Co-owners">Co-owners Only</option>
+                        </select>
+                        <svg class="icon icon-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                    </div>
+                </div>
+                <button class="btn btn-primary" onclick="registerDoc()" style="margin-top:var(--space-md)">Register Document</button>
+            </div>
+            <div id="doc-list">
+                <!-- Populated by JS -->
+            </div>
+        </div>
 
-        // Global relational databases loaded dynamically
-        let activeUnits = {};
-        let activeUsers = {};
-        let activeDocuments = {};
-        let selectedUnit = "18/78";
-        let activeRole = "owner"; 
-
-        // Global language state
-        let currentLang = 'EN';
-
-        // Check if live Firebase settings are loaded
-        const isFirebaseLive = firebaseConfig.projectId !== "YOUR_PROJECT_ID";
-        let dbRef = null;
-
-        if (isFirebaseLive) {
-            try {
-                firebase.initializeApp(firebaseConfig);
-                dbRef = firebase.firestore();
-                console.log("Firebase Cloud Firestore Client SDK Initialized successfully.");
-            } catch (e) {
-                console.warn("Could not initialize Firebase Live, falling back to mock database.", e);
-            }
-        }
-
-        async function initializeDatabase() {
-            if (dbRef) {
-                try {
-                    const unitsSnap = await dbRef.collection('units').get();
-                    unitsSnap.forEach(doc => {
-                        activeUnits[doc.id] = doc.data();
-                    });
-                    const usersSnap = await dbRef.collection('users').get();
-                    usersSnap.forEach(doc => {
-                        activeUsers[doc.id] = doc.data();
-                    });
-                    const docsSnap = await dbRef.collection('documents').get();
-                    docsSnap.forEach(doc => {
-                        activeDocuments[doc.id] = doc.data();
-                    });
-                    console.log("Loaded units, users & documents dynamically from Live Firestore.");
-                    setupDashboard();
-                    checkActiveSession();
-                    return;
-                } catch (e) {
-                    console.error("Failed to load from live Firestore, falling back to local database...", e);
-                }
-            }
-            
-            // Local fallback simulation load
-            try {
-                const response = await fetch('firebase_data_mock.json');
-                const data = await response.json();
-                activeUnits = data.units;
-                activeUsers = data.users;
-                activeDocuments = data.documents || {};
-                console.log("Loaded 79 units, users & documents dynamically from Local Mock JSON database.");
-                setupDashboard();
-                checkActiveSession();
-            } catch (e) {
-                console.error("Critical: Could not load local fallback JSON databases: ", e);
-            }
-        }
-
-        function setupDashboard() {
-            const urlParams = new URLSearchParams(window.location.search);
-            
-            // Resolve email param first (either URL query or sessionStorage)
-            let emailParam = urlParams.get('email') || sessionStorage.getItem('activeUserEmail');
-            
-            let resolvedUser = null;
-            if (emailParam) {
-                for (let key in activeUsers) {
-                    if (activeUsers[key].email.toLowerCase() === emailParam.toLowerCase()) {
-                        resolvedUser = activeUsers[key];
-                        break;
-                    }
-                }
-            }
-            
-            if (resolvedUser) {
-                sessionStorage.setItem('activeUserEmail', resolvedUser.email);
-                selectedUnit = resolvedUser.associated_unit || "18/78";
-                
-                // Prioritize role mapping by privilege level (Juristic > Committee > Co-owner > Tenant)
-                const userRoles = resolvedUser.roles.map(r => r.toLowerCase().trim());
-                if (userRoles.includes('juristic manager')) {
-                    activeRole = 'juristic_manager';
-                } else if (userRoles.includes('juristic staff')) {
-                    activeRole = 'juristic_staff';
-                } else if (userRoles.includes('committee member')) {
-                    activeRole = 'committee_member';
-                } else if (userRoles.includes('co-owner') || userRoles.includes('owner') || userRoles.includes('coowner')) {
-                    activeRole = 'co_owner';
-                } else {
-                    activeRole = 'tenant';
-                }
-                
-                currentLang = resolvedUser.language || "EN";
-                console.log(`Resolved user from session: ${resolvedUser.name}, Unit: ${selectedUnit}, Active Role: ${activeRole}`);
-            } else {
-                // Direct parameter lookup fallback
-                selectedUnit = urlParams.get('unit') || "18/78";
-                activeRole = urlParams.get('role') || "owner";
-                // Standardize role parameter strings
-                activeRole = activeRole.toLowerCase().replace(' ', '_').replace('-', '_');
-            }
-
-            // Populate Admin dropdowns
-            populateAdminDropdowns();
-
-            // Set global language (will trigger rendering!)
-            setLanguage(currentLang);
-        }
-
-        function renderUnitFromDatabase() {
-            const sanitizedId = selectedUnit.replace('/', '_');
-            const unit = activeUnits[sanitizedId] || activeUnits["18_78"];
-            if (!unit) return;
-            
-            const isEn = currentLang === 'EN';
-            
-            // Profile Name
-            const nameEl = document.getElementById('profile-name-text');
-            const welcomeEl = document.getElementById('hero-welcome-title');
-            
-            let displayName = unit.owner_names.join(" & ");
-            let firstName = displayName.split(" ")[0];
-            
-            if (activeRole === 'tenant' && unit.tenant_names.length > 0) {
-                displayName = unit.tenant_names.join(" & ");
-                firstName = displayName.split(" ")[0];
-            }
-            
-            if (nameEl) nameEl.innerText = displayName;
-            if (welcomeEl) {
-                welcomeEl.innerText = isEn ? `Welcome Back, ${firstName}!` : `ยินดีต้อนรับกลับ คุณ${firstName}!`;
-            }
-            
-            // Dynamic Role string in sidebar
-            const roleEl = document.getElementById('profile-role-text');
-            if (roleEl) {
-                if (activeRole === 'juristic_manager') {
-                    roleEl.innerText = isEn ? 'Juristic Manager' : 'ผู้จัดการนิติบุคคล';
-                } else if (activeRole === 'juristic_staff') {
-                    roleEl.innerText = isEn ? 'Juristic Staff' : 'เจ้าหน้าที่นิติบุคคล';
-                } else if (activeRole === 'committee_member') {
-                    roleEl.innerText = isEn ? 'Committee Member' : 'กรรมการนิติบุคคลอาคารชุด';
-                } else if (activeRole === 'tenant') {
-                    roleEl.innerText = isEn ? 'Resident Tenant' : 'ผู้เช่าพักอาศัย';
-                } else {
-                    roleEl.innerText = isEn ? 'Co-owner' : 'เจ้าของร่วม';
-                }
-            }
-            
-            // Sidebar fields
-            const uLabel = document.getElementById('lbl-unit');
-            if (uLabel && uLabel.nextElementSibling) {
-                uLabel.nextElementSibling.innerText = unit.unit_number;
-            }
-            
-            const fVal = document.getElementById('val-floor');
-            if (fVal) {
-                fVal.innerText = isEn ? `${unit.floor}th Floor` : `ชั้น ${unit.floor}`;
-            }
-            
-            const sVal = document.getElementById('val-size');
-            if (sVal) {
-                sVal.innerText = isEn ? `${unit.sqm.toFixed(2)} SQ.M` : `${unit.sqm.toFixed(2)} ตารางเมตร`;
-            }
-            
-            const rVal = document.getElementById('val-ratio');
-            if (rVal) {
-                rVal.innerText = isEn ? `${unit.ownership_ratio.toFixed(2)} ratio` : `${unit.ownership_ratio.toFixed(2)} อัตราส่วน`;
-            }
-            
-            const resVal = document.getElementById('val-resident');
-            if (resVal) {
-                if (unit.occupancy_status === 'Rented') {
-                    resVal.innerText = isEn ? 'Rented Out' : 'ให้เช่าพักอาศัย';
-                } else {
-                    resVal.innerText = unit.owner_nationality === 'Foreign' ? 
-                        (isEn ? 'Foreign Owner' : 'เจ้าของร่วมชาวต่างชาติ') : 
-                        (isEn ? 'Thai Owner' : 'เจ้าของร่วมชาวไทย');
-                }
-            }
-            
-            // Sinking Fund Reserves in sidebar
-            const baseSf = 500;
-            const reserveSf = unit.sqm * baseSf;
-            const baseSfEl = document.getElementById('val-sf-base');
-            if (baseSfEl) {
-                baseSfEl.innerText = isEn ? `THB ${baseSf} / sq.m` : `${baseSf} บาท / ตร.ม.`;
-            }
-            
-            const reserveSfEl = document.getElementById('val-sf-reserve');
-            if (reserveSfEl) {
-                reserveSfEl.innerText = isEn ? `THB ${reserveSf.toLocaleString('en-US', {minimumFractionDigits: 2})}` : `${reserveSf.toLocaleString('en-US', {minimumFractionDigits: 2})} บาท`;
-            }
-
-            // Badge text updates
-            const badgeEl = document.getElementById('badge-pilot-text');
-            if (badgeEl) {
-                if (activeRole === 'juristic_manager' || activeRole === 'juristic_staff') {
-                    badgeEl.innerText = isEn ? 'Juristic Office Console' : 'ระบบสำนักงานนิติบุคคล';
-                } else {
-                    badgeEl.innerText = isEn ? `Unit ${unit.unit_number} Portal` : `ระบบยูนิต ${unit.unit_number}`;
-                }
-            }
-        }
-
-        function applyRoleVisibilityControls() {
-            const isTenant = activeRole === 'tenant';
-            const isCommittee = activeRole === 'committee_member';
-            const isAdmin = activeRole === 'juristic_staff' || activeRole === 'juristic_manager';
-            const isEn = currentLang === 'EN';
-
-            // Sinking Fund Card display
-            const sfCard = document.getElementById('card-sf-allocation');
-            if (sfCard) {
-                sfCard.style.display = (isTenant || isAdmin) ? 'none' : 'block';
-            }
-            
-            // Tab navigation for Office Admin
-            const adminTab = document.getElementById('tab-btn-admin');
-            if (adminTab) {
-                adminTab.style.display = isAdmin ? 'block' : 'none';
-            }
-            
-            // If Admin, hide standard panels and show admin tab automatically
-            if (isAdmin) {
-                document.getElementById('tab-btn-payment').style.display = 'none';
-                document.getElementById('tab-btn-translation').style.display = 'none';
-                switchTab('admin');
-            } else {
-                document.getElementById('tab-btn-payment').style.display = 'block';
-                document.getElementById('tab-btn-translation').style.display = 'block';
-                if (document.getElementById('tab-btn-admin') && document.getElementById('tab-btn-admin').classList.contains('active')) {
-                    switchTab('payment');
-                }
-            }
-            
-            // Committee Member transparency indicators
-            const progressCard = document.getElementById('card-metric-progress');
-            if (progressCard) {
-                progressCard.style.display = (isTenant || isAdmin) ? 'none' : 'block';
-            }
-            
-            // Metric card layouts
-            const juristicMetric = document.getElementById('card-metric-juristic');
-            if (juristicMetric) {
-                if (isTenant) {
-                    juristicMetric.style.display = 'flex';
-                    document.getElementById('lbl-metric-juristic').innerText = isEn ? 'Tenant Water Due' : 'ค่าน้ำประปาผู้เช่า';
-                } else if (isAdmin) {
-                    juristicMetric.style.display = 'none';
-                } else {
-                    juristicMetric.style.display = 'flex';
-                    document.getElementById('lbl-metric-juristic').innerText = isEn ? 'Semi-Annual Juristic Fee' : 'ค่าธรรมเนียมนิติมติ 6 เดือน';
-                }
-            }
-            
-            // Hide Committee Minutes filter button for standard users (owners/tenants who are not committee)
-            const committeeFilterBtn = document.getElementById('btn-doc-filter-committee');
-            if (committeeFilterBtn) {
-                committeeFilterBtn.style.display = (isCommittee || isAdmin) ? 'block' : 'none';
-            }
-        }
-
-        // Administrative Workspace Helpers
-        function populateAdminDropdowns() {
-            const unitSelect = document.getElementById('admin-meter-unit');
-            const pkgSelect = document.getElementById('admin-pkg-unit');
-            if (!unitSelect || !pkgSelect) return;
-            
-            unitSelect.innerHTML = "";
-            pkgSelect.innerHTML = "";
-            
-            const keys = Object.keys(activeUnits).sort((a,b) => {
-                const numA = parseInt(a.split('_')[1]);
-                const numB = parseInt(b.split('_')[1]);
-                return numA - numB;
-            });
-            
-            keys.forEach(key => {
-                const uNum = activeUnits[key].unit_number;
-                const opt1 = document.createElement('option');
-                opt1.value = uNum;
-                opt1.innerText = uNum;
-                unitSelect.appendChild(opt1);
-                
-                const opt2 = document.createElement('option');
-                opt2.value = uNum;
-                opt2.innerText = uNum;
-                pkgSelect.appendChild(opt2);
-            });
-        }
-        
-        function loadAdminUnitData() {
-            const selUnitNum = document.getElementById('admin-meter-unit').value;
-            const sanitizedId = selUnitNum.replace('/', '_');
-            const unit = activeUnits[sanitizedId];
-            if (unit) {
-                document.getElementById('admin-meter-val').value = 350; // default water mock value
-            }
-        }
-        
-        function saveAdminMeter() {
-            const selUnitNum = document.getElementById('admin-meter-unit').value;
-            const meterVal = parseFloat(document.getElementById('admin-meter-val').value) || 0;
-            
-            const sanitizedId = selUnitNum.replace('/', '_');
-            if (activeUnits[sanitizedId]) {
-                if (selUnitNum === selectedUnit) {
-                    document.getElementById('water-fee').value = meterVal;
-                    updatePaymentTotal();
-                }
-                alert(`Successfully logged Water Meter reading of THB ${meterVal.toFixed(2)} for Unit ${selUnitNum}!`);
-            }
-        }
-        
-        function logPackage() {
-            const recipient = document.getElementById('admin-pkg-unit').value;
-            const carrier = document.getElementById('admin-pkg-carrier').value || "Standard Courier";
-            alert(`package registered successfully!\nRecipient Unit: ${recipient}\nCarrier Service: ${carrier}\nLine push notification dispatched to resident.`);
-            document.getElementById('admin-pkg-carrier').value = "";
-        }
-
-        // Translation dictionary for dynamic UI translation (EN/TH)
-        const uiDictionary = {
-            'EN': {
-                'brand-title': 'DLV Thong Lo 20',
-                'brand-subtitle': 'Digital Juristic Management 2.0',
-                'badge-pilot-text': 'Unit 18/78 Pilot Dashboard',
-                'profile-name-text': 'Gosset Gaetan Alexandre P.',
-                'profile-role-text': 'Committee Member',
-                'hero-welcome-title': 'Welcome Back, Gaetan!',
-                'hero-welcome-desc': 'Manage your unit fees, track building maintenance, and review AGM votes in real-time.',
-                'hero-lang-toggle-text': '<svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> Translate to Thai (แปลเป็นไทย)',
-                'lbl-unit': 'Designated Unit',
-                'lbl-floor': 'Floor',
-                'val-floor': '7th Floor',
-                'lbl-size': 'Area Size',
-                'val-size': '222.12 SQ.M',
-                'lbl-ratio': 'Ownership Ratio',
-                'val-ratio': '387.52 ratio',
-                'lbl-resident': 'Resident Type',
-                'val-resident': 'Foreign Owner',
-                'lbl-sf-header': 'Sinking Fund Allocation',
-                'lbl-sf-base': 'Sinking Fund Base',
-                'val-sf-base': 'THB 500 / sq.m',
-                'lbl-sf-reserve': 'Pilot SF Reserve',
-                'val-sf-reserve': 'THB 111,060.00',
-                'lbl-sf-agenda': 'Active Agenda 7 Contribution',
-                'val-sf-agenda': 'THB 5.30 / sqm / mo',
-                'lbl-metric-juristic': 'Semi-Annual Juristic Fee',
-                'lbl-metric-sauna': 'Sauna Sensor Repair',
-                'lbl-metric-progress': 'CAM Fees Collected',
-                'tab-btn-payment': 'Semi-Annual Payments',
-                'tab-btn-maintenance': 'Preventative Maintenance',
-                'tab-btn-translation': 'Bilingual translation',
-                'tab-btn-documents': 'Juristic Documents',
-                'lbl-docs-title': 'Bilingual Juristic Documents & Archives',
-                'lbl-docs-subtitle': 'Access official bylaws, AGM minutes, board meeting minutes, and juristic announcements in English and Thai.',
-                'lbl-docs-categories': 'Filter Categories',
-                'lbl-admin-doc-title': '3. Register Bilingual Juristic Document',
-                'lbl-admin-audit-title': '4. Live System Audit Logs (FileSystem: login_audit.log)',
-                'lbl-btn-refresh-log': '<svg class="icon" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg> Refresh Log File',
-                'lbl-payment-title': 'PromptPay QR Payment Generator',
-                'lbl-payment-subtitle': 'This widget generates dynamic PromptPay QR payloads for the current payment invitation cycle with dynamic CRC16 calculations.',
-                'th-component': 'Fee Component',
-                'th-rate': 'Monthly Rate',
-                'th-total': 'Amount Billed',
-                'td-cam-base': 'Common Area Maintenance (CAM Base)',
-                'td-cam-special': 'Special Maintenance Fund (Sec 40)',
-                'td-sf-agenda': 'Sinking Fund contribution (Agenda 7)',
-                'td-total-juristic': 'Total Payment Invitation',
-                'lbl-promptpay-input': 'PromptPay Recipient (Phone or 13-digit Tax ID):',
-                'lbl-water-input': 'Add Monthly Water Meter Fee (THB):',
-                'lbl-custom-amount': 'Or Enter Custom Payment Amount (THB - overrides total):',
-                'custom-amount': 'e.g. 5000',
-                'lbl-btn-generate': '<svg class="icon" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg> Generate Dynamic PromptPay QR',
-                'lbl-qr-title': 'Dynamic PromptPay QR',
-                'lbl-qr-generate-hint': 'Tap Generate to load EMVCo code',
-                'lbl-maint-title': 'Asset Life-Cycle & Preventive Logs',
-                'lbl-maint-subtitle': 'Track large scale building assets. Upload before and after photos of repairs for juristic transparency.',
-                'maint-sauna-title': 'Sauna Room Heating Sensor',
-                'maint-badge-high': 'High Priority',
-                'maint-sauna-desc': 'Replace broken heating sensor inside 2nd Floor Sauna Room (AGM voted to repair and retain).',
-                'maint-sauna-unit': 'Unit: 18/78 (Pilot)',
-                'status-in-progress': 'IN PROGRESS',
-                'maint-lift-title': 'Elevator 1 KONE Spares',
-                'maint-badge-med': 'Medium',
-                'maint-lift-desc': 'Scheduled preventative maintenance for lift guide rails (spares ordered directly from KONE Public Company Limited).',
-                'maint-lift-mandate': 'Juristic Mandate',
-                'status-scheduled': 'SCHEDULED',
-                'lbl-trans-title': 'Bilingual DeepL Translation Glossaries',
-                'lbl-trans-subtitle': 'This module simulates official bi-directional translations, enforcing precise juristic terms between Thai staff and foreign residents.',
-                'lbl-trans-en-hdr': 'English Draft (Notice / Invoices)',
-                'btn-trans-en': 'Translate EN <svg class="icon" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg> TH',
-                'lbl-trans-th-hdr': 'Thai Draft (Staff Input)',
-                'btn-trans-th': 'Translate TH <svg class="icon" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg> EN',
-                'lbl-gloss-hdr': 'Custom Enforced Glossaries (DLV 2.0 Library)',
-                'lbl-footer': '&copy; 2026 DLV Thong Lo 20 Juristic Person. Built under supervision of the Co-owners Committee. All rights reserved.',
-                'widget-active-maintenance': '1 Active',
-                'widget-cam-progress': '78% Target'
-            },
-            'TH': {
-                'brand-title': 'ดี แอล วี ทองหล่อ 20',
-                'brand-subtitle': 'ระบบการจัดการนิติบุคคลดิจิทัล 2.0',
-                'badge-pilot-text': 'ระบบการจัดการนำร่อง ยูนิต 18/78',
-                'profile-name-text': 'คุณ กอสเซต์ แกตอง อเล็กซองด์ พี.',
-                'profile-role-text': 'กรรมการนิติบุคคลอาคารชุด',
-                'hero-welcome-title': 'ยินดีต้อนรับกลับ คุณกอสเซต์!',
-                'hero-welcome-desc': 'จัดการค่าส่วนกลาง ติดตามบันทึกการซ่อมบำรุงอาคาร และตรวจสอบมติประชุมใหญ่ร่วมแบบเรียลไทม์',
-                'hero-lang-toggle-text': '<svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> Translate to English (แปลเป็นอังกฤษ)',
-                'lbl-unit': 'ยูนิตที่กำหนด',
-                'lbl-floor': 'ชั้นอาคาร',
-                'val-floor': 'ชั้น 7',
-                'lbl-size': 'ขนาดพื้นที่ยูนิต',
-                'val-size': '222.12 ตารางเมตร',
-                'lbl-ratio': 'อัตราส่วนกรรมสิทธิ์',
-                'val-ratio': '387.52 อัตราส่วน',
-                'lbl-resident': 'ประเภทผู้อยู่อาศัย',
-                'val-resident': 'เจ้าของร่วมชาวต่างชาติ',
-                'lbl-sf-header': 'การจัดสรรเงินกองทุนสะสม',
-                'lbl-sf-base': 'เงินกองทุนสะสมเริ่มต้น',
-                'val-sf-base': '500 บาท / ตร.ม.',
-                'lbl-sf-reserve': 'เงินกองทุนสะสมของยูนิต',
-                'val-sf-reserve': '111,060.00 บาท',
-                'lbl-sf-agenda': 'เงินสะสมพิเศษตามวาระที่ 7',
-                'val-sf-agenda': '5.30 บาท / ตร.ม. / เดือน',
-                'lbl-metric-juristic': 'ค่าธรรมเนียมนิติมติ 6 เดือน',
-                'lbl-metric-sauna': 'ซ่อมเซ็นเซอร์ซาวน่า',
-                'lbl-metric-progress': 'จัดเก็บค่าส่วนกลางแล้ว',
-                'tab-btn-payment': 'ชำระเงินรอบ 6 เดือน',
-                'tab-btn-maintenance': 'การซ่อมบำรุงเชิงป้องกัน',
-                'tab-btn-translation': 'แปลภาษาตามกฎหมาย',
-                'tab-btn-documents': 'คลังเอกสารนิติ',
-                'lbl-docs-title': 'คลังเอกสารนิติบุคคลสองภาษา',
-                'lbl-docs-subtitle': 'เข้าถึงข้อบังคับนิติบุคคลอาคารชุด รายงานการประชุม AGM รายงานการประชุมกรรมการ และประกาศของนิติบุคคลทั่วไปในรูปแบบสองภาษา',
-                'lbl-docs-categories': 'กรองตามหมวดหมู่',
-                'lbl-admin-doc-title': '3. ลงทะเบียนเอกสารนิติบุคคลสองภาษา',
-                'lbl-admin-audit-title': '4. บันทึกการเข้าใช้งานระบบแบบเรียลไทม์ (ระบบไฟล์: login_audit.log)',
-                'lbl-btn-refresh-log': '<svg class="icon" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg> รีเฟรชไฟล์บันทึกการใช้งาน',
-                'lbl-payment-title': 'เครื่องมือสร้างคิวอาร์พร้อมเพย์ชำระเงินค่าส่วนกลางนิติบุคคล',
-                'lbl-payment-subtitle': 'ส่วนนี้จำลองการสร้างคิวอาร์พร้อมเพย์ตามรอบชำระใบแจ้งหนี้พร้อมระบบคำนวณ CRC16 แบบเรียลไทม์',
-                'th-component': 'รายการค่าส่วนกลาง',
-                'th-rate': 'อัตราส่วนรายเดือน',
-                'th-total': 'ยอดรวมเรียกเก็บ',
-                'td-cam-base': 'ค่าส่วนกลางทั่วไป (CAM Base)',
-                'td-cam-special': 'เงินสะสมพิเศษเพื่อการบำรุงรักษา (มาตรา 40)',
-                'td-sf-agenda': 'เงินสะสมพิเศษสมทบทุนสำรองกองทุน (วาระ 7)',
-                'td-total-juristic': 'ยอดรวมเรียกชำระตามใบแจ้งหนี้',
-                'lbl-promptpay-input': 'บัญชีพร้อมเพย์ (เบอร์โทรศัพท์ หรือ เลขประจำตัวผู้เสียภาษี 13 หลัก):',
-                'lbl-water-input': 'เพิ่มค่าบริการมิเตอร์น้ำรายเดือน (บาท):',
-                'lbl-custom-amount': 'หรือระบุยอดชำระตามต้องการ (บาท - แทนที่ยอดคำนวณ):',
-                'custom-amount': 'ตัวอย่าง 5000',
-                'lbl-btn-generate': '<svg class="icon" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg> สร้างคิวอาร์พร้อมเพย์แบบไดนามิก',
-                'lbl-qr-title': 'คิวอาร์ชำระพร้อมเพย์',
-                'lbl-qr-generate-hint': 'กดปุ่มด้านซ้ายเพื่อสร้างคิวอาร์โค้ด',
-                'lbl-maint-title': 'วงจรอายุสินทรัพย์และการบันทึกเชิงป้องกัน',
-                'lbl-maint-subtitle': 'ระบบบันทึกและประเมินอายุการใช้งานสินทรัพย์อาคารส่วนกลาง พร้อมการอัปโหลดภาพก่อนและหลังซ่อมแซมเพื่อความโปร่งใส',
-                'maint-sauna-title': 'เซ็นเซอร์ทำความร้อนห้องซาวน่า',
-                'maint-badge-high': 'ความสำคัญสูง',
-                'maint-sauna-desc': 'เปลี่ยนเซ็นเซอร์ทำความร้อนที่ชำรุดในห้องซาวน่า ชั้น 2 (มติที่ประชุม AGM ให้ซ่อมแซมและเก็บรักษาไว้)',
-                'maint-sauna-unit': 'ยูนิต: 18/78 (โครงการนำร่อง)',
-                'status-in-progress': 'กำลังดำเนินการ',
-                'maint-lift-title': 'อะไหล่ลิฟต์ตัวที่ 1 (KONE)',
-                'maint-badge-med': 'ปานกลาง',
-                'maint-lift-desc': 'การซ่อมบำรุงเชิงป้องกันตามกำหนดเวลาสำหรับลิฟต์ตัวที่ 1 (สั่งซื้อชิ้นส่วนแท้จากบริษัท โคเน่ จำกัด มหาชน)',
-                'maint-lift-mandate': 'คำสั่งตามงานนิติบุคคล',
-                'status-scheduled': 'มีกำหนดเวลาแล้ว',
-                'lbl-trans-title': 'ระบบการแปลสองภาษากำหนดความถูกต้องของนิติบุคคล',
-                'lbl-trans-subtitle': 'ส่วนจำลองการแปลสองภาษา (DeepL) เพื่อควบคุมความถูกต้องของคําศัพท์ทางนิติบุคคลระหว่างพนักงานไทยกับเจ้าของต่างชาติ',
-                'lbl-trans-en-hdr': 'ร่างข้อความภาษาอังกฤษ (ประกาศ / ใบแจ้งหนี้)',
-                'btn-trans-en': 'แปลภาษาอังกฤษ <svg class="icon" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg> ไทย',
-                'lbl-trans-th-hdr': 'ร่างข้อความภาษาไทย (พนักงานกรอก)',
-                'btn-trans-th': 'แปลภาษาไทย <svg class="icon" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg> อังกฤษ',
-                'lbl-gloss-hdr': 'คลังคำศัพท์เฉพาะทางที่ถูกควบคุมสิทธิ์ (DLV 2.0)',
-                'lbl-footer': '&copy; 2026 นิติบุคคลอาคารชุด ดี แอล วี ทองหล่อ 20. ดำเนินการและควบคุมการทำงานโดยคณะกรรมการเจ้าของร่วม. สงวนสิทธิ์.',
-                'widget-active-maintenance': 'รอดำเนินการ 1 รายการ',
-                'widget-cam-progress': 'เป้าหมาย 78%'
-            }
-        };
-
-        // Function to set global language dynamically
-        function setLanguage(lang) {
-            currentLang = lang;
-            
-            // Toggle active classes on language buttons
-            if (lang === 'EN') {
-                document.getElementById('btn-lang-en').classList.add('active');
-                document.getElementById('btn-lang-th').classList.remove('active');
-            } else {
-                document.getElementById('btn-lang-en').classList.remove('active');
-                document.getElementById('btn-lang-th').classList.add('active');
-            }
-
-            // Perform dynamic DOM text replacements
-            for (let id in uiDictionary[lang]) {
-                const element = document.getElementById(id);
-                if (element) {
-                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                        element.placeholder = uiDictionary[lang][id];
-                    } else {
-                        element.innerText = uiDictionary[lang][id];
-                    }
-                }
-            }
-
-            // Render dynamic Unit specifications from Database
-            renderUnitFromDatabase();
-
-            // Re-render language-specific table items and dynamic text
-            updatePaymentTotal();
-            updateGlossaryGrid();
-            
-            // Render Role-Based visibility controls
-            applyRoleVisibilityControls();
-            
-            // Render bilingual documents list
-            renderDocumentsList();
-        }
-
-        // Toggle language state between English and Thai
-        function toggleLanguage() {
-            if (currentLang === 'EN') {
-                setLanguage('TH');
-            } else {
-                setLanguage('EN');
-            }
-        }
-
-        // Render dynamic table header depending on active language
-        function updateGlossaryGrid() {
-            const table = document.getElementById('glossary-table');
-            if (currentLang === 'EN') {
-                table.children[0].innerHTML = "<strong>English Term</strong>";
-                table.children[1].innerHTML = "<strong>Thai Enforced Translation</strong>";
-            } else {
-                table.children[0].innerHTML = "<strong>คำภาษาอังกฤษ</strong>";
-                table.children[1].innerHTML = "<strong>คำแปลภาษาไทยที่ถูกบังคับใช้</strong>";
-            }
-        }
-
-        // Tab system navigation
-        function switchTab(tabId) {
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            document.querySelectorAll('.feature-section').forEach(sec => sec.classList.remove('active'));
-            
-            const activeBtn = document.getElementById('tab-btn-' + tabId);
-            if (activeBtn) {
-                activeBtn.classList.add('active');
-            }
-            const activePanel = document.getElementById('panel-' + tabId);
-            if (activePanel) {
-                activePanel.classList.add('active');
-            }
-            if (tabId === 'admin') {
-                loadAuditLogs();
-            }
-        }
-
-        // Live financial total mapping
-        function updatePaymentTotal() {
-            const sanitizedId = selectedUnit.replace('/', '_');
-            const unit = activeUnits[sanitizedId] || activeUnits["18_78"];
-            if (!unit) return;
-            
-            const area = unit.sqm;
-            const camBaseRate = 45.00;
-            const camSpecialRate = 14.00;
-            const sfRate = 5.30;
-            
-            // Exact math based on the July 2026 payment invitation (6 mo CAM Base, 12 mo CAM Special, 12 mo SF)
-            const camBase6Mo = area * camBaseRate * 6;
-            const camSpecial12Mo = area * camSpecialRate * 12;
-            const sf12Mo = area * sfRate * 12;
-            
-            const invitationTotal = camBase6Mo + camSpecial12Mo + sf12Mo;
-            const annualTotal = (area * camBaseRate * 12) + camSpecial12Mo + sf12Mo;
-            const annualOutstanding = annualTotal - invitationTotal; // Remaining 6-months CAM Base
-            const progressPercent = (invitationTotal / annualTotal) * 100;
-            
-            const waterFee = parseFloat(document.getElementById('water-fee').value) || 0;
-            const customAmtInput = document.getElementById('custom-amount');
-            const customAmount = customAmtInput ? (parseFloat(customAmtInput.value) || 0) : 0;
-            
-            const isTenant = activeRole === 'tenant';
-            const showCam = !isTenant;
-            
-            let total = showCam ? (invitationTotal + waterFee) : waterFee;
-            if (customAmount > 0) {
-                total = customAmount;
-            }
-            
-            const isEn = currentLang === 'EN';
-            const unitText = isEn ? ' / sq.m' : ' / ตร.ม.';
-            const currencyPrefix = isEn ? 'THB ' : '';
-            const currencySuffix = isEn ? '' : ' บาท';
-            
-            // Update rates and totals in table
-            const rBase = document.getElementById('td-cam-base-rate');
-            const rSpecial = document.getElementById('td-cam-special-rate');
-            const rSf = document.getElementById('td-sf-agenda-rate');
-            const rTotal = document.getElementById('td-total-juristic-rate');
-            
-            const tBase = document.getElementById('td-cam-base-total');
-            const tSpecial = document.getElementById('td-cam-special-total');
-            const tSf = document.getElementById('td-sf-agenda-total');
-            const tTotal = document.getElementById('td-total-juristic-total');
-            
-            const pBase = document.getElementById('td-cam-base-period');
-            const pSpecial = document.getElementById('td-cam-special-period');
-            const pSf = document.getElementById('td-sf-agenda-period');
-            const pTotal = document.getElementById('td-total-juristic-period');
-            
-            if (pBase) pBase.innerText = isEn ? '6 Months' : '6 เดือน';
-            if (pSpecial) pSpecial.innerText = isEn ? '12 Months' : '12 เดือน';
-            if (pSf) pSf.innerText = isEn ? '12 Months' : '12 เดือน';
-            if (pTotal) pTotal.innerText = '—';
-            
-            if (isTenant) {
-                document.getElementById('td-cam-base').parentElement.style.display = 'none';
-                document.getElementById('td-cam-special').parentElement.style.display = 'none';
-                document.getElementById('td-sf-agenda').parentElement.style.display = 'none';
-                rTotal.parentElement.style.fontWeight = '700';
-                document.getElementById('td-total-juristic').innerText = isEn ? 'Total Tenant Water Bill' : 'ยอดค้างชำระค่าน้ำสำหรับผู้เช่า';
-                if (customAmount > 0) {
-                    rTotal.innerText = isEn ? 'Custom Amount' : 'ยอดชำระกำหนดเอง';
-                } else {
-                    rTotal.innerText = isEn ? 'Water Usage Only' : 'เฉพาะค่าน้ำประปา';
-                }
-                tTotal.innerText = currencyPrefix + total.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + currencySuffix;
-                
-                if (document.getElementById('yearly-progress-container')) {
-                    document.getElementById('yearly-progress-container').style.display = 'none';
-                }
-            } else {
-                document.getElementById('td-cam-base').parentElement.style.display = '';
-                document.getElementById('td-cam-special').parentElement.style.display = '';
-                document.getElementById('td-sf-agenda').parentElement.style.display = '';
-                document.getElementById('td-total-juristic').innerText = isEn ? 'Total Payment Invitation' : 'ยอดรวมเรียกชำระตามใบแจ้งหนี้';
-                
-                if (rBase) rBase.innerText = currencyPrefix + camBaseRate.toFixed(2) + unitText + currencySuffix;
-                if (rSpecial) rSpecial.innerText = currencyPrefix + camSpecialRate.toFixed(2) + unitText + currencySuffix;
-                if (rSf) rSf.innerText = currencyPrefix + sfRate.toFixed(2) + unitText + currencySuffix;
-                
-                if (customAmount > 0) {
-                    if (rTotal) rTotal.innerText = isEn ? 'Custom Amount' : 'ยอดชำระกำหนดเอง';
-                    if (tTotal) tTotal.innerText = currencyPrefix + total.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + currencySuffix;
-                } else {
-                    const totalMonthlyRate = camBaseRate + camSpecialRate + sfRate;
-                    if (rTotal) rTotal.innerText = currencyPrefix + totalMonthlyRate.toFixed(2) + unitText + currencySuffix;
-                    if (tTotal) tTotal.innerText = currencyPrefix + invitationTotal.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + currencySuffix;
-                }
-                
-                if (tBase) tBase.innerText = currencyPrefix + camBase6Mo.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + currencySuffix;
-                if (tSpecial) tSpecial.innerText = currencyPrefix + camSpecial12Mo.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + currencySuffix;
-                if (tSf) tSf.innerText = currencyPrefix + sf12Mo.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + currencySuffix;
-                
-                // Update graphical progress bar
-                const progressContainer = document.getElementById('yearly-progress-container');
-                if (progressContainer) {
-                    progressContainer.style.display = 'block';
-                    document.getElementById('lbl-progress-title').innerText = isEn ? 'Annual Common Fees Progress (2026)' : 'ความคืบหน้าการชำระค่าส่วนกลางรายปี (2569)';
-                    const formattedAnnualTotal = currencyPrefix + annualTotal.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + currencySuffix;
-                    document.getElementById('lbl-progress-percent').innerText = `${progressPercent.toFixed(1)}% of ${formattedAnnualTotal} ` + (isEn ? 'Paid' : 'ชำระแล้ว');
-                    document.getElementById('progress-bar-fill').style.width = `${progressPercent}%`;
-                    
-                    document.getElementById('lbl-prog-paid-text').innerText = isEn ? 'Paid to Date (July Inv.):' : 'ชำระแล้ว (ใบแจ้งหนี้ ก.ค.):';
-                    document.getElementById('lbl-prog-paid-val').innerText = currencyPrefix + invitationTotal.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + currencySuffix;
-                    
-                    document.getElementById('lbl-prog-unpaid-text').innerText = isEn ? 'Outstanding (Next Cycle):' : 'ค้างชำระ (รอบถัดไป):';
-                    document.getElementById('lbl-prog-unpaid-val').innerText = currencyPrefix + annualOutstanding.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + currencySuffix;
-                }
-            }
-            
-            // Update dashboard metric
-            document.getElementById('widget-effective-cam').innerText = currencyPrefix + total.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + currencySuffix;
-            
-            const juristicLbl = document.getElementById('lbl-metric-juristic');
-            if (juristicLbl) {
-                if (isTenant) {
-                    juristicLbl.innerText = isEn ? 'Tenant Monthly Water Bill' : 'ค่าน้ำประปารายเดือนผู้เช่า';
-                } else {
-                    juristicLbl.innerText = isEn ? 'July Invitation Total' : 'ยอดเรียกชำระใบแจ้งหนี้ ก.ค.';
-                }
-            }
-
-            generatePromptPayQR();
-        }
-
-        // Dynamic EMVCo CRC-16 Checksum Calculation Engine in JS
-        function calculateCRC16(data) {
-            let crc = 0xFFFF;
-            for (let i = 0; i < data.length; i++) {
-                crc ^= (data.charCodeAt(i) << 8);
-                for (let j = 0; j < 8; j++) {
-                    if (crc & 0x8000) {
-                        crc = (crc << 1) ^ 0x1021;
-                    } else {
-                        crc <<= 1;
-                    }
-                    crc &= 0xFFFF;
-                }
-            }
-            let hex = crc.toString(16).toUpperCase();
-            return hex.padStart(4, '0');
-        }
-
-        // dynamic PromptPay EMVCo Payload Builder
-        function generatePromptPayQR() {
-            const sanitizedId = selectedUnit.replace('/', '_');
-            const unit = activeUnits[sanitizedId] || activeUnits["18_78"];
-            if (!unit) return;
-            
-            const isTenant = activeRole === 'tenant';
-            const area = unit.sqm;
-            const camBase6Mo = area * 45.00 * 6;
-            const camSpecial12Mo = area * 14.00 * 12;
-            const sf12Mo = area * 5.30 * 12;
-            const invitationTotal = camBase6Mo + camSpecial12Mo + sf12Mo;
-            
-            const waterFee = parseFloat(document.getElementById('water-fee').value) || 0;
-            const customAmtInput = document.getElementById('custom-amount');
-            const customAmount = customAmtInput ? (parseFloat(customAmtInput.value) || 0) : 0;
-            
-            let total = isTenant ? waterFee : (invitationTotal + waterFee);
-            if (customAmount > 0) {
-                total = customAmount;
-            }
-            const formattedTotal = total.toFixed(2);
-            
-            // Retrieve dynamic PromptPay ID
-            const rawTarget = document.getElementById('promptpay-id') ? 
-                document.getElementById('promptpay-id').value : "0812345678";
-            const cleanTarget = rawTarget.replace(/\D/g, "");
-            
-            let targetField = "";
-            if (cleanTarget.length === 13) {
-                // 13-digit Juristic Corporate Tax ID
-                targetField = "0213" + cleanTarget;
-            } else {
-                // Standard mobile phone format
-                let phone = cleanTarget;
-                if (phone.startsWith('0')) {
-                    phone = "66" + phone.slice(1);
-                }
-                phone = phone.padStart(13, '0');
-                targetField = "0113" + phone;
-            }
-            
-            const merchantInfo = "0016A000000677010111" + targetField;
-            
-            const payloadParts = [
-                "000201",  // Format Indicator
-                "010212",  // Initiation Method (Dynamic QR)
-                "29" + merchantInfo.length.toString().padStart(2, '0') + merchantInfo,
-                "5303764", // THB Currency code
-                "54" + formattedTotal.length.toString().padStart(2, '0') + formattedTotal,
-                "5802TH"   // Country Code (TH)
-            ];
-            
-            const partialPayload = payloadParts.join("") + "6304";
-            const crc = calculateCRC16(partialPayload);
-            const fullPayload = partialPayload + crc;
-            
-            // Render actual QR code image using a highly stable public API
-            const qrContainer = document.getElementById('qr-container');
-            if (qrContainer) {
-                qrContainer.innerHTML = `<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(fullPayload)}" alt="PromptPay QR Code" style="display: block; max-width: 100%; border-radius: 8px;">`;
-            }
-            
-            // Update status text based on active language
-            const amountText = total.toLocaleString('en-US', {minimumFractionDigits: 2});
-            const statusTextEl = document.getElementById('qr-status-text');
-            if (statusTextEl) {
-                if (currentLang === 'EN') {
-                    statusTextEl.innerHTML = `Dynamic invoice total: <strong style="color: var(--primary-accent);">THB ${amountText}</strong>`;
-                } else {
-                    statusTextEl.innerHTML = `ยอดรวมเรียกชำระส่วนนิติตามจริง: <strong style="color: var(--primary-accent);">${amountText} บาท</strong>`;
-                }
-            }
-            const payloadCodeEl = document.getElementById('qr-payload-code');
-            if (payloadCodeEl) {
-                payloadCodeEl.innerText = "EMVCo Payload: " + fullPayload;
-            }
-        }
-
-        // DeepL translation glossary mock simulation engine
-        const glossary = {
-            "Sinking Fund": "เงินกองทุน",
-            "CAM fee": "ค่าส่วนกลาง",
-            "Juristic Person": "นิติบุคคลอาคารชุด",
-            "AGM": "การประชุมใหญ่สามัญประจำปี",
-            "Sauna Room": "ห้องซาวน่า"
-        };
-        const reverseGlossary = {
-            "เงินกองทุน": "Sinking Fund",
-            "ค่าส่วนกลาง": "CAM fee",
-            "นิติบุคคลอาคารชุด": "Juristic Person",
-            "การประชุมใหญ่สามัญประจำปี": "AGM",
-            "ห้องซาวน่า": "Sauna Room"
-        };
-
-        function translateEnToTh() {
-            let input = document.getElementById('trans-en-input').value;
-            let translated = input;
-            
-            for (let term in glossary) {
-                let regex = new RegExp('\\b' + term + '\\b', 'gi');
-                translated = translated.replace(regex, `<span style="color: #ffd700; font-weight:600;">${glossary[term]}</span>`);
-            }
-            
-            translated = translated.replace(/Dear Residents/gi, "เรียนผู้พักอาศัยทุกท่าน");
-            translated = translated.replace(/is on Saturday/gi, "จัดขึ้นในวันเสาร์");
-            translated = translated.replace(/Please cast your e-voting vote or delegate a proxy/gi, "โปรดลงคะแนนเสียงอิเล็กทรอนิกส์หรือมอบฉันทะ");
-            translated = translated.replace(/updates are pending/gi, "ได้รับการอัปเดตและรอตรวจสอบแล้ว");
-            
-            const outBox = document.getElementById('trans-th-output');
-            outBox.style.color = 'var(--text-main)';
-            outBox.style.borderStyle = 'solid';
-            outBox.innerHTML = translated;
-        }
-
-        function translateThToEn() {
-            let input = document.getElementById('trans-th-input').value;
-            let translated = input;
-            
-            for (let term in reverseGlossary) {
-                let regex = new RegExp(term, 'g');
-                translated = translated.replace(regex, `<span style="color: #ffd700; font-weight:600;">${reverseGlossary[term]}</span>`);
-            }
-            
-            translated = translated.replace(/แจ้งข่าวสารการซ่อมแซมจาก/g, "Notice of maintenance from the ");
-            translated = translated.replace(/การซ่อมแซมเสร็จสิ้นแล้วสำหรับ/g, "The repair is now completed for");
-            translated = translated.replace(/เครื่องเซ็นเซอร์ความร้อนใน/g, "the heating sensor inside the ");
-            
-            const outBox = document.getElementById('trans-en-output');
-            outBox.style.color = 'var(--text-main)';
-            outBox.style.borderStyle = 'solid';
-            outBox.innerHTML = translated;
-        }
-
-        // Bilingual Documents Management Logic
-        let activeDocFilter = "all";
-
-        function filterDocuments(category) {
-            activeDocFilter = category;
-            
-            const filterIds = {
-                'all': 'btn-doc-filter-all',
-                'Bylaws': 'btn-doc-filter-bylaws',
-                'AGM Minutes': 'btn-doc-filter-agm',
-                'Meeting Minutes': 'btn-doc-filter-minutes',
-                'Committee Minutes': 'btn-doc-filter-committee',
-                'Announcements': 'btn-doc-filter-announcements'
-            };
-            
-            for (let cat in filterIds) {
-                const btn = document.getElementById(filterIds[cat]);
-                if (btn) {
-                    if (cat === category) {
-                        btn.classList.add('active');
-                    } else {
-                        btn.classList.remove('active');
-                    }
-                }
-            }
-            
-            renderDocumentsList();
-        }
-
-        function renderDocumentsList() {
-            const container = document.getElementById('docs-list-container');
-            if (!container) return;
-            
-            container.innerHTML = "";
-            const isEn = currentLang === 'EN';
-            
-            const userRole = activeRole.toLowerCase();
-            const isStaff = userRole === 'juristic_staff' || userRole === 'juristic_manager';
-            const isCommittee = userRole === 'committee_member';
-            
-            let docCount = 0;
-            
-            for (let key in activeDocuments) {
-                const doc = activeDocuments[key];
-                
-                // Role-Based Access Control (RBAC) Filter
-                if (doc.audience === 'committee' && !isStaff && !isCommittee) {
-                    continue;
-                }
-                if (doc.audience === 'owners' && userRole === 'tenant') {
-                    continue;
-                }
-                
-                // Category Filter
-                if (activeDocFilter !== 'all' && doc.category_en !== activeDocFilter) {
-                    continue;
-                }
-                
-                docCount++;
-                
-                const title = isEn ? doc.title_en : doc.title_th;
-                const desc = isEn ? doc.description_en : doc.description_th;
-                const cat = isEn ? doc.category_en : doc.category_th;
-                
-                const card = document.createElement('div');
-                card.className = 'ticket-item';
-                card.style.background = 'rgba(255, 255, 255, 0.02)';
-                card.style.border = '1px solid rgba(255, 255, 255, 0.05)';
-                card.style.borderRadius = '12px';
-                card.style.padding = '1.25rem';
-                card.style.display = 'flex';
-                card.style.justifyContent = 'space-between';
-                card.style.alignItems = 'center';
-                card.style.gap = '1.5rem';
-                
-                let restrictedBadgeHtml = "";
-                if (doc.audience === 'committee') {
-                    restrictedBadgeHtml = `<span class="priority-badge priority-high" style="background: rgba(255, 77, 77, 0.15); color: var(--danger); border: 1px solid rgba(255, 77, 77, 0.3); font-size: 0.7rem; padding: 0.1rem 0.5rem; border-radius: 4px; font-weight: 600;"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> ${isEn ? 'Confidential Board Only' : 'ความลับเฉพาะกรรมการ'}</span>`;
-                } else if (doc.audience === 'owners') {
-                    restrictedBadgeHtml = `<span class="priority-badge" style="background: rgba(212, 168, 83, 0.07); color: #d4a853; border: 1px solid rgba(212, 168, 83, 0.15); font-size: 0.7rem; padding: 0.1rem 0.5rem; border-radius: 4px; font-weight: 600;"><svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg> ${isEn ? 'Co-owners Only' : 'เฉพาะเจ้าของร่วม'}</span>`;
-                }
-                
-                let langFallbackBadge = "";
-                if (!doc.file_name_th) {
-                    langFallbackBadge = `<span style="background: rgba(255, 215, 0, 0.15); color: #ffd700; border: 1px solid rgba(255, 215, 0, 0.3); font-size: 0.65rem; padding: 0.05rem 0.35rem; border-radius: 4px; margin-left: 0.5rem; font-weight: 600;">${isEn ? 'EN Only' : 'ภาษาอังกฤษเท่านั้น'}</span>`;
-                }
-                
-                let fileEn = doc.file_name_en;
-                if (fileEn && !fileEn.includes('/')) {
-                    fileEn = "DLV Documents/" + fileEn;
-                }
-                let fileTh = doc.file_name_th || doc.file_name_en;
-                if (fileTh && !fileTh.includes('/')) {
-                    fileTh = "DLV Documents/" + fileTh;
-                }
-                
-                card.innerHTML = `
-                    <div style="flex: 1;">
-                        <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
-                            <span class="status-badge" style="background: rgba(212, 168, 83, 0.1); color: #e8c97a; border: 1px solid rgba(212, 168, 83, 0.2); font-size: 0.7rem; padding: 0.1rem 0.5rem; border-radius: 4px; margin-bottom:0;">${cat}</span>
-                            <span style="font-weight: 700; font-size: 0.95rem; color: #fff;">${title}</span>
-                            ${restrictedBadgeHtml}
-                            ${langFallbackBadge}
+        <!-- TRANSLATION TAB -->
+        <div class="tab-panel" id="tab-translation">
+            <div class="card">
+                <h3 style="font-size:1rem;font-weight:600;margin-bottom:var(--space-md)">Bilingual Translation Tool</h3>
+                <div class="trans-grid">
+                    <div class="trans-box">
+                        <div style="display:flex;justify-content:space-between;align-items:center">
+                            <span class="badge badge-gold">English</span>
+                            <button class="btn btn-sm btn-ghost" onclick="doTranslate('en-th')">Translate →</button>
                         </div>
-                        <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; margin-bottom: 0.75rem;">${desc}</p>
-                        <div class="ticket-meta" style="margin-top: 0; display: flex; gap: 1rem; font-size: 0.7rem;">
-                            <span><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> ${isEn ? 'Published:' : 'เผยแพร่เมื่อ:'} ${doc.publish_date}</span>
-                            <span><svg class="icon" viewBox="0 0 24 24"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg> Size: ${isEn ? (doc.file_size_en || doc.file_size_th) : (doc.file_size_th || doc.file_size_en)}</span>
+                        <textarea class="input" id="trans-en" placeholder="Enter English text…"></textarea>
+                    </div>
+                    <div class="trans-box">
+                        <div style="display:flex;justify-content:space-between;align-items:center">
+                            <span class="badge badge-neutral">Thai</span>
+                            <button class="btn btn-sm btn-ghost" onclick="doTranslate('th-en')">← Translate</button>
                         </div>
+                        <textarea class="input" id="trans-th" placeholder="Enter Thai text…"></textarea>
                     </div>
-                    <div style="display: flex; flex-direction: column; gap: 0.5rem; min-width: 140px;">
-                        <a href="${fileEn}" download target="_blank" rel="noopener noreferrer" class="btn-pay" style="padding: 0.4rem 0.75rem; text-align: center; text-decoration: none; font-size: 0.75rem; border-radius: 6px; margin: 0; display: flex; align-items: center; justify-content: center; gap: 0.25rem;">
-                            🇬🇧 ${isEn ? 'Download EN' : 'ดาวน์โหลด EN'}
-                        </a>
-                        <a href="${fileTh}" download target="_blank" rel="noopener noreferrer" class="btn-pay" style="padding: 0.4rem 0.75rem; text-align: center; text-decoration: none; font-size: 0.75rem; border-radius: 6px; margin: 0; background: var(--primary-gradient); box-shadow: 0 2px 8px rgba(212, 168, 83, 0.10); display: flex; align-items: center; justify-content: center; gap: 0.25rem;">
-                            🇹🇭 ${isEn ? 'Download TH' : 'ดาวน์โหลด TH'}
-                        </a>
+                </div>
+                <div class="glossary">
+                    <div class="glossary-title">Juristic Glossary</div>
+                    <div class="glossary-grid" id="glossary-grid">
+                        <!-- Populated by JS -->
                     </div>
-                `;
-                
-                container.appendChild(card);
-            }
-            
-            if (docCount === 0) {
-                container.innerHTML = `
-                    <div style="text-align: center; padding: 3rem; color: var(--text-muted); font-size: 0.9rem;">
-                        <svg class="icon" viewBox="0 0 24 24"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg> ${isEn ? 'No documents available in this category.' : 'ไม่มีเอกสารเผยแพร่ในหมวดหมู่นี้'}
-                    </div>
-                `;
-            }
-        }
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
 
-        async function registerNewDocument(e) {
-            if (e) e.preventDefault();
-            
-            const docId = "doc_" + Date.now();
-            const date = document.getElementById('doc-reg-date').value;
-            const cat = document.getElementById('doc-reg-category').value;
-            const aud = document.getElementById('doc-reg-audience').value;
-            
-            const titleEn = document.getElementById('doc-reg-title-en').value.trim();
-            const titleTh = document.getElementById('doc-reg-title-th').value.trim();
-            const descEn = document.getElementById('doc-reg-desc-en').value.trim();
-            const descTh = document.getElementById('doc-reg-desc-th').value.trim();
-            const fileEn = document.getElementById('doc-reg-file-en').value.trim();
-            const fileTh = document.getElementById('doc-reg-file-th').value.trim() || null;
-            const sizeEn = document.getElementById('doc-reg-size-en').value.trim();
-            const sizeTh = document.getElementById('doc-reg-size-th').value.trim() || sizeEn;
-            
-            const catMapTh = {
-                'Bylaws': 'ข้อบังคับนิติบุคคล',
-                'AGM Minutes': 'รายงานการประชุม AGM',
-                'Meeting Minutes': 'รายงานการประชุมคณะกรรมการ',
-                'Committee Minutes': 'บันทึกการประชุมกรรมการนิติบุคคล',
-                'Announcements': 'ประกาศนิติบุคคล'
-            };
-            
-            const newDoc = {
-                document_id: docId,
-                publish_date: date,
-                category_en: cat,
-                category_th: catMapTh[cat] || cat,
-                title_en: titleEn,
-                title_th: titleTh,
-                description_en: descEn,
-                description_th: descTh,
-                file_name_en: fileEn,
-                file_name_th: fileTh,
-                file_size_en: sizeEn,
-                file_size_th: sizeTh,
-                audience: aud
-            };
-            
-            if (dbRef) {
-                try {
-                    await dbRef.collection('documents').document(docId).set(newDoc);
-                    console.log("Successfully uploaded new document to live Cloud Firestore.");
-                } catch (err) {
-                    console.error("Failed to upload document to Live Firestore: ", err);
-                }
-            }
-            
-            activeDocuments[docId] = newDoc;
-            
-            alert(`Document registered successfully!\nTitle: ${titleEn}\nTarget Audience: ${aud}\nSynced Live with Firestore.`);
-            
-            document.getElementById('doc-reg-title-en').value = "";
-            document.getElementById('doc-reg-title-th').value = "";
-            document.getElementById('doc-reg-desc-en').value = "";
-            document.getElementById('doc-reg-desc-th').value = "";
-            document.getElementById('doc-reg-file-en').value = "";
-            document.getElementById('doc-reg-file-th').value = "";
-            
-            renderDocumentsList();
-            switchTab('documents');
-        }
+<div class="footer" id="footer" style="display:none">
+    © 2026 DLV Thong Lo 20 Juristic Office · Built with care
+</div>
 
-        // Login handling scripts
-        function checkActiveSession() {
-            // Always show the landing/login overlay on page load/refresh to keep user on the landing page
-            document.getElementById('login-overlay').style.display = 'flex';
-            document.getElementById('login-overlay').style.transform = 'translateY(0)';
-            document.getElementById('login-overlay').style.opacity = '1';
-        }
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 
-        function handleCustomLogin(e) {
-            if (e) e.preventDefault();
-            const emailInput = document.getElementById('login-email').value.trim();
-            const passwordInput = document.getElementById('login-password').value;
-            
-            // Check if user exists in our local directory
-            let userFound = null;
-            for (let key in activeUsers) {
-                if (activeUsers[key].email.toLowerCase() === emailInput.toLowerCase()) {
-                    userFound = activeUsers[key];
-                    break;
-                }
-            }
-            
-            if (userFound) {
-                sessionStorage.setItem('activeUserEmail', userFound.email);
-                logLoginToServer(userFound.name, userFound.associated_unit || "Office");
-                
-                // Slide up animation
-                document.getElementById('login-overlay').style.transform = 'translateY(-100%)';
-                document.getElementById('login-overlay').style.opacity = '0';
-                setTimeout(() => {
-                    document.getElementById('login-overlay').style.display = 'none';
-                }, 500);
-                
-                // Reload dashboard state dynamically
-                setupDashboard();
-            } else {
-                alert("Account not found. Please try a demo email or register.");
-            }
-        }
+<script>
+// ═══════════════════════════════════════════
+// DATA & STATE
+// ═══════════════════════════════════════════
 
-        function demoLogin(email) {
-            document.getElementById('login-email').value = email;
-            document.getElementById('login-password').value = "password";
-            handleCustomLogin();
-        }
+let allUnits = {};
+let allUsers = {};
+let currentUser = null;
+let selectedUnit = null;
+let currentLang = 'en';
 
-        function handleSignOut() {
-            sessionStorage.removeItem('activeUserEmail');
-            document.getElementById('login-email').value = "";
-            document.getElementById('login-overlay').style.display = 'flex';
-            
-            // Wait for display change to apply transition smoothly
-            setTimeout(() => {
-                document.getElementById('login-overlay').style.transform = 'translateY(0)';
-                document.getElementById('login-overlay').style.opacity = '1';
-            }, 50);
-        }
+// Juristic glossary
+const glossary = {
+    'Common Area Maintenance': 'ค่าส่วนกลาง',
+    'CAM': 'ค่าส่วนกลาง',
+    'Sinking Fund': 'กองทุนสำรอง',
+    'Ownership Ratio': 'สัดส่วนกรรมสิทธิ์',
+    'Juristic Office': 'สำนักงานนิติบุคคล',
+    'Committee': 'คณะกรรมการ',
+    'Co-owner': 'เจ้าของร่วม',
+    'Tenant': 'ผู้เช่า',
+    'PromptPay': 'พร้อมเพย์',
+    'AGM': 'ที่ประชุมสามัญ',
+    'EGM': 'ที่ประชุมวิสามัญ'
+};
 
-        function logLoginToServer(username, unit) {
-            fetch('/log_login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    username: username,
-                    unit: unit
-                })
-            })
-            .then(res => res.json())
-            .then(data => {
-                console.log("Logged login success:", data);
-            })
-            .catch(err => {
-                console.error("Failed to log login:", err);
-            });
-        }
+// ═══════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════
 
-        function loadAuditLogs() {
-            fetch('/login_audit.log')
-            .then(res => {
-                if (!res.ok) {
-                    throw new Error("Log file not found or empty.");
-                }
-                return res.text();
-            })
-            .then(text => {
-                const box = document.getElementById('admin-audit-log-box');
-                if (box) {
-                    box.textContent = text;
-                    box.scrollTop = box.scrollHeight;
-                }
-            })
-            .catch(err => {
-                const box = document.getElementById('admin-audit-log-box');
-                if (box) {
-                    box.textContent = "No log records found. Logs will appear after the first login session.\n\nDetail: " + err.message;
-                }
-            });
-        }
+async function init() {
+    // Load mock data
+    try {
+        const resp = await fetch('firebase_data_mock.json');
+        const data = await resp.json();
+        allUnits = data.units || {};
+        allUsers = data.users || {};
+    } catch(e) {
+        console.warn('Could not load mock data, using embedded fallback', e);
+    }
 
-        // Run premium on-load initialization
-        window.addEventListener('DOMContentLoaded', () => {
-            initializeDatabase();
+    populateUnitDropdown();
+    populateQuickLogin();
+    populateGlossary();
+
+    // Check session
+    const savedEmail = sessionStorage.getItem('dlv_email');
+    if (savedEmail) {
+        autoLogin(savedEmail);
+    }
+}
+
+function populateUnitDropdown() {
+    const sel = document.getElementById('unit-select');
+    const units = Object.values(allUnits).sort((a,b) => a.unit_number.localeCompare(b.unit_number));
+    units.forEach(u => {
+        const opt = document.createElement('option');
+        opt.value = u.unit_number;
+        const owner = (u.owner_names && u.owner_names[0] !== 'Co-owner') ? u.owner_names[0] : '';
+        opt.textContent = `${u.unit_number} — ${u.sqm} sqm · ${owner || 'Vacant'}`;
+        sel.appendChild(opt);
+    });
+}
+
+function populateQuickLogin() {
+    const container = document.getElementById('quick-login');
+    const quickUsers = [
+        { email: 'gaetanhk@gmail.com', label: 'Committee: Gaetan', unit: '18/78', role: 'Committee' },
+        { email: 'benjamin.pla@example.com', label: 'Co-owner: Benjamin & Pla', unit: '18/79', role: 'Owner' },
+        { email: 'alice.tenant@example.com', label: 'Tenant: Alice', unit: '18/12', role: 'Tenant' },
+        { email: 'manager.juristic@dlv20.com', label: 'Juristic: Ubon', unit: 'Office', role: 'Manager' },
+    ];
+
+    quickUsers.forEach(u => {
+        const btn = document.createElement('button');
+        btn.className = 'btn btn-ghost';
+        btn.style.justifyContent = 'flex-start';
+        btn.style.fontSize = '0.82rem';
+        btn.innerHTML = `<span>${escapeHtml(u.label)}</span><span class="unit-badge">${u.unit}</span>`;
+        btn.onclick = () => quickLogin(u.email);
+        container.appendChild(btn);
+    });
+}
+
+function populateGlossary() {
+    const grid = document.getElementById('glossary-grid');
+    Object.entries(glossary).forEach(([en, th]) => {
+        const div = document.createElement('div');
+        div.innerHTML = `<span style="color:var(--text)">${escapeHtml(en)}</span> → ${escapeHtml(th)}`;
+        grid.appendChild(div);
+    });
+}
+
+// ═══════════════════════════════════════════
+// LOGIN
+// ═══════════════════════════════════════════
+
+function onUnitSelect(unitNum) {
+    const emailField = document.getElementById('email-field');
+    const pwField = document.getElementById('password-field');
+    const btn = document.getElementById('btn-signin');
+
+    if (!unitNum) {
+        emailField.style.display = 'none';
+        pwField.style.display = 'none';
+        btn.disabled = true;
+        return;
+    }
+
+    // Find if this unit has an associated user
+    const unit = allUnits[unitNum.replace('/','_')];
+    const user = findUserByUnit(unitNum);
+
+    if (user) {
+        // Auto-fill email for known users
+        emailField.style.display = 'block';
+        pwField.style.display = 'block';
+        document.getElementById('login-email').value = user.email;
+        btn.disabled = false;
+    } else {
+        // Unknown user — show email field for manual entry
+        emailField.style.display = 'block';
+        pwField.style.display = 'block';
+        document.getElementById('login-email').value = '';
+        document.getElementById('login-email').focus();
+        btn.disabled = false;
+    }
+}
+
+function findUserByUnit(unitNum) {
+    for (const uid of Object.keys(allUsers)) {
+        if (allUsers[uid].associated_unit === unitNum) return allUsers[uid];
+    }
+    return null;
+}
+
+function findUserByEmail(email) {
+    const e = email.toLowerCase();
+    for (const uid of Object.keys(allUsers)) {
+        if (allUsers[uid].email && allUsers[uid].email.toLowerCase() === e) return allUsers[uid];
+    }
+    return null;
+}
+
+function handleLogin(e) {
+    e.preventDefault();
+    const email = document.getElementById('login-email').value.trim();
+    if (!email) return;
+
+    // Accept any email + "password" for demo
+    const pw = document.getElementById('login-password').value;
+    if (pw !== 'password') {
+        alert('Demo password is: password');
+        return;
+    }
+
+    doLogin(email);
+}
+
+function quickLogin(email) {
+    doLogin(email);
+}
+
+function doLogin(email) {
+    const user = findUserByEmail(email);
+    if (user) {
+        currentUser = user;
+        selectedUnit = user.associated_unit || '18/78';
+    } else {
+        // Fallback: create a temp user from the unit selection
+        const unitSel = document.getElementById('unit-select').value;
+        selectedUnit = unitSel || '18/78';
+        currentUser = { name: email.split('@')[0], email: email, roles: ['Resident'], associated_unit: selectedUnit };
+    }
+
+    sessionStorage.setItem('dlv_email', email);
+    showDashboard();
+}
+
+function autoLogin(email) {
+    const user = findUserByEmail(email);
+    if (user) {
+        currentUser = user;
+        selectedUnit = user.associated_unit || '18/78';
+        showDashboard();
+    }
+}
+
+function signOut() {
+    sessionStorage.removeItem('dlv_email');
+    currentUser = null;
+    selectedUnit = null;
+    document.getElementById('login-overlay').classList.remove('hidden');
+    document.getElementById('navbar').style.display = 'none';
+    document.getElementById('main').style.display = 'none';
+    document.getElementById('footer').style.display = 'none';
+    document.getElementById('unit-select').value = '';
+    document.getElementById('email-field').style.display = 'none';
+    document.getElementById('password-field').style.display = 'none';
+    document.getElementById('btn-signin').disabled = true;
+}
+
+// ═══════════════════════════════════════════
+// DASHBOARD
+// ═══════════════════════════════════════════
+
+function showDashboard() {
+    document.getElementById('login-overlay').classList.add('hidden');
+    document.getElementById('navbar').style.display = 'flex';
+    document.getElementById('main').style.display = 'grid';
+    document.getElementById('footer').style.display = 'block';
+
+    const unitId = selectedUnit.replace('/', '_');
+    const unit = allUnits[unitId];
+
+    // Profile
+    document.getElementById('profile-name').textContent = currentUser.name;
+    document.getElementById('profile-role').textContent = (currentUser.roles || []).join(', ');
+    document.getElementById('navbar-subtitle').textContent = `Unit ${selectedUnit}`;
+
+    const details = document.getElementById('profile-details');
+    details.innerHTML = '';
+    const fields = [
+        { label: 'Unit', value: selectedUnit },
+        { label: 'Floor', value: unit ? `Floor ${unit.floor}` : '—' },
+        { label: 'Area', value: unit ? `${unit.sqm} sqm` : '—' },
+        { label: 'Ratio', value: unit ? `${unit.ownership_ratio}` : '—' },
+        { label: 'Status', value: unit ? unit.occupancy_status : '—' },
+        { label: 'Nationality', value: unit ? unit.owner_nationality : '—' },
+    ];
+    fields.forEach(f => {
+        const row = document.createElement('div');
+        row.className = 'detail-row';
+        row.innerHTML = `<span class="detail-label">${f.label}</span><span class="detail-value">${f.value}</span>`;
+        details.appendChild(row);
+    });
+
+    renderPaymentTab(unit);
+    renderMaintenanceTab();
+    renderDirectory();
+    renderDocList();
+    switchTab('payment');
+}
+
+// ═══════════════════════════════════════════
+// PAYMENTS TAB
+// ═══════════════════════════════════════════
+
+function renderPaymentTab(unit) {
+    if (!unit) return;
+
+    const semiannual = unit.cam_base_monthly * 6;
+    const special = unit.cam_special_monthly * 12;
+    const sinking = unit.sinking_fund_monthly * 12;
+    const total = semiannual + special + sinking;
+
+    // Metrics
+    const metrics = document.getElementById('payment-metrics');
+    metrics.innerHTML = `
+        <div class="card metric">
+            <div class="metric-icon gold"><svg class="icon" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+            <div>
+                <div class="metric-value">THB ${formatNum(total)}</div>
+                <div class="metric-label">Semi-Annual Juristic Fee</div>
+            </div>
+        </div>
+        <div class="card metric">
+            <div class="metric-icon neutral"><svg class="icon" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+            <div>
+                <div class="metric-value">1 Active</div>
+                <div class="metric-label">Sauna Sensor Repair</div>
+            </div>
+        </div>
+        <div class="card metric">
+            <div class="metric-icon neutral"><svg class="icon" viewBox="0 0 24 24"><path d="M22 12h-4l-2 3h-4l-2-3H2"/><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg></div>
+            <div>
+                <div class="metric-value">78%</div>
+                <div class="metric-label">CAM Fees Collected</div>
+            </div>
+        </div>
+    `;
+
+    // Fee table
+    const tbody = document.getElementById('fee-table');
+    const rows = [
+        { comp: 'Common Area Maintenance (CAM)', rate: `THB ${unit.cam_base_monthly.toFixed(2)} / sqm`, period: '6 Months', amt: `THB ${formatNum(semiannual)}` },
+        { comp: 'Special Maintenance Fund (Sec 40)', rate: `THB ${unit.cam_special_monthly.toFixed(2)} / sqm`, period: '12 Months', amt: `THB ${formatNum(special)}` },
+        { comp: 'Sinking Fund', rate: `THB ${unit.sinking_fund_monthly.toFixed(2)} / sqm`, period: '12 Months', amt: `THB ${formatNum(sinking)}` },
+    ];
+    tbody.innerHTML = rows.map(r => `
+        <tr><td>${r.comp}</td><td>${r.rate}</td><td>${r.period}</td><td style="text-align:right;font-weight:600">${r.amt}</td>
+    `).join('') + `
+        <tr style="background:var(--bg-elevated)">
+            <td colspan="3" style="font-weight:600">Total</td>
+            <td style="text-align:right;font-weight:700;color:var(--accent)">THB ${formatNum(total)}</td>
+        </tr>
+    `;
+
+    // Progress
+    const pct = 65;
+    document.getElementById('progress-pct').textContent = pct + '%';
+    document.getElementById('progress-label').textContent = 'Paid (2026)';
+    document.getElementById('progress-bar').style.width = pct + '%';
+}
+
+// ═══════════════════════════════════════════
+// MAINTENANCE TAB
+// ═══════════════════════════════════════════
+
+function renderMaintenanceTab() {
+    const tickets = [
+        { title: 'Sauna Sensor Repair', desc: 'Temperature sensor in Finnish sauna B requires recalibration', date: '2026-06-10', priority: 'Medium', status: 'In Progress' },
+        { title: 'Pool pH Balance', desc: 'Quarterly chemical treatment scheduled', date: '2026-06-08', priority: 'Low', status: 'Scheduled' },
+        { title: 'Elevator #2 Inspection', desc: 'Annual safety inspection due', date: '2026-06-15', priority: 'High', status: 'Pending' },
+    ];
+
+    const container = document.getElementById('ticket-list');
+    container.innerHTML = tickets.map(t => `
+        <div class="ticket">
+            <div>
+                <div class="ticket-title">${escapeHtml(t.title)}</div>
+                <div class="ticket-meta">${escapeHtml(t.desc)}</div>
+                <div style="margin-top:4px;font-size:0.7rem;color:var(--text-dim)">${t.date}</div>
+            </div>
+            <div style="display:flex;gap:var(--space-sm);flex-shrink:0">
+                <span class="badge ${t.priority === 'High' ? 'badge-danger' : t.priority === 'Medium' ? 'badge-gold' : 'badge-neutral'}">${t.priority}</span>
+                <span class="badge badge-neutral">${t.status}</span>
+            </div>
+        </div>
+    `).join('');
+}
+
+// ═══════════════════════════════════════════
+// UNIT DIRECTORY TAB
+// ═══════════════════════════════════════════
+
+function renderDirectory() {
+    const filter = document.getElementById('dir-filter').value;
+    const search = (document.getElementById('dir-search').value || '').toLowerCase();
+    const container = document.getElementById('unit-directory');
+
+    let units = Object.values(allUnits);
+
+    // Filter
+    if (filter === 'Foreign') units = units.filter(u => u.owner_nationality === 'Foreign');
+    else if (filter === 'Thai') units = units.filter(u => u.owner_nationality === 'Thai');
+    else if (filter !== 'all') units = units.filter(u => u.occupancy_status === filter);
+
+    // Search
+    if (search) {
+        units = units.filter(u => {
+            const num = (u.unit_number || '').toLowerCase();
+            const names = (u.owner_names || []).join(' ').toLowerCase();
+            return num.includes(search) || names.includes(search);
         });
-    </script>
+    }
+
+    container.innerHTML = units.map(u => {
+        const isSelected = u.unit_number === selectedUnit;
+        return `
+        <div class="unit-card" style="${isSelected ? 'border-color:var(--accent-border);background:var(--accent-bg)' : ''}">
+            <div class="unit-header">
+                <span class="unit-number">${u.unit_number}</span>
+                <span class="badge ${u.occupancy_status === 'Rented' ? 'badge-gold' : 'badge-neutral'}">${u.occupancy_status}</span>
+            </div>
+            <div style="font-size:0.85rem;margin-bottom:var(--space-sm);color:var(--text)">${escapeHtml((u.owner_names || []).join(', '))}</div>
+            <div class="unit-details">
+                <div>Floor <span class="val">${u.floor}</span></div>
+                <div>Size <span class="val">${u.sqm} sqm</span></div>
+                <div>Ratio <span class="val">${u.ownership_ratio}</span></div>
+                <div>Nationality <span class="val">${u.owner_nationality}</span></div>
+            </div>
+        </div>
+    `}).join('');
+}
+
+// ═══════════════════════════════════════════
+// DOCUMENTS TAB
+// ═══════════════════════════════════════════
+
+let registeredDocs = [
+    { title_en: 'AGM Minutes 2026', title_th: 'รายงานการประชุมสามัญ 2026', audience: 'All', date: '2026-03-15' },
+    { title_en: 'By-Laws (Incomplete)', title_th: 'ข้อบังคับนิติบุคคล (ไม่สมบูรณ์)', audience: 'All', date: '2026-03-21' },
+    { title_en: 'Security Change Announcement', title_th: 'ประกาศเปลี่ยนแปลงความปลอดภัย', audience: 'All', date: '2026-06-13' },
+    { title_en: 'Committee Budget Report', title_th: 'รายงานงบประมาณกรรมการ', audience: 'Committee', date: '2026-05-01' },
+];
+
+function renderDocList() {
+    const container = document.getElementById('doc-list');
+    container.innerHTML = `
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Title</th><th>Audience</th><th>Date</th></tr></thead>
+                <tbody>
+                    ${registeredDocs.map(d => `
+                        <tr>
+                            <td>
+                                <div style="font-weight:500">${escapeHtml(d.title_en)}</div>
+                                <div style="font-size:0.75rem;color:var(--text-muted)">${escapeHtml(d.title_th)}</div>
+                            </td>
+                            <td><span class="badge ${d.audience === 'Committee' ? 'badge-gold' : 'badge-neutral'}">${d.audience}</span></td>
+                            <td style="color:var(--text-muted)">${d.date}</td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            </table>
+        </div>
+    `;
+}
+
+function registerDoc() {
+    const doc = {
+        title_en: document.getElementById('doc-title-en').value,
+        title_th: document.getElementById('doc-title-th').value,
+        desc_en: document.getElementById('doc-desc-en').value,
+        desc_th: document.getElementById('doc-desc-th').value,
+        file_en: document.getElementById('doc-file-en').value,
+        file_th: document.getElementById('doc-file-th').value,
+        audience: document.getElementById('doc-audience').value,
+        date: new Date().toISOString().slice(0,10),
+    };
+    if (!doc.title_en) return alert('Please enter a title');
+    registeredDocs.unshift(doc);
+    renderDocList();
+    ['doc-title-en','doc-title-th','doc-desc-en','doc-desc-th','doc-file-en','doc-file-th'].forEach(id => {
+        document.getElementById(id).value = '';
+    });
+}
+
+// ═══════════════════════════════════════════
+// TRANSLATION TAB
+// ═══════════════════════════════════════════
+
+function doTranslate(direction) {
+    const source = direction === 'en-th' ? document.getElementById('trans-en').value : document.getElementById('trans-th').value;
+    const targetId = direction === 'en-th' ? 'trans-th' : 'trans-en';
+    let result = source;
+
+    if (direction === 'en-th') {
+        Object.entries(glossary).forEach(([en, th]) => {
+            const re = new RegExp(en.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+            result = result.replace(re, th);
+        });
+    } else {
+        Object.entries(glossary).forEach(([en, th]) => {
+            const re = new RegExp(th.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+            result = result.replace(re, en);
+        });
+    }
+
+    document.getElementById(targetId).value = result;
+}
+
+// ═══════════════════════════════════════════
+// UTILS
+// ═══════════════════════════════════════════
+
+function switchTab(name) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    event.target.classList.add('active');
+}
+
+function setLang(lang) {
+    currentLang = lang;
+    document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+    document.getElementById('lang-th').classList.toggle('active', lang === 'th');
+}
+
+function generateQR() {
+    const ppId = document.getElementById('qr-pp-id').value;
+    const water = parseFloat(document.getElementById('qr-water').value) || 0;
+    const custom = parseFloat(document.getElementById('qr-custom').value);
+
+    const unitId = selectedUnit.replace('/', '_');
+    const unit = allUnits[unitId];
+    let amount = custom;
+    if (!amount && unit) {
+        amount = unit.total_effective_monthly + water;
+    }
+    if (!amount) amount = 0;
+
+    // Generate a mock QR payload
+    const payload = `00020101021129370016A00000067701011101130066${ppId.slice(-10)}530376454${amount.toFixed(2).padStart(5,'0')}6304`;
+
+    const qrDisplay = document.getElementById('qr-display');
+    qrDisplay.innerHTML = `<svg viewBox="0 0 100 100" width="160" height="160" style="background:#fff;border-radius:8px;padding:8px">
+        <rect x="10" y="10" width="20" height="20" fill="#000"/>
+        <rect x="70" y="10" width="20" height="20" fill="#000"/>
+        <rect x="10" y="70" width="20" height="20" fill="#000"/>
+        <rect x="40" y="40" width="20" height="20" fill="#000"/>
+        <rect x="30" y="10" width="8" height="8" fill="#000"/>
+        <rect x="50" y="30" width="8" height="8" fill="#000"/>
+        <rect x="20" y="50" width="8" height="8" fill="#000"/>
+        <rect x="60" y="60" width="8" height="8" fill="#000"/>
+        <text x="50" y="95" text-anchor="middle" font-size="6" fill="#666">THB ${formatNum(amount)}</text>
+    </svg>`;
+
+    const payloadEl = document.getElementById('qr-payload');
+    payloadEl.style.display = 'block';
+    payloadEl.textContent = `Payload: ${payload}`;
+}
+
+function formatNum(n) {
+    return parseFloat(n).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+}
+
+function escapeHtml(s) {
+    const d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+}
+
+// ═══════════════════════════════════════════
+// BOOT
+// ═══════════════════════════════════════════
+window.addEventListener('DOMContentLoaded', init);
+</script>
 </body>
 </html>
