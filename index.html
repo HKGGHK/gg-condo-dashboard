@@ -145,12 +145,12 @@
         /* ── Inputs ── */
         .input {
             width: 100%;
-            padding: 0.7rem 0.85rem;
+            padding: 0.55rem 0.75rem;
             background: var(--bg-input);
             border: 1px solid var(--border);
-            border-radius: var(--radius-md);
+            border-radius: var(--radius-sm);
             color: var(--text);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-family: inherit;
             transition: var(--transition);
             outline: none;
@@ -210,10 +210,11 @@
             background: var(--bg);
             z-index: var(--z-overlay);
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
-            padding: var(--space-lg);
+            padding: 8vh var(--space-md) var(--space-md);
             transition: opacity 0.3s var(--ease), visibility 0.3s;
+            overflow-y: auto;
         }
         .login-overlay.hidden {
             opacity: 0;
@@ -223,51 +224,57 @@
 
         .login-box {
             width: 100%;
-            max-width: 400px;
-            text-align: center;
+            max-width: 340px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
         }
 
+        .login-head {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-md);
+        }
         .login-logo {
-            width: 48px; height: 48px;
+            width: 32px; height: 32px;
             background: var(--accent-bg);
             border: 1px solid var(--accent-border);
-            border-radius: var(--radius-md);
+            border-radius: var(--radius-sm);
             display: flex; align-items: center; justify-content: center;
-            margin: 0 auto var(--space-lg);
             font-weight: 700;
             color: var(--accent);
-            font-size: 1.1rem;
-        }
-
-        .login-box h1 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: var(--space-xs);
-        }
-        .login-box .subtitle {
             font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .login-head h1 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        .login-head .subtitle {
+            font-size: 0.7rem;
             color: var(--text-muted);
-            margin-bottom: var(--space-xl);
         }
 
         .login-form {
             display: flex;
             flex-direction: column;
-            gap: var(--space-md);
-            text-align: left;
+            gap: var(--space-sm);
         }
 
         .login-form .btn-primary {
             width: 100%;
-            margin-top: var(--space-sm);
+            margin-top: var(--space-xs);
         }
 
         .divider {
             display: flex;
             align-items: center;
-            gap: var(--space-md);
-            margin: var(--space-lg) 0;
-            font-size: 0.75rem;
+            gap: var(--space-sm);
+            margin: var(--space-md) 0 var(--space-sm);
+            font-size: 0.7rem;
             color: var(--text-dim);
         }
         .divider::before, .divider::after {
@@ -280,14 +287,15 @@
         .quick-login {
             display: flex;
             flex-direction: column;
-            gap: var(--space-sm);
+            gap: 4px;
         }
         .quick-login .btn {
             justify-content: flex-start;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
+            padding: 0.45rem 0.65rem;
         }
         .quick-login .btn .unit-badge {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: var(--text-muted);
             margin-left: auto;
         }
@@ -715,9 +723,13 @@
      ═══════════════════════════════════════ -->
 <div id="login-overlay" class="login-overlay" role="dialog" aria-modal="true" aria-label="Sign in">
     <div class="login-box">
-        <div class="login-logo">DLV</div>
-        <h1>DLV Thong Lo 20</h1>
-        <p class="subtitle">Juristic Portal 2.0</p>
+        <div class="login-head">
+            <div class="login-logo">DLV</div>
+            <div>
+                <h1>DLV Thong Lo 20</h1>
+                <div class="subtitle">Juristic Portal 2.0</div>
+            </div>
+        </div>
 
         <form class="login-form" onsubmit="handleLogin(event)">
             <div>
@@ -738,7 +750,6 @@
                 <input type="password" id="login-password" class="input" placeholder="••••••••" value="password">
             </div>
             <button type="submit" class="btn btn-primary" id="btn-signin" disabled>
-                <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                 Sign In
             </button>
         </form>
