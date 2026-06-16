@@ -1,0 +1,1418 @@
+{
+  "units": {
+    "18_1": {
+      "unit_number": "18/1",
+      "floor": 2,
+      "sqm": 82.14,
+      "ownership_ratio": 121.54,
+      "cam_base_monthly": 3696.3,
+      "cam_special_monthly": 1149.96,
+      "sinking_fund_monthly": 435.34,
+      "total_effective_monthly": 5281.6,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_2": {
+      "unit_number": "18/2",
+      "floor": 2,
+      "sqm": 59.6,
+      "ownership_ratio": 77.66,
+      "cam_base_monthly": 2682.0,
+      "cam_special_monthly": 834.4,
+      "sinking_fund_monthly": 315.88,
+      "total_effective_monthly": 3832.28,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_3": {
+      "unit_number": "18/3",
+      "floor": 2,
+      "sqm": 59.7,
+      "ownership_ratio": 77.79,
+      "cam_base_monthly": 2686.5,
+      "cam_special_monthly": 835.8,
+      "sinking_fund_monthly": 316.41,
+      "total_effective_monthly": 3838.71,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_4": {
+      "unit_number": "18/4",
+      "floor": 2,
+      "sqm": 69.96,
+      "ownership_ratio": 91.15,
+      "cam_base_monthly": 3148.2,
+      "cam_special_monthly": 979.44,
+      "sinking_fund_monthly": 370.79,
+      "total_effective_monthly": 4498.43,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_5": {
+      "unit_number": "18/5",
+      "floor": 2,
+      "sqm": 55.11,
+      "ownership_ratio": 71.81,
+      "cam_base_monthly": 2479.95,
+      "cam_special_monthly": 771.54,
+      "sinking_fund_monthly": 292.08,
+      "total_effective_monthly": 3543.57,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Somchai Rakthai",
+        "Nipa Rakthai"
+      ],
+      "tenant_names": []
+    },
+    "18_6": {
+      "unit_number": "18/6",
+      "floor": 2,
+      "sqm": 55.85,
+      "ownership_ratio": 72.77,
+      "cam_base_monthly": 2513.25,
+      "cam_special_monthly": 781.9,
+      "sinking_fund_monthly": 296.0,
+      "total_effective_monthly": 3591.15,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_7": {
+      "unit_number": "18/7",
+      "floor": 2,
+      "sqm": 55.85,
+      "ownership_ratio": 72.77,
+      "cam_base_monthly": 2513.25,
+      "cam_special_monthly": 781.9,
+      "sinking_fund_monthly": 296.0,
+      "total_effective_monthly": 3591.15,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_8": {
+      "unit_number": "18/8",
+      "floor": 2,
+      "sqm": 55.11,
+      "ownership_ratio": 79.72,
+      "cam_base_monthly": 2479.95,
+      "cam_special_monthly": 771.54,
+      "sinking_fund_monthly": 292.08,
+      "total_effective_monthly": 3543.57,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_9": {
+      "unit_number": "18/9",
+      "floor": 2,
+      "sqm": 70.04,
+      "ownership_ratio": 91.26,
+      "cam_base_monthly": 3151.8,
+      "cam_special_monthly": 980.56,
+      "sinking_fund_monthly": 371.21,
+      "total_effective_monthly": 4503.57,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_10": {
+      "unit_number": "18/10",
+      "floor": 2,
+      "sqm": 59.73,
+      "ownership_ratio": 77.82,
+      "cam_base_monthly": 2687.85,
+      "cam_special_monthly": 836.22,
+      "sinking_fund_monthly": 316.57,
+      "total_effective_monthly": 3840.64,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_11": {
+      "unit_number": "18/11",
+      "floor": 2,
+      "sqm": 59.61,
+      "ownership_ratio": 77.67,
+      "cam_base_monthly": 2682.45,
+      "cam_special_monthly": 834.54,
+      "sinking_fund_monthly": 315.93,
+      "total_effective_monthly": 3832.92,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_12": {
+      "unit_number": "18/12",
+      "floor": 2,
+      "sqm": 82.56,
+      "ownership_ratio": 107.57,
+      "cam_base_monthly": 3715.2,
+      "cam_special_monthly": 1155.84,
+      "sinking_fund_monthly": 437.57,
+      "total_effective_monthly": 5308.61,
+      "occupancy_status": "Rented",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Somsak Jaidee"
+      ],
+      "tenant_names": [
+        "Alice Smith"
+      ]
+    },
+    "18_13": {
+      "unit_number": "18/13",
+      "floor": 3,
+      "sqm": 93.63,
+      "ownership_ratio": 129.23,
+      "cam_base_monthly": 4213.35,
+      "cam_special_monthly": 1310.82,
+      "sinking_fund_monthly": 496.24,
+      "total_effective_monthly": 6020.41,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_14": {
+      "unit_number": "18/14",
+      "floor": 3,
+      "sqm": 83.26,
+      "ownership_ratio": 136.06,
+      "cam_base_monthly": 3746.7,
+      "cam_special_monthly": 1165.64,
+      "sinking_fund_monthly": 441.28,
+      "total_effective_monthly": 5353.62,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_15": {
+      "unit_number": "18/15",
+      "floor": 3,
+      "sqm": 59.6,
+      "ownership_ratio": 98.71,
+      "cam_base_monthly": 2682.0,
+      "cam_special_monthly": 834.4,
+      "sinking_fund_monthly": 315.88,
+      "total_effective_monthly": 3832.28,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_16": {
+      "unit_number": "18/16",
+      "floor": 3,
+      "sqm": 59.7,
+      "ownership_ratio": 98.88,
+      "cam_base_monthly": 2686.5,
+      "cam_special_monthly": 835.8,
+      "sinking_fund_monthly": 316.41,
+      "total_effective_monthly": 3838.71,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_17": {
+      "unit_number": "18/17",
+      "floor": 3,
+      "sqm": 69.96,
+      "ownership_ratio": 106.6,
+      "cam_base_monthly": 3148.2,
+      "cam_special_monthly": 979.44,
+      "sinking_fund_monthly": 370.79,
+      "total_effective_monthly": 4498.43,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_18": {
+      "unit_number": "18/18",
+      "floor": 3,
+      "sqm": 55.11,
+      "ownership_ratio": 75.11,
+      "cam_base_monthly": 2479.95,
+      "cam_special_monthly": 771.54,
+      "sinking_fund_monthly": 292.08,
+      "total_effective_monthly": 3543.57,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_19": {
+      "unit_number": "18/19",
+      "floor": 3,
+      "sqm": 55.85,
+      "ownership_ratio": 84.66,
+      "cam_base_monthly": 2513.25,
+      "cam_special_monthly": 781.9,
+      "sinking_fund_monthly": 296.0,
+      "total_effective_monthly": 3591.15,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_20": {
+      "unit_number": "18/20",
+      "floor": 3,
+      "sqm": 55.85,
+      "ownership_ratio": 82.43,
+      "cam_base_monthly": 2513.25,
+      "cam_special_monthly": 781.9,
+      "sinking_fund_monthly": 296.0,
+      "total_effective_monthly": 3591.15,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_21": {
+      "unit_number": "18/21",
+      "floor": 3,
+      "sqm": 55.11,
+      "ownership_ratio": 84.36,
+      "cam_base_monthly": 2479.95,
+      "cam_special_monthly": 771.54,
+      "sinking_fund_monthly": 292.08,
+      "total_effective_monthly": 3543.57,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_22": {
+      "unit_number": "18/22",
+      "floor": 3,
+      "sqm": 70.04,
+      "ownership_ratio": 106.22,
+      "cam_base_monthly": 3151.8,
+      "cam_special_monthly": 980.56,
+      "sinking_fund_monthly": 371.21,
+      "total_effective_monthly": 4503.57,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_23": {
+      "unit_number": "18/23",
+      "floor": 3,
+      "sqm": 59.73,
+      "ownership_ratio": 89.35,
+      "cam_base_monthly": 2687.85,
+      "cam_special_monthly": 836.22,
+      "sinking_fund_monthly": 316.57,
+      "total_effective_monthly": 3840.64,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_24": {
+      "unit_number": "18/24",
+      "floor": 3,
+      "sqm": 59.61,
+      "ownership_ratio": 96.1,
+      "cam_base_monthly": 2682.45,
+      "cam_special_monthly": 834.54,
+      "sinking_fund_monthly": 315.93,
+      "total_effective_monthly": 3832.92,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_25": {
+      "unit_number": "18/25",
+      "floor": 3,
+      "sqm": 83.2,
+      "ownership_ratio": 125.04,
+      "cam_base_monthly": 3744.0,
+      "cam_special_monthly": 1164.8,
+      "sinking_fund_monthly": 440.96,
+      "total_effective_monthly": 5349.76,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_26": {
+      "unit_number": "18/26",
+      "floor": 3,
+      "sqm": 93.26,
+      "ownership_ratio": 132.33,
+      "cam_base_monthly": 4196.7,
+      "cam_special_monthly": 1305.64,
+      "sinking_fund_monthly": 494.28,
+      "total_effective_monthly": 5996.62,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_27": {
+      "unit_number": "18/27",
+      "floor": 4,
+      "sqm": 93.26,
+      "ownership_ratio": 146.37,
+      "cam_base_monthly": 4196.7,
+      "cam_special_monthly": 1305.64,
+      "sinking_fund_monthly": 494.28,
+      "total_effective_monthly": 5996.62,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_28": {
+      "unit_number": "18/28",
+      "floor": 4,
+      "sqm": 83.26,
+      "ownership_ratio": 139.74,
+      "cam_base_monthly": 3746.7,
+      "cam_special_monthly": 1165.64,
+      "sinking_fund_monthly": 441.28,
+      "total_effective_monthly": 5353.62,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_29": {
+      "unit_number": "18/29",
+      "floor": 4,
+      "sqm": 59.6,
+      "ownership_ratio": 101.35,
+      "cam_base_monthly": 2682.0,
+      "cam_special_monthly": 834.4,
+      "sinking_fund_monthly": 315.88,
+      "total_effective_monthly": 3832.28,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_30": {
+      "unit_number": "18/30",
+      "floor": 4,
+      "sqm": 59.7,
+      "ownership_ratio": 101.52,
+      "cam_base_monthly": 2686.5,
+      "cam_special_monthly": 835.8,
+      "sinking_fund_monthly": 316.41,
+      "total_effective_monthly": 3838.71,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_31": {
+      "unit_number": "18/31",
+      "floor": 4,
+      "sqm": 69.96,
+      "ownership_ratio": 118.96,
+      "cam_base_monthly": 3148.2,
+      "cam_special_monthly": 979.44,
+      "sinking_fund_monthly": 370.79,
+      "total_effective_monthly": 4498.43,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_32": {
+      "unit_number": "18/32",
+      "floor": 4,
+      "sqm": 55.11,
+      "ownership_ratio": 84.71,
+      "cam_base_monthly": 2479.95,
+      "cam_special_monthly": 771.54,
+      "sinking_fund_monthly": 292.08,
+      "total_effective_monthly": 3543.57,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_33": {
+      "unit_number": "18/33",
+      "floor": 4,
+      "sqm": 55.85,
+      "ownership_ratio": 92.5,
+      "cam_base_monthly": 2513.25,
+      "cam_special_monthly": 781.9,
+      "sinking_fund_monthly": 296.0,
+      "total_effective_monthly": 3591.15,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_34": {
+      "unit_number": "18/34",
+      "floor": 4,
+      "sqm": 55.85,
+      "ownership_ratio": 86.89,
+      "cam_base_monthly": 2513.25,
+      "cam_special_monthly": 781.9,
+      "sinking_fund_monthly": 296.0,
+      "total_effective_monthly": 3591.15,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_35": {
+      "unit_number": "18/35",
+      "floor": 4,
+      "sqm": 55.11,
+      "ownership_ratio": 90.9,
+      "cam_base_monthly": 2479.95,
+      "cam_special_monthly": 771.54,
+      "sinking_fund_monthly": 292.08,
+      "total_effective_monthly": 3543.57,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_36": {
+      "unit_number": "18/36",
+      "floor": 4,
+      "sqm": 70.04,
+      "ownership_ratio": 119.1,
+      "cam_base_monthly": 3151.8,
+      "cam_special_monthly": 980.56,
+      "sinking_fund_monthly": 371.21,
+      "total_effective_monthly": 4503.57,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_37": {
+      "unit_number": "18/37",
+      "floor": 4,
+      "sqm": 59.73,
+      "ownership_ratio": 88.12,
+      "cam_base_monthly": 2687.85,
+      "cam_special_monthly": 836.22,
+      "sinking_fund_monthly": 316.57,
+      "total_effective_monthly": 3840.64,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_38": {
+      "unit_number": "18/38",
+      "floor": 4,
+      "sqm": 59.61,
+      "ownership_ratio": 87.94,
+      "cam_base_monthly": 2682.45,
+      "cam_special_monthly": 834.54,
+      "sinking_fund_monthly": 315.93,
+      "total_effective_monthly": 3832.92,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_39": {
+      "unit_number": "18/39",
+      "floor": 4,
+      "sqm": 83.2,
+      "ownership_ratio": 129.44,
+      "cam_base_monthly": 3744.0,
+      "cam_special_monthly": 1164.8,
+      "sinking_fund_monthly": 440.96,
+      "total_effective_monthly": 5349.76,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_40": {
+      "unit_number": "18/40",
+      "floor": 4,
+      "sqm": 93.63,
+      "ownership_ratio": 136.47,
+      "cam_base_monthly": 4213.35,
+      "cam_special_monthly": 1310.82,
+      "sinking_fund_monthly": 496.24,
+      "total_effective_monthly": 6020.41,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_41": {
+      "unit_number": "18/41",
+      "floor": 5,
+      "sqm": 93.63,
+      "ownership_ratio": 140.6,
+      "cam_base_monthly": 4213.35,
+      "cam_special_monthly": 1310.82,
+      "sinking_fund_monthly": 496.24,
+      "total_effective_monthly": 6020.41,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_42": {
+      "unit_number": "18/42",
+      "floor": 5,
+      "sqm": 83.26,
+      "ownership_ratio": 145.26,
+      "cam_base_monthly": 3746.7,
+      "cam_special_monthly": 1165.64,
+      "sinking_fund_monthly": 441.28,
+      "total_effective_monthly": 5353.62,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_43": {
+      "unit_number": "18/43",
+      "floor": 5,
+      "sqm": 59.6,
+      "ownership_ratio": 92.79,
+      "cam_base_monthly": 2682.0,
+      "cam_special_monthly": 834.4,
+      "sinking_fund_monthly": 315.88,
+      "total_effective_monthly": 3832.28,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_44": {
+      "unit_number": "18/44",
+      "floor": 5,
+      "sqm": 59.7,
+      "ownership_ratio": 104.15,
+      "cam_base_monthly": 2686.5,
+      "cam_special_monthly": 835.8,
+      "sinking_fund_monthly": 316.41,
+      "total_effective_monthly": 3838.71,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_45": {
+      "unit_number": "18/45",
+      "floor": 5,
+      "sqm": 69.96,
+      "ownership_ratio": 122.05,
+      "cam_base_monthly": 3148.2,
+      "cam_special_monthly": 979.44,
+      "sinking_fund_monthly": 370.79,
+      "total_effective_monthly": 4498.43,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_46": {
+      "unit_number": "18/46",
+      "floor": 5,
+      "sqm": 55.11,
+      "ownership_ratio": 80.32,
+      "cam_base_monthly": 2479.95,
+      "cam_special_monthly": 771.54,
+      "sinking_fund_monthly": 292.08,
+      "total_effective_monthly": 3543.57,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_47": {
+      "unit_number": "18/47",
+      "floor": 5,
+      "sqm": 55.85,
+      "ownership_ratio": 81.4,
+      "cam_base_monthly": 2513.25,
+      "cam_special_monthly": 781.9,
+      "sinking_fund_monthly": 296.0,
+      "total_effective_monthly": 3591.15,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_48": {
+      "unit_number": "18/48",
+      "floor": 5,
+      "sqm": 55.85,
+      "ownership_ratio": 89.12,
+      "cam_base_monthly": 2513.25,
+      "cam_special_monthly": 781.9,
+      "sinking_fund_monthly": 296.0,
+      "total_effective_monthly": 3591.15,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_49": {
+      "unit_number": "18/49",
+      "floor": 5,
+      "sqm": 55.11,
+      "ownership_ratio": 92.13,
+      "cam_base_monthly": 2479.95,
+      "cam_special_monthly": 771.54,
+      "sinking_fund_monthly": 292.08,
+      "total_effective_monthly": 3543.57,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_50": {
+      "unit_number": "18/50",
+      "floor": 5,
+      "sqm": 70.04,
+      "ownership_ratio": 112.78,
+      "cam_base_monthly": 3151.8,
+      "cam_special_monthly": 980.56,
+      "sinking_fund_monthly": 371.21,
+      "total_effective_monthly": 4503.57,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_51": {
+      "unit_number": "18/51",
+      "floor": 5,
+      "sqm": 59.73,
+      "ownership_ratio": 87.06,
+      "cam_base_monthly": 2687.85,
+      "cam_special_monthly": 836.22,
+      "sinking_fund_monthly": 316.57,
+      "total_effective_monthly": 3840.64,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_52": {
+      "unit_number": "18/52",
+      "floor": 5,
+      "sqm": 59.61,
+      "ownership_ratio": 86.88,
+      "cam_base_monthly": 2682.45,
+      "cam_special_monthly": 834.54,
+      "sinking_fund_monthly": 315.93,
+      "total_effective_monthly": 3832.92,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_53": {
+      "unit_number": "18/53",
+      "floor": 5,
+      "sqm": 83.2,
+      "ownership_ratio": 129.53,
+      "cam_base_monthly": 3744.0,
+      "cam_special_monthly": 1164.8,
+      "sinking_fund_monthly": 440.96,
+      "total_effective_monthly": 5349.76,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_54": {
+      "unit_number": "18/54",
+      "floor": 5,
+      "sqm": 93.63,
+      "ownership_ratio": 140.6,
+      "cam_base_monthly": 4213.35,
+      "cam_special_monthly": 1310.82,
+      "sinking_fund_monthly": 496.24,
+      "total_effective_monthly": 6020.41,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_55": {
+      "unit_number": "18/55",
+      "floor": 6,
+      "sqm": 93.63,
+      "ownership_ratio": 142.4,
+      "cam_base_monthly": 4213.35,
+      "cam_special_monthly": 1310.82,
+      "sinking_fund_monthly": 496.24,
+      "total_effective_monthly": 6020.41,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_56": {
+      "unit_number": "18/56",
+      "floor": 6,
+      "sqm": 83.26,
+      "ownership_ratio": 148.93,
+      "cam_base_monthly": 3746.7,
+      "cam_special_monthly": 1165.64,
+      "sinking_fund_monthly": 441.28,
+      "total_effective_monthly": 5353.62,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_57": {
+      "unit_number": "18/57",
+      "floor": 6,
+      "sqm": 59.6,
+      "ownership_ratio": 106.61,
+      "cam_base_monthly": 2682.0,
+      "cam_special_monthly": 834.4,
+      "sinking_fund_monthly": 315.88,
+      "total_effective_monthly": 3832.28,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_58": {
+      "unit_number": "18/58",
+      "floor": 6,
+      "sqm": 59.7,
+      "ownership_ratio": 106.79,
+      "cam_base_monthly": 2686.5,
+      "cam_special_monthly": 835.8,
+      "sinking_fund_monthly": 316.41,
+      "total_effective_monthly": 3838.71,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_59": {
+      "unit_number": "18/59",
+      "floor": 6,
+      "sqm": 69.96,
+      "ownership_ratio": 125.14,
+      "cam_base_monthly": 3148.2,
+      "cam_special_monthly": 979.44,
+      "sinking_fund_monthly": 370.79,
+      "total_effective_monthly": 4498.43,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_60": {
+      "unit_number": "18/60",
+      "floor": 6,
+      "sqm": 55.11,
+      "ownership_ratio": 88.72,
+      "cam_base_monthly": 2479.95,
+      "cam_special_monthly": 771.54,
+      "sinking_fund_monthly": 292.08,
+      "total_effective_monthly": 3543.57,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_61": {
+      "unit_number": "18/61",
+      "floor": 6,
+      "sqm": 55.85,
+      "ownership_ratio": 97.44,
+      "cam_base_monthly": 2513.25,
+      "cam_special_monthly": 781.9,
+      "sinking_fund_monthly": 296.0,
+      "total_effective_monthly": 3591.15,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_62": {
+      "unit_number": "18/62",
+      "floor": 6,
+      "sqm": 55.85,
+      "ownership_ratio": 89.42,
+      "cam_base_monthly": 2513.25,
+      "cam_special_monthly": 781.9,
+      "sinking_fund_monthly": 296.0,
+      "total_effective_monthly": 3591.15,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_63": {
+      "unit_number": "18/63",
+      "floor": 6,
+      "sqm": 55.1,
+      "ownership_ratio": 90.69,
+      "cam_base_monthly": 2479.5,
+      "cam_special_monthly": 771.4,
+      "sinking_fund_monthly": 292.03,
+      "total_effective_monthly": 3542.93,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_64": {
+      "unit_number": "18/64",
+      "floor": 6,
+      "sqm": 70.04,
+      "ownership_ratio": 106.75,
+      "cam_base_monthly": 3151.8,
+      "cam_special_monthly": 980.56,
+      "sinking_fund_monthly": 371.21,
+      "total_effective_monthly": 4503.57,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_65": {
+      "unit_number": "18/65",
+      "floor": 6,
+      "sqm": 59.73,
+      "ownership_ratio": 93.4,
+      "cam_base_monthly": 2687.85,
+      "cam_special_monthly": 836.22,
+      "sinking_fund_monthly": 316.57,
+      "total_effective_monthly": 3840.64,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_66": {
+      "unit_number": "18/66",
+      "floor": 6,
+      "sqm": 59.61,
+      "ownership_ratio": 92.15,
+      "cam_base_monthly": 2682.45,
+      "cam_special_monthly": 834.54,
+      "sinking_fund_monthly": 315.93,
+      "total_effective_monthly": 3832.92,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_67": {
+      "unit_number": "18/67",
+      "floor": 6,
+      "sqm": 83.2,
+      "ownership_ratio": 136.88,
+      "cam_base_monthly": 3744.0,
+      "cam_special_monthly": 1164.8,
+      "sinking_fund_monthly": 440.96,
+      "total_effective_monthly": 5349.76,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_68": {
+      "unit_number": "18/68",
+      "floor": 6,
+      "sqm": 93.63,
+      "ownership_ratio": 165.42,
+      "cam_base_monthly": 4213.35,
+      "cam_special_monthly": 1310.82,
+      "sinking_fund_monthly": 496.24,
+      "total_effective_monthly": 6020.41,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_69": {
+      "unit_number": "18/69",
+      "floor": 7,
+      "sqm": 227.34,
+      "ownership_ratio": 396.63,
+      "cam_base_monthly": 10230.3,
+      "cam_special_monthly": 3182.76,
+      "sinking_fund_monthly": 1204.9,
+      "total_effective_monthly": 14617.96,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_70": {
+      "unit_number": "18/70",
+      "floor": 7,
+      "sqm": 262.46,
+      "ownership_ratio": 457.9,
+      "cam_base_monthly": 11810.7,
+      "cam_special_monthly": 3674.44,
+      "sinking_fund_monthly": 1391.04,
+      "total_effective_monthly": 16876.18,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_71": {
+      "unit_number": "18/71",
+      "floor": 7,
+      "sqm": 158.47,
+      "ownership_ratio": 276.48,
+      "cam_base_monthly": 7131.15,
+      "cam_special_monthly": 2218.58,
+      "sinking_fund_monthly": 839.89,
+      "total_effective_monthly": 10189.62,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_72": {
+      "unit_number": "18/72",
+      "floor": 7,
+      "sqm": 98.83,
+      "ownership_ratio": 165.22,
+      "cam_base_monthly": 4447.35,
+      "cam_special_monthly": 1383.62,
+      "sinking_fund_monthly": 523.8,
+      "total_effective_monthly": 6354.77,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_73": {
+      "unit_number": "18/73",
+      "floor": 7,
+      "sqm": 100.45,
+      "ownership_ratio": 146.74,
+      "cam_base_monthly": 4520.25,
+      "cam_special_monthly": 1406.3,
+      "sinking_fund_monthly": 532.38,
+      "total_effective_monthly": 6458.93,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_74": {
+      "unit_number": "18/74",
+      "floor": 7,
+      "sqm": 101.57,
+      "ownership_ratio": 179.44,
+      "cam_base_monthly": 4570.65,
+      "cam_special_monthly": 1421.98,
+      "sinking_fund_monthly": 538.32,
+      "total_effective_monthly": 6530.95,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_75": {
+      "unit_number": "18/75",
+      "floor": 7,
+      "sqm": 98.25,
+      "ownership_ratio": 166.42,
+      "cam_base_monthly": 4421.25,
+      "cam_special_monthly": 1375.5,
+      "sinking_fund_monthly": 520.73,
+      "total_effective_monthly": 6317.48,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_76": {
+      "unit_number": "18/76",
+      "floor": 7,
+      "sqm": 158.47,
+      "ownership_ratio": 244.98,
+      "cam_base_monthly": 7131.15,
+      "cam_special_monthly": 2218.58,
+      "sinking_fund_monthly": 839.89,
+      "total_effective_monthly": 10189.62,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_77": {
+      "unit_number": "18/77",
+      "floor": 7,
+      "sqm": 66.29,
+      "ownership_ratio": 109.79,
+      "cam_base_monthly": 2983.05,
+      "cam_special_monthly": 928.06,
+      "sinking_fund_monthly": 351.34,
+      "total_effective_monthly": 4262.45,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Thai",
+      "owner_names": [
+        "Co-owner"
+      ],
+      "tenant_names": []
+    },
+    "18_78": {
+      "unit_number": "18/78",
+      "floor": 7,
+      "sqm": 222.12,
+      "ownership_ratio": 387.52,
+      "cam_base_monthly": 9995.4,
+      "cam_special_monthly": 3109.68,
+      "sinking_fund_monthly": 1177.24,
+      "total_effective_monthly": 14282.32,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Foreign",
+      "owner_names": [
+        "Gosset Gaetan Alexandre P."
+      ],
+      "tenant_names": []
+    },
+    "18_79": {
+      "unit_number": "18/79",
+      "floor": 7,
+      "sqm": 220.59,
+      "ownership_ratio": 384.85,
+      "cam_base_monthly": 9926.55,
+      "cam_special_monthly": 3088.26,
+      "sinking_fund_monthly": 1169.13,
+      "total_effective_monthly": 14183.94,
+      "occupancy_status": "Owner-occupied",
+      "owner_nationality": "Foreign",
+      "owner_names": [
+        "Mr. Benjamin Beroud",
+        "Mrs. Pla Beroud"
+      ],
+      "tenant_names": []
+    }
+  },
+  "users": {
+    "gosset_gaetan_alexandre_p": {
+      "name": "Gaetan Alexandre P. Gosset",
+      "email": "gaetanhk@gmail.com",
+      "phone": "086.7100.883",
+      "line_user_id": "hkgghk",
+      "language": "EN",
+      "roles": [
+        "Co-owner",
+        "Committee Member"
+      ],
+      "associated_unit": "18/78"
+    },
+    "benjamin_pla_beroud": {
+      "name": "Mr. Benjamin Beroud & Mrs. Pla Beroud",
+      "email": "benjamin.pla@example.com",
+      "phone": "+66812345679",
+      "line_user_id": "U123456789beroud",
+      "language": "EN",
+      "roles": [
+        "Co-owner"
+      ],
+      "associated_unit": "18/79"
+    },
+    "juristic_manager_demo": {
+      "name": "Ubon Phasuk (Manager)",
+      "email": "manager.juristic@dlv20.com",
+      "phone": "+66898765432",
+      "line_user_id": "U987654321fedcba",
+      "language": "TH",
+      "roles": [
+        "Juristic Manager"
+      ],
+      "associated_unit": null
+    },
+    "juristic_staff_demo": {
+      "name": "Pakasai Metta (Office Staff)",
+      "email": "office.juristic@dlv20.com",
+      "phone": "+66855551234",
+      "line_user_id": "U555551234abcde",
+      "language": "TH",
+      "roles": [
+        "Juristic Staff"
+      ],
+      "associated_unit": null
+    },
+    "mock_tenant_demo": {
+      "name": "Alice Smith (Tenant)",
+      "email": "alice.tenant@example.com",
+      "phone": "+66811112222",
+      "line_user_id": "U11112222tenant",
+      "language": "EN",
+      "roles": [
+        "Tenant"
+      ],
+      "associated_unit": "18/12"
+    },
+    "mock_coowner_demo": {
+      "name": "Somchai Rakthai (Co-owner)",
+      "email": "somchai.coowner@example.com",
+      "phone": "+66822223333",
+      "line_user_id": "U22223333coowner",
+      "language": "TH",
+      "roles": [
+        "Co-owner"
+      ],
+      "associated_unit": "18/5"
+    }
+  },
+  "documents": {
+    "dlv20_bylaws": {
+      "document_id": "dlv20_bylaws",
+      "publish_date": "2025-06-15",
+      "category_en": "Bylaws",
+      "category_th": "ข้อบังคับนิติบุคคล",
+      "title_en": "DLV20 Juristic Bylaws (Official Rules)",
+      "title_th": "ข้อบังคับนิติบุคคลอาคารชุด ดี แอล วี ทองหล่อ 20",
+      "description_en": "Official juristic bylaws and building rules received from the office (English incomplete).",
+      "description_th": "ข้อบังคับนิติบุคคลอาคารชุดและระเบียบร่วมเกี่ยวกับอาคารชุดอย่างเป็นทางการ",
+      "file_name_en": "DLV20 - ByLaws (received from juristic office - incomplete).pdf",
+      "file_name_th": "DLV20 - ByLaws (received from juristic office - incomplete).pdf",
+      "file_size_en": "3.3 MB",
+      "file_size_th": "3.3 MB",
+      "audience": "all"
+    },
+    "agm_minutes_2026": {
+      "document_id": "agm_minutes_2026",
+      "publish_date": "2026-03-15",
+      "category_en": "AGM Minutes",
+      "category_th": "รายงานการประชุม AGM",
+      "title_en": "2026 AGM Minutes (English Corrected)",
+      "title_th": "รายงานการประชุมใหญ่สามัญประจำปี 2569 (AGM) ฉบับปรับปรุง",
+      "description_en": "Official corrected minutes of the 2026 Annual General Meeting of co-owners.",
+      "description_th": "รายงานการประชุมใหญ่สามัญประจำปี 2569 ของเจ้าของร่วม ฉบับปรับปรุงแก้ไขแล้ว",
+      "file_name_en": "2026 AGM Minutes - DLV_RCM26-01_2600315 ( 20 units) EN - CORRECTED.pdf",
+      "file_name_th": "2026 AGM Minutes - DLV_RCM26-01_2600315 ( 20 units) EN - CORRECTED.pdf",
+      "file_size_en": "3.0 MB",
+      "file_size_th": "3.0 MB",
+      "audience": "all"
+    },
+    "board_minutes_2026_q1": {
+      "document_id": "board_minutes_2026_q1",
+      "publish_date": "2026-02-07",
+      "category_en": "Meeting Minutes",
+      "category_th": "รายงานการประชุมคณะกรรมการ",
+      "title_en": "2026 Q1 Board of Directors Meeting Minutes",
+      "title_th": "รายงานการประชุมคณะกรรมการนิติบุคคล ไตรมาส 1/2569",
+      "description_en": "Minutes of the Q1 Board of Directors meeting. Restricted to Committee and staff.",
+      "description_th": "รายงานการประชุมคณะกรรมการอาคารชุดไตรมาสแรกของปี 2569 สงวนสิทธิ์สำหรับคณะกรรมการเท่านั้น",
+      "file_name_en": "2026 Q1 DLV20 Board of Directors meeting minutes - DLV_RJM26-01_260207.pdf",
+      "file_name_th": null,
+      "file_size_en": "226 KB",
+      "file_size_th": null,
+      "audience": "committee"
+    },
+    "modernization_roadmap": {
+      "document_id": "modernization_roadmap",
+      "publish_date": "2026-04-10",
+      "category_en": "Announcements",
+      "category_th": "ประกาศนิติบุคคล",
+      "title_en": "Strategic Digital Modernization Roadmap",
+      "title_th": "กรอบแผนงานการปรับปรุงนิติบุคคลสู่ยุคดิจิทัล",
+      "description_en": "Strategic Framework for juristic workflow modernization and governance optimization.",
+      "description_th": "แผนยุทธศาสตร์และนวัตกรรมการทำงานเพื่อเสริมประสิทธิภาพนิติบุคคลอาคารชุด",
+      "file_name_en": "Strategic Modernization Framework for DLV Thong Lo 20_ A Digital Transformation Roadmap for Juristic Governance and Workflow Optimization.docx",
+      "file_name_th": "Strategic Modernization Framework for DLV Thong Lo 20_ A Digital Transformation Roadmap for Juristic Governance and Workflow Optimization.docx",
+      "file_size_en": "2.9 MB",
+      "file_size_th": "2.9 MB",
+      "audience": "all"
+    },
+    "modernization_tools": {
+      "document_id": "modernization_tools",
+      "publish_date": "2026-03-22",
+      "category_en": "Announcements",
+      "category_th": "ประกาศนิติบุคคล",
+      "title_en": "Notice of Modernization Communication Tools",
+      "title_th": "ประกาศเรื่องการปรับปรุงเครื่องมือการสื่อสารให้ทันสมัย",
+      "description_en": "Juristic announcement detailing modernization of communication and resident registry tools.",
+      "description_th": "เอกสารประกาศจากนิติบุคคลเกี่ยวกับการอัปเดตระบบการสื่อสารและฐานข้อมูลผู้อยู่อาศัย",
+      "file_name_en": "2026032201 - Modernisation Communication tools - การปรับปรุงเครื่องมือการสื่อสารให้ทันสมัย.docx",
+      "file_name_th": "2026032201 - Modernisation Communication tools - การปรับปรุงเครื่องมือการสื่อสารให้ทันสมัย.docx",
+      "file_size_en": "937 KB",
+      "file_size_th": "937 KB",
+      "audience": "all"
+    }
+  }
+}
