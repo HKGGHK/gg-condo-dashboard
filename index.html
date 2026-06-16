@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DLV Thong Lo 20 Juristic Portal — Resident dashboard for Thailand condominium management">
+    <meta property="og:title" content="DLV Thong Lo 20 - Juristic Portal 2.0">
+    <meta property="og:description" content="Digital juristic management for premium condominium living in Bangkok">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'><svg class="icon" viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l8-4 8 4v14M8 21V12a4 4 0 0 1 8 0v9"/></svg></text></svg>">
     <title>DLV Thong Lo 20 - Juristic Portal 2.0</title>
     <!-- Modern Premium Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +36,7 @@
             /* Shadows: warm-tinted, not purple */
             --shadow-glow: 0 8px 32px 0 rgba(212, 168, 83, 0.12);
             --card-shadow: 0 16px 36px 0 rgba(0, 0, 0, 0.45);
-            
+
             /* Semantic */
             --success: #22c55e;
             --warn: #f59e0b;
@@ -56,6 +61,10 @@
             --z-overlay: 500;
             --z-modal: 1000;
         }
+
+        /* SVG Icon System */
+        .icon { width: 1.25em; height: 1.25em; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+
 
         * {
             box-sizing: border-box;
@@ -212,10 +221,8 @@
 
         .glass-card {
             background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
-            border-radius: 24px;
+            border-radius: 20px;
             padding: 1.75rem;
             box-shadow: var(--card-shadow);
             transition: var(--transition-smooth);
@@ -225,7 +232,20 @@
         .glass-card:hover {
             border-color: var(--border-glow);
             box-shadow: var(--shadow-glow);
-            transform: translateY(-4px);
+            transform: translateY(-2px);
+        }
+
+        /* Premium glass: only for login card and key hero elements */
+        .glass-card-premium {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 1.75rem;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition-smooth);
+            position: relative;
         }
 
         .profile-header {
@@ -314,21 +334,18 @@
         }
 
         .bg-purple {
-            background: rgba(212, 168, 83, 0.15);
-            color: #e8c97a;
-            border: 1px solid rgba(212, 168, 83, 0.3);
+            background: rgba(212, 168, 83, 0.10);
+            color: var(--primary-accent);
         }
 
         .bg-cyan {
-            background: rgba(212, 168, 83, 0.07);
-            color: #d4a853;
-            border: 1px solid rgba(212, 168, 83, 0.15);
+            background: rgba(139, 149, 165, 0.08);
+            color: var(--text-muted);
         }
 
         .bg-gold {
-            background: rgba(255, 215, 0, 0.15);
-            color: #ffd700;
-            border: 1px solid rgba(255, 215, 0, 0.3);
+            background: rgba(212, 168, 83, 0.06);
+            color: var(--primary-accent-dark);
         }
 
         .metric-info h3 {
@@ -775,9 +792,10 @@
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 </head>
 <body>
+    <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:var(--z-modal);padding:0.5rem 1rem;background:var(--primary-accent);color:#000;font-weight:600;border-radius:0 0 8px 0;" onfocus="this.style.left=0;this.style.top=0;this.style.width='auto';this.style.height='auto';" onblur="this.style.left='-9999px';this.style.top='auto';this.style.width='1px';this.style.height='1px';">Skip to content</a>
 
     <!-- Beautiful Glassmorphic Landing & Login Page -->
-    <div id="login-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #0a0618 0%, #110d24 100%); z-index: 9999; display: flex; flex-direction: column; overflow-y: auto; justify-content: flex-start; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);">
+    <div id="login-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #0a0618 0%, #110d24 100%); z-index: var(--z-overlay); display: flex; flex-direction: column; overflow-y: auto; justify-content: flex-start; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);">
         
         <div class="landing-container">
             
@@ -817,16 +835,16 @@
                             <label for="login-password" style="font-size: 0.8rem; color: var(--text-muted); font-weight: 500;">Password (use 'password' for demo)</label>
                             <input type="password" id="login-password" class="input-field" value="password" required style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);">
                         </div>
-                        <button type="submit" class="btn-pay" style="width: 100%; margin-top: 0.5rem; background: var(--primary-gradient);">ð Sign In</button>
+                        <button type="submit" class="btn-pay" style="width: 100%; margin-top: 0.5rem; background: var(--primary-gradient);"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg> Sign In</button>
                     </form>
                     
                     <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 1rem; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
-                        <p style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">â¡ Quick Demo Access:</p>
+                        <p style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;"><svg class="icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Quick Demo Access:</p>
                         <div style="display: grid; grid-template-columns: 1fr; gap: 0.4rem;">
-                            <button class="lang-btn" onclick="demoLogin('gaetanhk@gmail.com')" style="padding: 0.4rem; text-align: left; font-size: 0.7rem; border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; width: 100%; background: rgba(212, 168, 83, 0.1);">ð¤ <strong>Unit 18/78</strong> (Committee: Gaetan)</button>
-                            <button class="lang-btn" onclick="demoLogin('benjamin.pla@example.com')" style="padding: 0.4rem; text-align: left; font-size: 0.7rem; border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; width: 100%; background: rgba(212, 168, 83, 0.03);">ð¥ <strong>Unit 18/79</strong> (Co-owner: Benjamin & Pla)</button>
-                            <button class="lang-btn" onclick="demoLogin('alice.tenant@example.com')" style="padding: 0.4rem; text-align: left; font-size: 0.7rem; border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; width: 100%; background: rgba(255, 255, 255, 0.04);">ð <strong>Unit 18/12</strong> (Tenant: Alice)</button>
-                            <button class="lang-btn" onclick="demoLogin('manager.juristic@dlv20.com')" style="padding: 0.4rem; text-align: left; font-size: 0.7rem; border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; width: 100%; background: rgba(255, 215, 0, 0.06);">ð¢ <strong>Juristic</strong> (Manager: Ubon)</button>
+                            <button class="lang-btn" onclick="demoLogin('gaetanhk@gmail.com')" style="padding: 0.4rem; text-align: left; font-size: 0.7rem; border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; width: 100%; background: rgba(212, 168, 83, 0.1);"><svg class="icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> <strong>Unit 18/78</strong> (Committee: Gaetan)</button>
+                            <button class="lang-btn" onclick="demoLogin('benjamin.pla@example.com')" style="padding: 0.4rem; text-align: left; font-size: 0.7rem; border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; width: 100%; background: rgba(212, 168, 83, 0.03);"><svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg> <strong>Unit 18/79</strong> (Co-owner: Benjamin & Pla)</button>
+                            <button class="lang-btn" onclick="demoLogin('alice.tenant@example.com')" style="padding: 0.4rem; text-align: left; font-size: 0.7rem; border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; width: 100%; background: rgba(255, 255, 255, 0.04);"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> <strong>Unit 18/12</strong> (Tenant: Alice)</button>
+                            <button class="lang-btn" onclick="demoLogin('manager.juristic@dlv20.com')" style="padding: 0.4rem; text-align: left; font-size: 0.7rem; border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; width: 100%; background: rgba(255, 215, 0, 0.06);"><svg class="icon" viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l8-4 8 4v14M8 21V12a4 4 0 0 1 8 0v9"/></svg> <strong>Juristic</strong> (Manager: Ubon)</button>
                         </div>
                     </div>
                 </div>
@@ -922,15 +940,15 @@
                     </p>
                     <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; font-size: 1rem; color: var(--text-main); width: 100%;">
                         <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); padding: 1.25rem 2rem; border-radius: 16px; flex: 1; min-width: 200px;">
-                            <span style="font-size: 1.5rem; display: block; margin-bottom: 0.5rem;">ð¢</span>
-                            <strong>Office Hours:</strong><br>Daily 9:00 AM â 6:00 PM
+                            <span style="font-size: 1.5rem; display: block; margin-bottom: 0.5rem;"><svg class="icon" viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l8-4 8 4v14M8 21V12a4 4 0 0 1 8 0v9"/></svg></span>
+                            <strong>Office Hours:</strong><br>Daily 9:00 AM – 6:00 PM
                         </div>
                         <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); padding: 1.25rem 2rem; border-radius: 16px; flex: 1; min-width: 200px;">
-                            <span style="font-size: 1.5rem; display: block; margin-bottom: 0.5rem;">ð</span>
+                            <span style="font-size: 1.5rem; display: block; margin-bottom: 0.5rem;"><svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
                             <strong>Phone Number:</strong><br>+66 (0) 2 123 4567
                         </div>
                         <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); padding: 1.25rem 2rem; border-radius: 16px; flex: 1; min-width: 200px;">
-                            <span style="font-size: 1.5rem; display: block; margin-bottom: 0.5rem;">âï¸</span>
+                            <span style="font-size: 1.5rem; display: block; margin-bottom: 0.5rem;"><svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
                             <strong>Email Address:</strong><br>office.juristic@dlv20.com
                         </div>
                     </div>
@@ -971,7 +989,7 @@
         <div class="sidebar">
             <div class="glass-card">
                 <div class="profile-header">
-                    <div class="profile-avatar">ð¨âð¼</div>
+                    <div class="profile-avatar"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M12 11v2M6 21v-2a6 6 0 0 1 12 0v2"/></svg></div>
                     <div class="profile-name" id="profile-name-text">Gosset Gaetan Alexandre P.</div>
                     <div class="profile-role" id="profile-role-text">Committee Member</div>
                 </div>
@@ -1017,21 +1035,21 @@
             <!-- Dynamic Metric Grid -->
             <div class="metric-grid">
                 <div class="glass-card metric-card" id="card-metric-juristic">
-                    <div class="metric-icon bg-purple">à¸¿</div>
+                    <div class="metric-icon bg-purple">฿</div>
                     <div class="metric-info">
                         <h3 id="widget-effective-cam">THB 85,693.92</h3>
                         <p id="lbl-metric-juristic">Semi-Annual Juristic Fee</p>
                     </div>
                 </div>
                 <div class="glass-card metric-card" id="card-metric-maintenance">
-                    <div class="metric-icon bg-cyan">ð§</div>
+                    <div class="metric-icon bg-cyan"><svg class="icon" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
                     <div class="metric-info">
                         <h3 id="widget-active-maintenance">1 Active</h3>
                         <p id="lbl-metric-sauna">Sauna Sensor Repair</p>
                     </div>
                 </div>
                 <div class="glass-card metric-card" id="card-metric-progress">
-                    <div class="metric-icon bg-gold">ð</div>
+                    <div class="metric-icon bg-gold"><svg class="icon" viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div>
                     <div class="metric-info">
                         <h3 id="widget-cam-progress">78% Target</h3>
                         <p id="lbl-metric-progress">CAM Fees Collected</p>
@@ -1080,7 +1098,7 @@
                                     <tr style="border-top: 2px solid var(--glass-border); font-weight: 600;">
                                         <td id="td-total-juristic">Total Payment Invitation</td>
                                         <td id="td-total-juristic-rate">THB 64.30 / sq.m</td>
-                                        <td id="td-total-juristic-period" style="text-align: center;">â</td>
+                                        <td id="td-total-juristic-period" style="text-align: center;">—</td>
                                         <td id="td-total-juristic-total">THB 111,415.39</td>
                                     </tr>
                                 </tbody>
@@ -1125,7 +1143,7 @@
                             </div>
 
                             <button class="btn-pay" onclick="generatePromptPayQR()">
-                                <span id="lbl-btn-generate">ð± Generate Dynamic PromptPay QR</span>
+                                <span id="lbl-btn-generate"><svg class="icon" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg> Generate Dynamic PromptPay QR</span>
                             </button>
                         </div>
 
@@ -1201,7 +1219,7 @@
                         <div class="trans-box">
                             <div class="trans-header">
                                 <h4 style="font-size: 0.9rem; color: var(--primary-accent);" id="lbl-trans-en-hdr">English Draft (Notice / Invoices)</h4>
-                                <button class="btn-pay" style="padding: 0.35rem 0.75rem; font-size: 0.75rem; margin-top:0;" onclick="translateEnToTh()" id="btn-trans-en">Translate EN â TH</button>
+                                <button class="btn-pay" style="padding: 0.35rem 0.75rem; font-size: 0.75rem; margin-top:0;" onclick="translateEnToTh()" id="btn-trans-en">Translate EN <svg class="icon" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg> TH</button>
                             </div>
                             <textarea id="trans-en-input" class="input-field" style="height: 120px; font-size: 0.85rem; resize: none;">Dear Residents, the AGM is on Saturday. Please cast your e-voting vote or delegate a proxy. Sinking Fund updates are pending.</textarea>
                             <div id="trans-th-output" class="input-field" style="height: 120px; font-size: 0.85rem; background: rgba(0,0,0,0.4); color: var(--text-muted); border-style: dashed; overflow-y: auto;">
@@ -1213,9 +1231,9 @@
                         <div class="trans-box">
                             <div class="trans-header">
                                 <h4 style="font-size: 0.9rem; color: var(--primary-accent);" id="lbl-trans-th-hdr">Thai Draft (Staff Input)</h4>
-                                <button class="btn-pay" style="padding: 0.35rem 0.75rem; font-size: 0.75rem; margin-top:0;" onclick="translateThToEn()" id="btn-trans-th">Translate TH â EN</button>
+                                <button class="btn-pay" style="padding: 0.35rem 0.75rem; font-size: 0.75rem; margin-top:0;" onclick="translateThToEn()" id="btn-trans-th">Translate TH <svg class="icon" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg> EN</button>
                             </div>
-                            <textarea id="trans-th-input" class="input-field" style="height: 120px; font-size: 0.85rem; resize: none;">à¹à¸à¹à¸à¸à¹à¸²à¸§à¸ªà¸²à¸£à¸à¸²à¸£à¸à¹à¸­à¸¡à¹à¸à¸¡à¸à¸²à¸à¸à¸´à¸à¸´à¸à¸¸à¸à¸à¸¥à¸­à¸²à¸à¸²à¸£à¸à¸¸à¸: à¸à¸²à¸£à¸à¹à¸­à¸¡à¹à¸à¸¡à¹à¸ªà¸£à¹à¸à¸ªà¸´à¹à¸à¹à¸¥à¹à¸§à¸ªà¸³à¸«à¸£à¸±à¸ à¹à¸à¸£à¸·à¹à¸­à¸à¹à¸à¹à¸à¹à¸à¸­à¸£à¹à¸à¸§à¸²à¸¡à¸£à¹à¸­à¸à¹à¸ à¸«à¹à¸­à¸à¸à¸²à¸§à¸à¹à¸²</textarea>
+                            <textarea id="trans-th-input" class="input-field" style="height: 120px; font-size: 0.85rem; resize: none;">แจ้งข่าวสารการซ่อมแซมจากนิติบุคคลอาคารชุด: การซ่อมแซมเสร็จสิ้นแล้วสำหรับ เครื่องเซ็นเซอร์ความร้อนใน ห้องซาวน่า</textarea>
                             <div id="trans-en-output" class="input-field" style="height: 120px; font-size: 0.85rem; background: rgba(0,0,0,0.4); color: var(--text-muted); border-style: dashed; overflow-y: auto;">
                                 English Translation output will appear here...
                             </div>
@@ -1228,15 +1246,15 @@
                             <div><strong>English Term</strong></div>
                             <div><strong>Thai Enforced Translation</strong></div>
                             <div>Sinking Fund</div>
-                            <div>à¹à¸à¸´à¸à¸à¸­à¸à¸à¸¸à¸</div>
+                            <div>เงินกองทุน</div>
                             <div>CAM fee</div>
-                            <div>à¸à¹à¸²à¸ªà¹à¸§à¸à¸à¸¥à¸²à¸</div>
+                            <div>ค่าส่วนกลาง</div>
                             <div>Juristic Person</div>
-                            <div>à¸à¸´à¸à¸´à¸à¸¸à¸à¸à¸¥à¸­à¸²à¸à¸²à¸£à¸à¸¸à¸</div>
+                            <div>นิติบุคคลอาคารชุด</div>
                             <div>AGM</div>
-                            <div>à¸à¸²à¸£à¸à¸£à¸°à¸à¸¸à¸¡à¹à¸«à¸à¹à¸ªà¸²à¸¡à¸±à¸à¸à¸£à¸°à¸à¸³à¸à¸µ</div>
+                            <div>การประชุมใหญ่สามัญประจำปี</div>
                             <div>Sauna Room</div>
-                            <div>à¸«à¹à¸­à¸à¸à¸²à¸§à¸à¹à¸²</div>
+                            <div>ห้องซาวน่า</div>
                         </div>
                     </div>
                 </div>
@@ -1261,7 +1279,7 @@
                                 <label for="admin-meter-val">Current Month Water Due (THB):</label>
                                 <input type="number" id="admin-meter-val" class="input-field" value="350">
                             </div>
-                            <button class="btn-pay" onclick="saveAdminMeter()" style="margin-top: 1rem; width: 100%;">ð¾ Save Meter Reading</button>
+                            <button class="btn-pay" onclick="saveAdminMeter()" style="margin-top: 1rem; width: 100%;"><svg class="icon" viewBox="0 0 24 24"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg> Save Meter Reading</button>
                         </div>
                         
                         <div class="trans-box">
@@ -1274,7 +1292,7 @@
                                 <label for="admin-pkg-carrier">Carrier Service / Tracking No.:</label>
                                 <input type="text" id="admin-pkg-carrier" class="input-field" placeholder="e.g. Kerry, Flash, DHL">
                             </div>
-                            <button class="btn-pay" onclick="logPackage()" style="margin-top: 1rem; width: 100%;">ð¦ Register Incoming Courier</button>
+                            <button class="btn-pay" onclick="logPackage()" style="margin-top: 1rem; width: 100%;"><svg class="icon" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Register Incoming Courier</button>
                         </div>
                     </div>
 
@@ -1304,11 +1322,11 @@
                             <div style="display: flex; flex-direction: column; gap: 1rem;">
                                 <div class="input-group">
                                     <label for="doc-reg-title-th">Document Title (Thai):</label>
-                                    <input type="text" id="doc-reg-title-th" class="input-field" placeholder="e.g. à¸£à¸²à¸¢à¸à¸²à¸à¸à¸²à¸£à¸à¸£à¸°à¸à¸¸à¸¡à¸à¸à¸°à¸à¸£à¸£à¸¡à¸à¸²à¸£ à¹à¸à¸£à¸¡à¸²à¸ª 2/2569" required>
+                                    <input type="text" id="doc-reg-title-th" class="input-field" placeholder="e.g. รายงานการประชุมคณะกรรมการ ไตรมาส 2/2569" required>
                                 </div>
                                 <div class="input-group">
                                     <label for="doc-reg-desc-th">Description (Thai):</label>
-                                    <textarea id="doc-reg-desc-th" class="input-field" style="height: 80px; resize: none;" placeholder="à¸­à¸à¸´à¸à¸²à¸¢à¸ªà¸±à¹à¸à¹ à¹à¸à¸µà¹à¸¢à¸§à¸à¸±à¸à¹à¸­à¸à¸ªà¸²à¸£..."></textarea>
+                                    <textarea id="doc-reg-desc-th" class="input-field" style="height: 80px; resize: none;" placeholder="อธิบายสั้นๆ เกี่ยวกับเอกสาร..."></textarea>
                                 </div>
                                 <div class="input-group">
                                     <label for="doc-reg-file-th">Thai File Name (leave empty to fallback to EN):</label>
@@ -1324,11 +1342,11 @@
                                 <div class="input-group">
                                     <label for="doc-reg-category">Category:</label>
                                     <select id="doc-reg-category" class="input-field">
-                                        <option value="Bylaws">Bylaws / à¸à¹à¸­à¸à¸±à¸à¸à¸±à¸</option>
-                                        <option value="AGM Minutes">AGM Minutes / à¸à¸£à¸°à¸à¸¸à¸¡ AGM</option>
-                                        <option value="Meeting Minutes">Meeting Minutes / à¸à¸£à¸°à¸à¸¸à¸¡à¸à¸£à¸£à¸¡à¸à¸²à¸£</option>
-                                        <option value="Committee Minutes">Committee Minutes / à¸à¸±à¸à¸à¸¶à¸à¸à¸£à¸°à¸à¸¸à¸¡à¸à¸à¸°à¸à¸£à¸£à¸¡à¸à¸²à¸£</option>
-                                        <option value="Announcements">Announcements / à¸à¸£à¸°à¸à¸²à¸¨à¸à¸´à¸à¸´</option>
+                                        <option value="Bylaws">Bylaws / ข้อบังคับ</option>
+                                        <option value="AGM Minutes">AGM Minutes / ประชุม AGM</option>
+                                        <option value="Meeting Minutes">Meeting Minutes / ประชุมกรรมการ</option>
+                                        <option value="Committee Minutes">Committee Minutes / บันทึกประชุมคณะกรรมการ</option>
+                                        <option value="Announcements">Announcements / ประกาศนิติ</option>
                                     </select>
                                 </div>
                                 <div class="input-group">
@@ -1345,7 +1363,7 @@
                                 </div>
                             </div>
                             
-                            <button type="submit" class="btn-pay" style="grid-column: span 2; margin-top: 1rem; background: var(--primary-gradient);">ð Publish Bilingual Document to Firestore</button>
+                            <button type="submit" class="btn-pay" style="grid-column: span 2; margin-top: 1rem; background: var(--primary-gradient);"><svg class="icon" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> Publish Bilingual Document to Firestore</button>
                         </form>
                     </div>
 
@@ -1353,7 +1371,7 @@
                     <div class="trans-box" style="margin-top: 2rem;">
                         <h4 style="font-size: 0.95rem; color: var(--danger); margin-bottom: 0.5rem;" id="lbl-admin-audit-title">4. Live System Audit Logs (FileSystem: login_audit.log)</h4>
                         <pre id="admin-audit-log-box" style="height: 200px; overflow-y: auto; background: rgba(0,0,0,0.5); color: #ffd700; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; padding: 1rem; font-family: monospace; font-size: 0.75rem; text-align: left; white-space: pre-wrap; margin-bottom: 1rem; box-shadow: inset 0 2px 8px rgba(0,0,0,0.5);"></pre>
-                        <button class="btn-pay" onclick="loadAuditLogs()" style="font-size:0.75rem; padding: 0.4rem 1rem;" id="lbl-btn-refresh-log">ð Refresh Log File</button>
+                        <button class="btn-pay" onclick="loadAuditLogs()" style="font-size:0.75rem; padding: 0.4rem 1rem;" id="lbl-btn-refresh-log"><svg class="icon" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg> Refresh Log File</button>
                     </div>
                 </div>
             </div>
@@ -1370,12 +1388,12 @@
                         <!-- Category Sidebar filter -->
                         <div class="trans-box" style="padding: 1rem; display: flex; flex-direction: column; gap: 0.5rem;">
                             <h4 style="font-size: 0.9rem; color: var(--primary-accent); margin-bottom: 0.5rem;" id="lbl-docs-categories">Filter Categories</h4>
-                            <button class="lang-btn active" id="btn-doc-filter-all" onclick="filterDocuments('all')" style="width:100%; text-align:left; border-radius: 8px; font-size:0.8rem; padding: 0.5rem 0.75rem;">ð All Documents</button>
-                            <button class="lang-btn" id="btn-doc-filter-bylaws" onclick="filterDocuments('Bylaws')" style="width:100%; text-align:left; border-radius: 8px; font-size:0.8rem; padding: 0.5rem 0.75rem;">ð Bylaws</button>
-                            <button class="lang-btn" id="btn-doc-filter-agm" onclick="filterDocuments('AGM Minutes')" style="width:100%; text-align:left; border-radius: 8px; font-size:0.8rem; padding: 0.5rem 0.75rem;">ð³ï¸ AGM Minutes</button>
-                            <button class="lang-btn" id="btn-doc-filter-minutes" onclick="filterDocuments('Meeting Minutes')" style="width:100%; text-align:left; border-radius: 8px; font-size:0.8rem; padding: 0.5rem 0.75rem;">ð¥ Board Minutes</button>
-                            <button class="lang-btn" id="btn-doc-filter-committee" onclick="filterDocuments('Committee Minutes')" style="width:100%; text-align:left; border-radius: 8px; font-size:0.8rem; padding: 0.5rem 0.75rem;">ð Committee Minutes</button>
-                            <button class="lang-btn" id="btn-doc-filter-announcements" onclick="filterDocuments('Announcements')" style="width:100%; text-align:left; border-radius: 8px; font-size:0.8rem; padding: 0.5rem 0.75rem;">ð¢ Announcements</button>
+                            <button class="lang-btn active" id="btn-doc-filter-all" onclick="filterDocuments('all')" style="width:100%; text-align:left; border-radius: 8px; font-size:0.8rem; padding: 0.5rem 0.75rem;"><svg class="icon" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> All Documents</button>
+                            <button class="lang-btn" id="btn-doc-filter-bylaws" onclick="filterDocuments('Bylaws')" style="width:100%; text-align:left; border-radius: 8px; font-size:0.8rem; padding: 0.5rem 0.75rem;"><svg class="icon" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Bylaws</button>
+                            <button class="lang-btn" id="btn-doc-filter-agm" onclick="filterDocuments('AGM Minutes')" style="width:100%; text-align:left; border-radius: 8px; font-size:0.8rem; padding: 0.5rem 0.75rem;">🗳️ AGM Minutes</button>
+                            <button class="lang-btn" id="btn-doc-filter-minutes" onclick="filterDocuments('Meeting Minutes')" style="width:100%; text-align:left; border-radius: 8px; font-size:0.8rem; padding: 0.5rem 0.75rem;"><svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg> Board Minutes</button>
+                            <button class="lang-btn" id="btn-doc-filter-committee" onclick="filterDocuments('Committee Minutes')" style="width:100%; text-align:left; border-radius: 8px; font-size:0.8rem; padding: 0.5rem 0.75rem;"><svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Committee Minutes</button>
+                            <button class="lang-btn" id="btn-doc-filter-announcements" onclick="filterDocuments('Announcements')" style="width:100%; text-align:left; border-radius: 8px; font-size:0.8rem; padding: 0.5rem 0.75rem;"><svg class="icon" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><line x1="9" y1="10" x2="15" y2="10"/><line x1="12" y1="7" x2="12" y2="13"/></svg> Announcements</button>
                         </div>
 
                         <!-- Documents Grid -->
@@ -1542,22 +1560,22 @@
             
             if (nameEl) nameEl.innerText = displayName;
             if (welcomeEl) {
-                welcomeEl.innerText = isEn ? `Welcome Back, ${firstName}!` : `à¸¢à¸´à¸à¸à¸µà¸à¹à¸­à¸à¸£à¸±à¸à¸à¸¥à¸±à¸ à¸à¸¸à¸${firstName}!`;
+                welcomeEl.innerText = isEn ? `Welcome Back, ${firstName}!` : `ยินดีต้อนรับกลับ คุณ${firstName}!`;
             }
             
             // Dynamic Role string in sidebar
             const roleEl = document.getElementById('profile-role-text');
             if (roleEl) {
                 if (activeRole === 'juristic_manager') {
-                    roleEl.innerText = isEn ? 'Juristic Manager' : 'à¸à¸¹à¹à¸à¸±à¸à¸à¸²à¸£à¸à¸´à¸à¸´à¸à¸¸à¸à¸à¸¥';
+                    roleEl.innerText = isEn ? 'Juristic Manager' : 'ผู้จัดการนิติบุคคล';
                 } else if (activeRole === 'juristic_staff') {
-                    roleEl.innerText = isEn ? 'Juristic Staff' : 'à¹à¸à¹à¸²à¸«à¸à¹à¸²à¸à¸µà¹à¸à¸´à¸à¸´à¸à¸¸à¸à¸à¸¥';
+                    roleEl.innerText = isEn ? 'Juristic Staff' : 'เจ้าหน้าที่นิติบุคคล';
                 } else if (activeRole === 'committee_member') {
-                    roleEl.innerText = isEn ? 'Committee Member' : 'à¸à¸£à¸£à¸¡à¸à¸²à¸£à¸à¸´à¸à¸´à¸à¸¸à¸à¸à¸¥à¸­à¸²à¸à¸²à¸£à¸à¸¸à¸';
+                    roleEl.innerText = isEn ? 'Committee Member' : 'กรรมการนิติบุคคลอาคารชุด';
                 } else if (activeRole === 'tenant') {
-                    roleEl.innerText = isEn ? 'Resident Tenant' : 'à¸à¸¹à¹à¹à¸à¹à¸²à¸à¸±à¸à¸­à¸²à¸¨à¸±à¸¢';
+                    roleEl.innerText = isEn ? 'Resident Tenant' : 'ผู้เช่าพักอาศัย';
                 } else {
-                    roleEl.innerText = isEn ? 'Co-owner' : 'à¹à¸à¹à¸²à¸à¸­à¸à¸£à¹à¸§à¸¡';
+                    roleEl.innerText = isEn ? 'Co-owner' : 'เจ้าของร่วม';
                 }
             }
             
@@ -1569,27 +1587,27 @@
             
             const fVal = document.getElementById('val-floor');
             if (fVal) {
-                fVal.innerText = isEn ? `${unit.floor}th Floor` : `à¸à¸±à¹à¸ ${unit.floor}`;
+                fVal.innerText = isEn ? `${unit.floor}th Floor` : `ชั้น ${unit.floor}`;
             }
             
             const sVal = document.getElementById('val-size');
             if (sVal) {
-                sVal.innerText = isEn ? `${unit.sqm.toFixed(2)} SQ.M` : `${unit.sqm.toFixed(2)} à¸à¸²à¸£à¸²à¸à¹à¸¡à¸à¸£`;
+                sVal.innerText = isEn ? `${unit.sqm.toFixed(2)} SQ.M` : `${unit.sqm.toFixed(2)} ตารางเมตร`;
             }
             
             const rVal = document.getElementById('val-ratio');
             if (rVal) {
-                rVal.innerText = isEn ? `${unit.ownership_ratio.toFixed(2)} ratio` : `${unit.ownership_ratio.toFixed(2)} à¸­à¸±à¸à¸£à¸²à¸ªà¹à¸§à¸`;
+                rVal.innerText = isEn ? `${unit.ownership_ratio.toFixed(2)} ratio` : `${unit.ownership_ratio.toFixed(2)} อัตราส่วน`;
             }
             
             const resVal = document.getElementById('val-resident');
             if (resVal) {
                 if (unit.occupancy_status === 'Rented') {
-                    resVal.innerText = isEn ? 'Rented Out' : 'à¹à¸«à¹à¹à¸à¹à¸²à¸à¸±à¸à¸­à¸²à¸¨à¸±à¸¢';
+                    resVal.innerText = isEn ? 'Rented Out' : 'ให้เช่าพักอาศัย';
                 } else {
                     resVal.innerText = unit.owner_nationality === 'Foreign' ? 
-                        (isEn ? 'Foreign Owner' : 'à¹à¸à¹à¸²à¸à¸­à¸à¸£à¹à¸§à¸¡à¸à¸²à¸§à¸à¹à¸²à¸à¸à¸²à¸à¸´') : 
-                        (isEn ? 'Thai Owner' : 'à¹à¸à¹à¸²à¸à¸­à¸à¸£à¹à¸§à¸¡à¸à¸²à¸§à¹à¸à¸¢');
+                        (isEn ? 'Foreign Owner' : 'เจ้าของร่วมชาวต่างชาติ') : 
+                        (isEn ? 'Thai Owner' : 'เจ้าของร่วมชาวไทย');
                 }
             }
             
@@ -1598,21 +1616,21 @@
             const reserveSf = unit.sqm * baseSf;
             const baseSfEl = document.getElementById('val-sf-base');
             if (baseSfEl) {
-                baseSfEl.innerText = isEn ? `THB ${baseSf} / sq.m` : `${baseSf} à¸à¸²à¸ / à¸à¸£.à¸¡.`;
+                baseSfEl.innerText = isEn ? `THB ${baseSf} / sq.m` : `${baseSf} บาท / ตร.ม.`;
             }
             
             const reserveSfEl = document.getElementById('val-sf-reserve');
             if (reserveSfEl) {
-                reserveSfEl.innerText = isEn ? `THB ${reserveSf.toLocaleString('en-US', {minimumFractionDigits: 2})}` : `${reserveSf.toLocaleString('en-US', {minimumFractionDigits: 2})} à¸à¸²à¸`;
+                reserveSfEl.innerText = isEn ? `THB ${reserveSf.toLocaleString('en-US', {minimumFractionDigits: 2})}` : `${reserveSf.toLocaleString('en-US', {minimumFractionDigits: 2})} บาท`;
             }
 
             // Badge text updates
             const badgeEl = document.getElementById('badge-pilot-text');
             if (badgeEl) {
                 if (activeRole === 'juristic_manager' || activeRole === 'juristic_staff') {
-                    badgeEl.innerText = isEn ? 'Juristic Office Console' : 'à¸£à¸°à¸à¸à¸ªà¸³à¸à¸±à¸à¸à¸²à¸à¸à¸´à¸à¸´à¸à¸¸à¸à¸à¸¥';
+                    badgeEl.innerText = isEn ? 'Juristic Office Console' : 'ระบบสำนักงานนิติบุคคล';
                 } else {
-                    badgeEl.innerText = isEn ? `Unit ${unit.unit_number} Portal` : `à¸£à¸°à¸à¸à¸¢à¸¹à¸à¸´à¸ ${unit.unit_number}`;
+                    badgeEl.innerText = isEn ? `Unit ${unit.unit_number} Portal` : `ระบบยูนิต ${unit.unit_number}`;
                 }
             }
         }
@@ -1659,12 +1677,12 @@
             if (juristicMetric) {
                 if (isTenant) {
                     juristicMetric.style.display = 'flex';
-                    document.getElementById('lbl-metric-juristic').innerText = isEn ? 'Tenant Water Due' : 'à¸à¹à¸²à¸à¹à¸³à¸à¸£à¸°à¸à¸²à¸à¸¹à¹à¹à¸à¹à¸²';
+                    document.getElementById('lbl-metric-juristic').innerText = isEn ? 'Tenant Water Due' : 'ค่าน้ำประปาผู้เช่า';
                 } else if (isAdmin) {
                     juristicMetric.style.display = 'none';
                 } else {
                     juristicMetric.style.display = 'flex';
-                    document.getElementById('lbl-metric-juristic').innerText = isEn ? 'Semi-Annual Juristic Fee' : 'à¸à¹à¸²à¸à¸£à¸£à¸¡à¹à¸à¸µà¸¢à¸¡à¸à¸´à¸à¸´à¸¡à¸à¸´ 6 à¹à¸à¸·à¸­à¸';
+                    document.getElementById('lbl-metric-juristic').innerText = isEn ? 'Semi-Annual Juristic Fee' : 'ค่าธรรมเนียมนิติมติ 6 เดือน';
                 }
             }
             
@@ -1744,7 +1762,7 @@
                 'profile-role-text': 'Committee Member',
                 'hero-welcome-title': 'Welcome Back, Gaetan!',
                 'hero-welcome-desc': 'Manage your unit fees, track building maintenance, and review AGM votes in real-time.',
-                'hero-lang-toggle-text': 'ð Translate to Thai (à¹à¸à¸¥à¹à¸à¹à¸à¹à¸à¸¢)',
+                'hero-lang-toggle-text': '<svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> Translate to Thai (แปลเป็นไทย)',
                 'lbl-unit': 'Designated Unit',
                 'lbl-floor': 'Floor',
                 'val-floor': '7th Floor',
@@ -1773,7 +1791,7 @@
                 'lbl-docs-categories': 'Filter Categories',
                 'lbl-admin-doc-title': '3. Register Bilingual Juristic Document',
                 'lbl-admin-audit-title': '4. Live System Audit Logs (FileSystem: login_audit.log)',
-                'lbl-btn-refresh-log': 'ð Refresh Log File',
+                'lbl-btn-refresh-log': '<svg class="icon" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg> Refresh Log File',
                 'lbl-payment-title': 'PromptPay QR Payment Generator',
                 'lbl-payment-subtitle': 'This widget generates dynamic PromptPay QR payloads for the current payment invitation cycle with dynamic CRC16 calculations.',
                 'th-component': 'Fee Component',
@@ -1787,7 +1805,7 @@
                 'lbl-water-input': 'Add Monthly Water Meter Fee (THB):',
                 'lbl-custom-amount': 'Or Enter Custom Payment Amount (THB - overrides total):',
                 'custom-amount': 'e.g. 5000',
-                'lbl-btn-generate': 'ð± Generate Dynamic PromptPay QR',
+                'lbl-btn-generate': '<svg class="icon" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg> Generate Dynamic PromptPay QR',
                 'lbl-qr-title': 'Dynamic PromptPay QR',
                 'lbl-qr-generate-hint': 'Tap Generate to load EMVCo code',
                 'lbl-maint-title': 'Asset Life-Cycle & Preventive Logs',
@@ -1805,90 +1823,90 @@
                 'lbl-trans-title': 'Bilingual DeepL Translation Glossaries',
                 'lbl-trans-subtitle': 'This module simulates official bi-directional translations, enforcing precise juristic terms between Thai staff and foreign residents.',
                 'lbl-trans-en-hdr': 'English Draft (Notice / Invoices)',
-                'btn-trans-en': 'Translate EN â TH',
+                'btn-trans-en': 'Translate EN <svg class="icon" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg> TH',
                 'lbl-trans-th-hdr': 'Thai Draft (Staff Input)',
-                'btn-trans-th': 'Translate TH â EN',
+                'btn-trans-th': 'Translate TH <svg class="icon" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg> EN',
                 'lbl-gloss-hdr': 'Custom Enforced Glossaries (DLV 2.0 Library)',
                 'lbl-footer': '&copy; 2026 DLV Thong Lo 20 Juristic Person. Built under supervision of the Co-owners Committee. All rights reserved.',
                 'widget-active-maintenance': '1 Active',
                 'widget-cam-progress': '78% Target'
             },
             'TH': {
-                'brand-title': 'à¸à¸µ à¹à¸­à¸¥ à¸§à¸µ à¸à¸­à¸à¸«à¸¥à¹à¸­ 20',
-                'brand-subtitle': 'à¸£à¸°à¸à¸à¸à¸²à¸£à¸à¸±à¸à¸à¸²à¸£à¸à¸´à¸à¸´à¸à¸¸à¸à¸à¸¥à¸à¸´à¸à¸´à¸à¸±à¸¥ 2.0',
-                'badge-pilot-text': 'à¸£à¸°à¸à¸à¸à¸²à¸£à¸à¸±à¸à¸à¸²à¸£à¸à¸³à¸£à¹à¸­à¸ à¸¢à¸¹à¸à¸´à¸ 18/78',
-                'profile-name-text': 'à¸à¸¸à¸ à¸à¸­à¸ªà¹à¸à¸à¹ à¹à¸à¸à¸­à¸ à¸­à¹à¸¥à¹à¸à¸à¸­à¸à¸à¹ à¸à¸µ.',
-                'profile-role-text': 'à¸à¸£à¸£à¸¡à¸à¸²à¸£à¸à¸´à¸à¸´à¸à¸¸à¸à¸à¸¥à¸­à¸²à¸à¸²à¸£à¸à¸¸à¸',
-                'hero-welcome-title': 'à¸¢à¸´à¸à¸à¸µà¸à¹à¸­à¸à¸£à¸±à¸à¸à¸¥à¸±à¸ à¸à¸¸à¸à¸à¸­à¸ªà¹à¸à¸à¹!',
-                'hero-welcome-desc': 'à¸à¸±à¸à¸à¸²à¸£à¸à¹à¸²à¸ªà¹à¸§à¸à¸à¸¥à¸²à¸ à¸à¸´à¸à¸à¸²à¸¡à¸à¸±à¸à¸à¸¶à¸à¸à¸²à¸£à¸à¹à¸­à¸¡à¸à¸³à¸£à¸¸à¸à¸­à¸²à¸à¸²à¸£ à¹à¸¥à¸°à¸à¸£à¸§à¸à¸ªà¸­à¸à¸¡à¸à¸´à¸à¸£à¸°à¸à¸¸à¸¡à¹à¸«à¸à¹à¸£à¹à¸§à¸¡à¹à¸à¸à¹à¸£à¸µà¸¢à¸¥à¹à¸à¸¡à¹',
-                'hero-lang-toggle-text': 'ð Translate to English (à¹à¸à¸¥à¹à¸à¹à¸à¸­à¸±à¸à¸à¸¤à¸©)',
-                'lbl-unit': 'à¸¢à¸¹à¸à¸´à¸à¸à¸µà¹à¸à¸³à¸«à¸à¸',
-                'lbl-floor': 'à¸à¸±à¹à¸à¸­à¸²à¸à¸²à¸£',
-                'val-floor': 'à¸à¸±à¹à¸ 7',
-                'lbl-size': 'à¸à¸à¸²à¸à¸à¸·à¹à¸à¸à¸µà¹à¸¢à¸¹à¸à¸´à¸',
-                'val-size': '222.12 à¸à¸²à¸£à¸²à¸à¹à¸¡à¸à¸£',
-                'lbl-ratio': 'à¸­à¸±à¸à¸£à¸²à¸ªà¹à¸§à¸à¸à¸£à¸£à¸¡à¸ªà¸´à¸à¸à¸´à¹',
-                'val-ratio': '387.52 à¸­à¸±à¸à¸£à¸²à¸ªà¹à¸§à¸',
-                'lbl-resident': 'à¸à¸£à¸°à¹à¸ à¸à¸à¸¹à¹à¸­à¸¢à¸¹à¹à¸­à¸²à¸¨à¸±à¸¢',
-                'val-resident': 'à¹à¸à¹à¸²à¸à¸­à¸à¸£à¹à¸§à¸¡à¸à¸²à¸§à¸à¹à¸²à¸à¸à¸²à¸à¸´',
-                'lbl-sf-header': 'à¸à¸²à¸£à¸à¸±à¸à¸ªà¸£à¸£à¹à¸à¸´à¸à¸à¸­à¸à¸à¸¸à¸à¸ªà¸°à¸ªà¸¡',
-                'lbl-sf-base': 'à¹à¸à¸´à¸à¸à¸­à¸à¸à¸¸à¸à¸ªà¸°à¸ªà¸¡à¹à¸£à¸´à¹à¸¡à¸à¹à¸',
-                'val-sf-base': '500 à¸à¸²à¸ / à¸à¸£.à¸¡.',
-                'lbl-sf-reserve': 'à¹à¸à¸´à¸à¸à¸­à¸à¸à¸¸à¸à¸ªà¸°à¸ªà¸¡à¸à¸­à¸à¸¢à¸¹à¸à¸´à¸',
-                'val-sf-reserve': '111,060.00 à¸à¸²à¸',
-                'lbl-sf-agenda': 'à¹à¸à¸´à¸à¸ªà¸°à¸ªà¸¡à¸à¸´à¹à¸¨à¸©à¸à¸²à¸¡à¸§à¸²à¸£à¸°à¸à¸µà¹ 7',
-                'val-sf-agenda': '5.30 à¸à¸²à¸ / à¸à¸£.à¸¡. / à¹à¸à¸·à¸­à¸',
-                'lbl-metric-juristic': 'à¸à¹à¸²à¸à¸£à¸£à¸¡à¹à¸à¸µà¸¢à¸¡à¸à¸´à¸à¸´à¸¡à¸à¸´ 6 à¹à¸à¸·à¸­à¸',
-                'lbl-metric-sauna': 'à¸à¹à¸­à¸¡à¹à¸à¹à¸à¹à¸à¸­à¸£à¹à¸à¸²à¸§à¸à¹à¸²',
-                'lbl-metric-progress': 'à¸à¸±à¸à¹à¸à¹à¸à¸à¹à¸²à¸ªà¹à¸§à¸à¸à¸¥à¸²à¸à¹à¸¥à¹à¸§',
-                'tab-btn-payment': 'à¸à¸³à¸£à¸°à¹à¸à¸´à¸à¸£à¸­à¸ 6 à¹à¸à¸·à¸­à¸',
-                'tab-btn-maintenance': 'à¸à¸²à¸£à¸à¹à¸­à¸¡à¸à¸³à¸£à¸¸à¸à¹à¸à¸´à¸à¸à¹à¸­à¸à¸à¸±à¸',
-                'tab-btn-translation': 'à¹à¸à¸¥à¸ à¸²à¸©à¸²à¸à¸²à¸¡à¸à¸à¸«à¸¡à¸²à¸¢',
-                'tab-btn-documents': 'à¸à¸¥à¸±à¸à¹à¸­à¸à¸ªà¸²à¸£à¸à¸´à¸à¸´',
-                'lbl-docs-title': 'à¸à¸¥à¸±à¸à¹à¸­à¸à¸ªà¸²à¸£à¸à¸´à¸à¸´à¸à¸¸à¸à¸à¸¥à¸ªà¸­à¸à¸ à¸²à¸©à¸²',
-                'lbl-docs-subtitle': 'à¹à¸à¹à¸²à¸à¸¶à¸à¸à¹à¸­à¸à¸±à¸à¸à¸±à¸à¸à¸´à¸à¸´à¸à¸¸à¸à¸à¸¥à¸­à¸²à¸à¸²à¸£à¸à¸¸à¸ à¸£à¸²à¸¢à¸à¸²à¸à¸à¸²à¸£à¸à¸£à¸°à¸à¸¸à¸¡ AGM à¸£à¸²à¸¢à¸à¸²à¸à¸à¸²à¸£à¸à¸£à¸°à¸à¸¸à¸¡à¸à¸£à¸£à¸¡à¸à¸²à¸£ à¹à¸¥à¸°à¸à¸£à¸°à¸à¸²à¸¨à¸à¸­à¸à¸à¸´à¸à¸´à¸à¸¸à¸à¸à¸¥à¸à¸±à¹à¸§à¹à¸à¹à¸à¸£à¸¹à¸à¹à¸à¸à¸ªà¸­à¸à¸ à¸²à¸©à¸²',
-                'lbl-docs-categories': 'à¸à¸£à¸­à¸à¸à¸²à¸¡à¸«à¸¡à¸§à¸à¸«à¸¡à¸¹à¹',
-                'lbl-admin-doc-title': '3. à¸¥à¸à¸à¸°à¹à¸à¸µà¸¢à¸à¹à¸­à¸à¸ªà¸²à¸£à¸à¸´à¸à¸´à¸à¸¸à¸à¸à¸¥à¸ªà¸­à¸à¸ à¸²à¸©à¸²',
-                'lbl-admin-audit-title': '4. à¸à¸±à¸à¸à¸¶à¸à¸à¸²à¸£à¹à¸à¹à¸²à¹à¸à¹à¸à¸²à¸à¸£à¸°à¸à¸à¹à¸à¸à¹à¸£à¸µà¸¢à¸¥à¹à¸à¸¡à¹ (à¸£à¸°à¸à¸à¹à¸à¸¥à¹: login_audit.log)',
-                'lbl-btn-refresh-log': 'ð à¸£à¸µà¹à¸à¸£à¸à¹à¸à¸¥à¹à¸à¸±à¸à¸à¸¶à¸à¸à¸²à¸£à¹à¸à¹à¸à¸²à¸',
-                'lbl-payment-title': 'à¹à¸à¸£à¸·à¹à¸­à¸à¸¡à¸·à¸­à¸ªà¸£à¹à¸²à¸à¸à¸´à¸§à¸­à¸²à¸£à¹à¸à¸£à¹à¸­à¸¡à¹à¸à¸¢à¹à¸à¸³à¸£à¸°à¹à¸à¸´à¸à¸à¹à¸²à¸ªà¹à¸§à¸à¸à¸¥à¸²à¸à¸à¸´à¸à¸´à¸à¸¸à¸à¸à¸¥',
-                'lbl-payment-subtitle': 'à¸ªà¹à¸§à¸à¸à¸µà¹à¸à¸³à¸¥à¸­à¸à¸à¸²à¸£à¸ªà¸£à¹à¸²à¸à¸à¸´à¸§à¸­à¸²à¸£à¹à¸à¸£à¹à¸­à¸¡à¹à¸à¸¢à¹à¸à¸²à¸¡à¸£à¸­à¸à¸à¸³à¸£à¸°à¹à¸à¹à¸à¹à¸à¸«à¸à¸µà¹à¸à¸£à¹à¸­à¸¡à¸£à¸°à¸à¸à¸à¸³à¸à¸§à¸ CRC16 à¹à¸à¸à¹à¸£à¸µà¸¢à¸¥à¹à¸à¸¡à¹',
-                'th-component': 'à¸£à¸²à¸¢à¸à¸²à¸£à¸à¹à¸²à¸ªà¹à¸§à¸à¸à¸¥à¸²à¸',
-                'th-rate': 'à¸­à¸±à¸à¸£à¸²à¸ªà¹à¸§à¸à¸£à¸²à¸¢à¹à¸à¸·à¸­à¸',
-                'th-total': 'à¸¢à¸­à¸à¸£à¸§à¸¡à¹à¸£à¸µà¸¢à¸à¹à¸à¹à¸',
-                'td-cam-base': 'à¸à¹à¸²à¸ªà¹à¸§à¸à¸à¸¥à¸²à¸à¸à¸±à¹à¸§à¹à¸ (CAM Base)',
-                'td-cam-special': 'à¹à¸à¸´à¸à¸ªà¸°à¸ªà¸¡à¸à¸´à¹à¸¨à¸©à¹à¸à¸·à¹à¸­à¸à¸²à¸£à¸à¸³à¸£à¸¸à¸à¸£à¸±à¸à¸©à¸² (à¸¡à¸²à¸à¸£à¸² 40)',
-                'td-sf-agenda': 'à¹à¸à¸´à¸à¸ªà¸°à¸ªà¸¡à¸à¸´à¹à¸¨à¸©à¸ªà¸¡à¸à¸à¸à¸¸à¸à¸ªà¸³à¸£à¸­à¸à¸à¸­à¸à¸à¸¸à¸ (à¸§à¸²à¸£à¸° 7)',
-                'td-total-juristic': 'à¸¢à¸­à¸à¸£à¸§à¸¡à¹à¸£à¸µà¸¢à¸à¸à¸³à¸£à¸°à¸à¸²à¸¡à¹à¸à¹à¸à¹à¸à¸«à¸à¸µà¹',
-                'lbl-promptpay-input': 'à¸à¸±à¸à¸à¸µà¸à¸£à¹à¸­à¸¡à¹à¸à¸¢à¹ (à¹à¸à¸­à¸£à¹à¹à¸à¸£à¸¨à¸±à¸à¸à¹ à¸«à¸£à¸·à¸­ à¹à¸¥à¸à¸à¸£à¸°à¸à¸³à¸à¸±à¸§à¸à¸¹à¹à¹à¸ªà¸µà¸¢à¸ à¸²à¸©à¸µ 13 à¸«à¸¥à¸±à¸):',
-                'lbl-water-input': 'à¹à¸à¸´à¹à¸¡à¸à¹à¸²à¸à¸£à¸´à¸à¸²à¸£à¸¡à¸´à¹à¸à¸­à¸£à¹à¸à¹à¸³à¸£à¸²à¸¢à¹à¸à¸·à¸­à¸ (à¸à¸²à¸):',
-                'lbl-custom-amount': 'à¸«à¸£à¸·à¸­à¸£à¸°à¸à¸¸à¸¢à¸­à¸à¸à¸³à¸£à¸°à¸à¸²à¸¡à¸à¹à¸­à¸à¸à¸²à¸£ (à¸à¸²à¸ - à¹à¸à¸à¸à¸µà¹à¸¢à¸­à¸à¸à¸³à¸à¸§à¸):',
-                'custom-amount': 'à¸à¸±à¸§à¸­à¸¢à¹à¸²à¸ 5000',
-                'lbl-btn-generate': 'ð± à¸ªà¸£à¹à¸²à¸à¸à¸´à¸§à¸­à¸²à¸£à¹à¸à¸£à¹à¸­à¸¡à¹à¸à¸¢à¹à¹à¸à¸à¹à¸à¸à¸²à¸¡à¸´à¸',
-                'lbl-qr-title': 'à¸à¸´à¸§à¸­à¸²à¸£à¹à¸à¸³à¸£à¸°à¸à¸£à¹à¸­à¸¡à¹à¸à¸¢à¹',
-                'lbl-qr-generate-hint': 'à¸à¸à¸à¸¸à¹à¸¡à¸à¹à¸²à¸à¸à¹à¸²à¸¢à¹à¸à¸·à¹à¸­à¸ªà¸£à¹à¸²à¸à¸à¸´à¸§à¸­à¸²à¸£à¹à¹à¸à¹à¸',
-                'lbl-maint-title': 'à¸§à¸à¸à¸£à¸­à¸²à¸¢à¸¸à¸ªà¸´à¸à¸à¸£à¸±à¸à¸¢à¹à¹à¸¥à¸°à¸à¸²à¸£à¸à¸±à¸à¸à¸¶à¸à¹à¸à¸´à¸à¸à¹à¸­à¸à¸à¸±à¸',
-                'lbl-maint-subtitle': 'à¸£à¸°à¸à¸à¸à¸±à¸à¸à¸¶à¸à¹à¸¥à¸°à¸à¸£à¸°à¹à¸¡à¸´à¸à¸­à¸²à¸¢à¸¸à¸à¸²à¸£à¹à¸à¹à¸à¸²à¸à¸ªà¸´à¸à¸à¸£à¸±à¸à¸¢à¹à¸­à¸²à¸à¸²à¸£à¸ªà¹à¸§à¸à¸à¸¥à¸²à¸ à¸à¸£à¹à¸­à¸¡à¸à¸²à¸£à¸­à¸±à¸à¹à¸«à¸¥à¸à¸ à¸²à¸à¸à¹à¸­à¸à¹à¸¥à¸°à¸«à¸¥à¸±à¸à¸à¹à¸­à¸¡à¹à¸à¸¡à¹à¸à¸·à¹à¸­à¸à¸§à¸²à¸¡à¹à¸à¸£à¹à¸à¹à¸ª',
-                'maint-sauna-title': 'à¹à¸à¹à¸à¹à¸à¸­à¸£à¹à¸à¸³à¸à¸§à¸²à¸¡à¸£à¹à¸­à¸à¸«à¹à¸­à¸à¸à¸²à¸§à¸à¹à¸²',
-                'maint-badge-high': 'à¸à¸§à¸²à¸¡à¸ªà¸³à¸à¸±à¸à¸ªà¸¹à¸',
-                'maint-sauna-desc': 'à¹à¸à¸¥à¸µà¹à¸¢à¸à¹à¸à¹à¸à¹à¸à¸­à¸£à¹à¸à¸³à¸à¸§à¸²à¸¡à¸£à¹à¸­à¸à¸à¸µà¹à¸à¸³à¸£à¸¸à¸à¹à¸à¸«à¹à¸­à¸à¸à¸²à¸§à¸à¹à¸² à¸à¸±à¹à¸ 2 (à¸¡à¸à¸´à¸à¸µà¹à¸à¸£à¸°à¸à¸¸à¸¡ AGM à¹à¸«à¹à¸à¹à¸­à¸¡à¹à¸à¸¡à¹à¸¥à¸°à¹à¸à¹à¸à¸£à¸±à¸à¸©à¸²à¹à¸§à¹)',
-                'maint-sauna-unit': 'à¸¢à¸¹à¸à¸´à¸: 18/78 (à¹à¸à¸£à¸à¸à¸²à¸£à¸à¸³à¸£à¹à¸­à¸)',
-                'status-in-progress': 'à¸à¸³à¸¥à¸±à¸à¸à¸³à¹à¸à¸´à¸à¸à¸²à¸£',
-                'maint-lift-title': 'à¸­à¸°à¹à¸«à¸¥à¹à¸¥à¸´à¸à¸à¹à¸à¸±à¸§à¸à¸µà¹ 1 (KONE)',
-                'maint-badge-med': 'à¸à¸²à¸à¸à¸¥à¸²à¸',
-                'maint-lift-desc': 'à¸à¸²à¸£à¸à¹à¸­à¸¡à¸à¸³à¸£à¸¸à¸à¹à¸à¸´à¸à¸à¹à¸­à¸à¸à¸±à¸à¸à¸²à¸¡à¸à¸³à¸«à¸à¸à¹à¸§à¸¥à¸²à¸ªà¸³à¸«à¸£à¸±à¸à¸¥à¸´à¸à¸à¹à¸à¸±à¸§à¸à¸µà¹ 1 (à¸ªà¸±à¹à¸à¸à¸·à¹à¸­à¸à¸´à¹à¸à¸ªà¹à¸§à¸à¹à¸à¹à¸à¸²à¸à¸à¸£à¸´à¸©à¸±à¸ à¹à¸à¹à¸à¹ à¸à¸³à¸à¸±à¸ à¸¡à¸«à¸²à¸à¸)',
-                'maint-lift-mandate': 'à¸à¸³à¸ªà¸±à¹à¸à¸à¸²à¸¡à¸à¸²à¸à¸à¸´à¸à¸´à¸à¸¸à¸à¸à¸¥',
-                'status-scheduled': 'à¸¡à¸µà¸à¸³à¸«à¸à¸à¹à¸§à¸¥à¸²à¹à¸¥à¹à¸§',
-                'lbl-trans-title': 'à¸£à¸°à¸à¸à¸à¸²à¸£à¹à¸à¸¥à¸ªà¸­à¸à¸ à¸²à¸©à¸²à¸à¸³à¸«à¸à¸à¸à¸§à¸²à¸¡à¸à¸¹à¸à¸à¹à¸­à¸à¸à¸­à¸à¸à¸´à¸à¸´à¸à¸¸à¸à¸à¸¥',
-                'lbl-trans-subtitle': 'à¸ªà¹à¸§à¸à¸à¸³à¸¥à¸­à¸à¸à¸²à¸£à¹à¸à¸¥à¸ªà¸­à¸à¸ à¸²à¸©à¸² (DeepL) à¹à¸à¸·à¹à¸­à¸à¸§à¸à¸à¸¸à¸¡à¸à¸§à¸²à¸¡à¸à¸¹à¸à¸à¹à¸­à¸à¸à¸­à¸à¸à¹à¸²à¸¨à¸±à¸à¸à¹à¸à¸²à¸à¸à¸´à¸à¸´à¸à¸¸à¸à¸à¸¥à¸£à¸°à¸«à¸§à¹à¸²à¸à¸à¸à¸±à¸à¸à¸²à¸à¹à¸à¸¢à¸à¸±à¸à¹à¸à¹à¸²à¸à¸­à¸à¸à¹à¸²à¸à¸à¸²à¸à¸´',
-                'lbl-trans-en-hdr': 'à¸£à¹à¸²à¸à¸à¹à¸­à¸à¸§à¸²à¸¡à¸ à¸²à¸©à¸²à¸­à¸±à¸à¸à¸¤à¸© (à¸à¸£à¸°à¸à¸²à¸¨ / à¹à¸à¹à¸à¹à¸à¸«à¸à¸µà¹)',
-                'btn-trans-en': 'à¹à¸à¸¥à¸ à¸²à¸©à¸²à¸­à¸±à¸à¸à¸¤à¸© â à¹à¸à¸¢',
-                'lbl-trans-th-hdr': 'à¸£à¹à¸²à¸à¸à¹à¸­à¸à¸§à¸²à¸¡à¸ à¸²à¸©à¸²à¹à¸à¸¢ (à¸à¸à¸±à¸à¸à¸²à¸à¸à¸£à¸­à¸)',
-                'btn-trans-th': 'à¹à¸à¸¥à¸ à¸²à¸©à¸²à¹à¸à¸¢ â à¸­à¸±à¸à¸à¸¤à¸©',
-                'lbl-gloss-hdr': 'à¸à¸¥à¸±à¸à¸à¸³à¸¨à¸±à¸à¸à¹à¹à¸à¸à¸²à¸°à¸à¸²à¸à¸à¸µà¹à¸à¸¹à¸à¸à¸§à¸à¸à¸¸à¸¡à¸ªà¸´à¸à¸à¸´à¹ (DLV 2.0)',
-                'lbl-footer': '&copy; 2026 à¸à¸´à¸à¸´à¸à¸¸à¸à¸à¸¥à¸­à¸²à¸à¸²à¸£à¸à¸¸à¸ à¸à¸µ à¹à¸­à¸¥ à¸§à¸µ à¸à¸­à¸à¸«à¸¥à¹à¸­ 20. à¸à¸³à¹à¸à¸´à¸à¸à¸²à¸£à¹à¸¥à¸°à¸à¸§à¸à¸à¸¸à¸¡à¸à¸²à¸£à¸à¸³à¸à¸²à¸à¹à¸à¸¢à¸à¸à¸°à¸à¸£à¸£à¸¡à¸à¸²à¸£à¹à¸à¹à¸²à¸à¸­à¸à¸£à¹à¸§à¸¡. à¸ªà¸à¸§à¸à¸ªà¸´à¸à¸à¸´à¹.',
-                'widget-active-maintenance': 'à¸£à¸­à¸à¸³à¹à¸à¸´à¸à¸à¸²à¸£ 1 à¸£à¸²à¸¢à¸à¸²à¸£',
-                'widget-cam-progress': 'à¹à¸à¹à¸²à¸«à¸¡à¸²à¸¢ 78%'
+                'brand-title': 'ดี แอล วี ทองหล่อ 20',
+                'brand-subtitle': 'ระบบการจัดการนิติบุคคลดิจิทัล 2.0',
+                'badge-pilot-text': 'ระบบการจัดการนำร่อง ยูนิต 18/78',
+                'profile-name-text': 'คุณ กอสเซต์ แกตอง อเล็กซองด์ พี.',
+                'profile-role-text': 'กรรมการนิติบุคคลอาคารชุด',
+                'hero-welcome-title': 'ยินดีต้อนรับกลับ คุณกอสเซต์!',
+                'hero-welcome-desc': 'จัดการค่าส่วนกลาง ติดตามบันทึกการซ่อมบำรุงอาคาร และตรวจสอบมติประชุมใหญ่ร่วมแบบเรียลไทม์',
+                'hero-lang-toggle-text': '<svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> Translate to English (แปลเป็นอังกฤษ)',
+                'lbl-unit': 'ยูนิตที่กำหนด',
+                'lbl-floor': 'ชั้นอาคาร',
+                'val-floor': 'ชั้น 7',
+                'lbl-size': 'ขนาดพื้นที่ยูนิต',
+                'val-size': '222.12 ตารางเมตร',
+                'lbl-ratio': 'อัตราส่วนกรรมสิทธิ์',
+                'val-ratio': '387.52 อัตราส่วน',
+                'lbl-resident': 'ประเภทผู้อยู่อาศัย',
+                'val-resident': 'เจ้าของร่วมชาวต่างชาติ',
+                'lbl-sf-header': 'การจัดสรรเงินกองทุนสะสม',
+                'lbl-sf-base': 'เงินกองทุนสะสมเริ่มต้น',
+                'val-sf-base': '500 บาท / ตร.ม.',
+                'lbl-sf-reserve': 'เงินกองทุนสะสมของยูนิต',
+                'val-sf-reserve': '111,060.00 บาท',
+                'lbl-sf-agenda': 'เงินสะสมพิเศษตามวาระที่ 7',
+                'val-sf-agenda': '5.30 บาท / ตร.ม. / เดือน',
+                'lbl-metric-juristic': 'ค่าธรรมเนียมนิติมติ 6 เดือน',
+                'lbl-metric-sauna': 'ซ่อมเซ็นเซอร์ซาวน่า',
+                'lbl-metric-progress': 'จัดเก็บค่าส่วนกลางแล้ว',
+                'tab-btn-payment': 'ชำระเงินรอบ 6 เดือน',
+                'tab-btn-maintenance': 'การซ่อมบำรุงเชิงป้องกัน',
+                'tab-btn-translation': 'แปลภาษาตามกฎหมาย',
+                'tab-btn-documents': 'คลังเอกสารนิติ',
+                'lbl-docs-title': 'คลังเอกสารนิติบุคคลสองภาษา',
+                'lbl-docs-subtitle': 'เข้าถึงข้อบังคับนิติบุคคลอาคารชุด รายงานการประชุม AGM รายงานการประชุมกรรมการ และประกาศของนิติบุคคลทั่วไปในรูปแบบสองภาษา',
+                'lbl-docs-categories': 'กรองตามหมวดหมู่',
+                'lbl-admin-doc-title': '3. ลงทะเบียนเอกสารนิติบุคคลสองภาษา',
+                'lbl-admin-audit-title': '4. บันทึกการเข้าใช้งานระบบแบบเรียลไทม์ (ระบบไฟล์: login_audit.log)',
+                'lbl-btn-refresh-log': '<svg class="icon" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg> รีเฟรชไฟล์บันทึกการใช้งาน',
+                'lbl-payment-title': 'เครื่องมือสร้างคิวอาร์พร้อมเพย์ชำระเงินค่าส่วนกลางนิติบุคคล',
+                'lbl-payment-subtitle': 'ส่วนนี้จำลองการสร้างคิวอาร์พร้อมเพย์ตามรอบชำระใบแจ้งหนี้พร้อมระบบคำนวณ CRC16 แบบเรียลไทม์',
+                'th-component': 'รายการค่าส่วนกลาง',
+                'th-rate': 'อัตราส่วนรายเดือน',
+                'th-total': 'ยอดรวมเรียกเก็บ',
+                'td-cam-base': 'ค่าส่วนกลางทั่วไป (CAM Base)',
+                'td-cam-special': 'เงินสะสมพิเศษเพื่อการบำรุงรักษา (มาตรา 40)',
+                'td-sf-agenda': 'เงินสะสมพิเศษสมทบทุนสำรองกองทุน (วาระ 7)',
+                'td-total-juristic': 'ยอดรวมเรียกชำระตามใบแจ้งหนี้',
+                'lbl-promptpay-input': 'บัญชีพร้อมเพย์ (เบอร์โทรศัพท์ หรือ เลขประจำตัวผู้เสียภาษี 13 หลัก):',
+                'lbl-water-input': 'เพิ่มค่าบริการมิเตอร์น้ำรายเดือน (บาท):',
+                'lbl-custom-amount': 'หรือระบุยอดชำระตามต้องการ (บาท - แทนที่ยอดคำนวณ):',
+                'custom-amount': 'ตัวอย่าง 5000',
+                'lbl-btn-generate': '<svg class="icon" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg> สร้างคิวอาร์พร้อมเพย์แบบไดนามิก',
+                'lbl-qr-title': 'คิวอาร์ชำระพร้อมเพย์',
+                'lbl-qr-generate-hint': 'กดปุ่มด้านซ้ายเพื่อสร้างคิวอาร์โค้ด',
+                'lbl-maint-title': 'วงจรอายุสินทรัพย์และการบันทึกเชิงป้องกัน',
+                'lbl-maint-subtitle': 'ระบบบันทึกและประเมินอายุการใช้งานสินทรัพย์อาคารส่วนกลาง พร้อมการอัปโหลดภาพก่อนและหลังซ่อมแซมเพื่อความโปร่งใส',
+                'maint-sauna-title': 'เซ็นเซอร์ทำความร้อนห้องซาวน่า',
+                'maint-badge-high': 'ความสำคัญสูง',
+                'maint-sauna-desc': 'เปลี่ยนเซ็นเซอร์ทำความร้อนที่ชำรุดในห้องซาวน่า ชั้น 2 (มติที่ประชุม AGM ให้ซ่อมแซมและเก็บรักษาไว้)',
+                'maint-sauna-unit': 'ยูนิต: 18/78 (โครงการนำร่อง)',
+                'status-in-progress': 'กำลังดำเนินการ',
+                'maint-lift-title': 'อะไหล่ลิฟต์ตัวที่ 1 (KONE)',
+                'maint-badge-med': 'ปานกลาง',
+                'maint-lift-desc': 'การซ่อมบำรุงเชิงป้องกันตามกำหนดเวลาสำหรับลิฟต์ตัวที่ 1 (สั่งซื้อชิ้นส่วนแท้จากบริษัท โคเน่ จำกัด มหาชน)',
+                'maint-lift-mandate': 'คำสั่งตามงานนิติบุคคล',
+                'status-scheduled': 'มีกำหนดเวลาแล้ว',
+                'lbl-trans-title': 'ระบบการแปลสองภาษากำหนดความถูกต้องของนิติบุคคล',
+                'lbl-trans-subtitle': 'ส่วนจำลองการแปลสองภาษา (DeepL) เพื่อควบคุมความถูกต้องของคําศัพท์ทางนิติบุคคลระหว่างพนักงานไทยกับเจ้าของต่างชาติ',
+                'lbl-trans-en-hdr': 'ร่างข้อความภาษาอังกฤษ (ประกาศ / ใบแจ้งหนี้)',
+                'btn-trans-en': 'แปลภาษาอังกฤษ <svg class="icon" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg> ไทย',
+                'lbl-trans-th-hdr': 'ร่างข้อความภาษาไทย (พนักงานกรอก)',
+                'btn-trans-th': 'แปลภาษาไทย <svg class="icon" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg> อังกฤษ',
+                'lbl-gloss-hdr': 'คลังคำศัพท์เฉพาะทางที่ถูกควบคุมสิทธิ์ (DLV 2.0)',
+                'lbl-footer': '&copy; 2026 นิติบุคคลอาคารชุด ดี แอล วี ทองหล่อ 20. ดำเนินการและควบคุมการทำงานโดยคณะกรรมการเจ้าของร่วม. สงวนสิทธิ์.',
+                'widget-active-maintenance': 'รอดำเนินการ 1 รายการ',
+                'widget-cam-progress': 'เป้าหมาย 78%'
             }
         };
 
@@ -1947,8 +1965,8 @@
                 table.children[0].innerHTML = "<strong>English Term</strong>";
                 table.children[1].innerHTML = "<strong>Thai Enforced Translation</strong>";
             } else {
-                table.children[0].innerHTML = "<strong>à¸à¸³à¸ à¸²à¸©à¸²à¸­à¸±à¸à¸à¸¤à¸©</strong>";
-                table.children[1].innerHTML = "<strong>à¸à¸³à¹à¸à¸¥à¸ à¸²à¸©à¸²à¹à¸à¸¢à¸à¸µà¹à¸à¸¹à¸à¸à¸±à¸à¸à¸±à¸à¹à¸à¹</strong>";
+                table.children[0].innerHTML = "<strong>คำภาษาอังกฤษ</strong>";
+                table.children[1].innerHTML = "<strong>คำแปลภาษาไทยที่ถูกบังคับใช้</strong>";
             }
         }
 
@@ -2004,9 +2022,9 @@
             }
             
             const isEn = currentLang === 'EN';
-            const unitText = isEn ? ' / sq.m' : ' / à¸à¸£.à¸¡.';
+            const unitText = isEn ? ' / sq.m' : ' / ตร.ม.';
             const currencyPrefix = isEn ? 'THB ' : '';
-            const currencySuffix = isEn ? '' : ' à¸à¸²à¸';
+            const currencySuffix = isEn ? '' : ' บาท';
             
             // Update rates and totals in table
             const rBase = document.getElementById('td-cam-base-rate');
@@ -2024,21 +2042,21 @@
             const pSf = document.getElementById('td-sf-agenda-period');
             const pTotal = document.getElementById('td-total-juristic-period');
             
-            if (pBase) pBase.innerText = isEn ? '6 Months' : '6 à¹à¸à¸·à¸­à¸';
-            if (pSpecial) pSpecial.innerText = isEn ? '12 Months' : '12 à¹à¸à¸·à¸­à¸';
-            if (pSf) pSf.innerText = isEn ? '12 Months' : '12 à¹à¸à¸·à¸­à¸';
-            if (pTotal) pTotal.innerText = 'â';
+            if (pBase) pBase.innerText = isEn ? '6 Months' : '6 เดือน';
+            if (pSpecial) pSpecial.innerText = isEn ? '12 Months' : '12 เดือน';
+            if (pSf) pSf.innerText = isEn ? '12 Months' : '12 เดือน';
+            if (pTotal) pTotal.innerText = '—';
             
             if (isTenant) {
                 document.getElementById('td-cam-base').parentElement.style.display = 'none';
                 document.getElementById('td-cam-special').parentElement.style.display = 'none';
                 document.getElementById('td-sf-agenda').parentElement.style.display = 'none';
                 rTotal.parentElement.style.fontWeight = '700';
-                document.getElementById('td-total-juristic').innerText = isEn ? 'Total Tenant Water Bill' : 'à¸¢à¸­à¸à¸à¹à¸²à¸à¸à¸³à¸£à¸°à¸à¹à¸²à¸à¹à¸³à¸ªà¸³à¸«à¸£à¸±à¸à¸à¸¹à¹à¹à¸à¹à¸²';
+                document.getElementById('td-total-juristic').innerText = isEn ? 'Total Tenant Water Bill' : 'ยอดค้างชำระค่าน้ำสำหรับผู้เช่า';
                 if (customAmount > 0) {
-                    rTotal.innerText = isEn ? 'Custom Amount' : 'à¸¢à¸­à¸à¸à¸³à¸£à¸°à¸à¸³à¸«à¸à¸à¹à¸­à¸';
+                    rTotal.innerText = isEn ? 'Custom Amount' : 'ยอดชำระกำหนดเอง';
                 } else {
-                    rTotal.innerText = isEn ? 'Water Usage Only' : 'à¹à¸à¸à¸²à¸°à¸à¹à¸²à¸à¹à¸³à¸à¸£à¸°à¸à¸²';
+                    rTotal.innerText = isEn ? 'Water Usage Only' : 'เฉพาะค่าน้ำประปา';
                 }
                 tTotal.innerText = currencyPrefix + total.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + currencySuffix;
                 
@@ -2049,14 +2067,14 @@
                 document.getElementById('td-cam-base').parentElement.style.display = '';
                 document.getElementById('td-cam-special').parentElement.style.display = '';
                 document.getElementById('td-sf-agenda').parentElement.style.display = '';
-                document.getElementById('td-total-juristic').innerText = isEn ? 'Total Payment Invitation' : 'à¸¢à¸­à¸à¸£à¸§à¸¡à¹à¸£à¸µà¸¢à¸à¸à¸³à¸£à¸°à¸à¸²à¸¡à¹à¸à¹à¸à¹à¸à¸«à¸à¸µà¹';
+                document.getElementById('td-total-juristic').innerText = isEn ? 'Total Payment Invitation' : 'ยอดรวมเรียกชำระตามใบแจ้งหนี้';
                 
                 if (rBase) rBase.innerText = currencyPrefix + camBaseRate.toFixed(2) + unitText + currencySuffix;
                 if (rSpecial) rSpecial.innerText = currencyPrefix + camSpecialRate.toFixed(2) + unitText + currencySuffix;
                 if (rSf) rSf.innerText = currencyPrefix + sfRate.toFixed(2) + unitText + currencySuffix;
                 
                 if (customAmount > 0) {
-                    if (rTotal) rTotal.innerText = isEn ? 'Custom Amount' : 'à¸¢à¸­à¸à¸à¸³à¸£à¸°à¸à¸³à¸«à¸à¸à¹à¸­à¸';
+                    if (rTotal) rTotal.innerText = isEn ? 'Custom Amount' : 'ยอดชำระกำหนดเอง';
                     if (tTotal) tTotal.innerText = currencyPrefix + total.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + currencySuffix;
                 } else {
                     const totalMonthlyRate = camBaseRate + camSpecialRate + sfRate;
@@ -2072,15 +2090,15 @@
                 const progressContainer = document.getElementById('yearly-progress-container');
                 if (progressContainer) {
                     progressContainer.style.display = 'block';
-                    document.getElementById('lbl-progress-title').innerText = isEn ? 'Annual Common Fees Progress (2026)' : 'à¸à¸§à¸²à¸¡à¸à¸·à¸à¸«à¸à¹à¸²à¸à¸²à¸£à¸à¸³à¸£à¸°à¸à¹à¸²à¸ªà¹à¸§à¸à¸à¸¥à¸²à¸à¸£à¸²à¸¢à¸à¸µ (2569)';
+                    document.getElementById('lbl-progress-title').innerText = isEn ? 'Annual Common Fees Progress (2026)' : 'ความคืบหน้าการชำระค่าส่วนกลางรายปี (2569)';
                     const formattedAnnualTotal = currencyPrefix + annualTotal.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + currencySuffix;
-                    document.getElementById('lbl-progress-percent').innerText = `${progressPercent.toFixed(1)}% of ${formattedAnnualTotal} ` + (isEn ? 'Paid' : 'à¸à¸³à¸£à¸°à¹à¸¥à¹à¸§');
+                    document.getElementById('lbl-progress-percent').innerText = `${progressPercent.toFixed(1)}% of ${formattedAnnualTotal} ` + (isEn ? 'Paid' : 'ชำระแล้ว');
                     document.getElementById('progress-bar-fill').style.width = `${progressPercent}%`;
                     
-                    document.getElementById('lbl-prog-paid-text').innerText = isEn ? 'Paid to Date (July Inv.):' : 'à¸à¸³à¸£à¸°à¹à¸¥à¹à¸§ (à¹à¸à¹à¸à¹à¸à¸«à¸à¸µà¹ à¸.à¸.):';
+                    document.getElementById('lbl-prog-paid-text').innerText = isEn ? 'Paid to Date (July Inv.):' : 'ชำระแล้ว (ใบแจ้งหนี้ ก.ค.):';
                     document.getElementById('lbl-prog-paid-val').innerText = currencyPrefix + invitationTotal.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + currencySuffix;
                     
-                    document.getElementById('lbl-prog-unpaid-text').innerText = isEn ? 'Outstanding (Next Cycle):' : 'à¸à¹à¸²à¸à¸à¸³à¸£à¸° (à¸£à¸­à¸à¸à¸±à¸à¹à¸):';
+                    document.getElementById('lbl-prog-unpaid-text').innerText = isEn ? 'Outstanding (Next Cycle):' : 'ค้างชำระ (รอบถัดไป):';
                     document.getElementById('lbl-prog-unpaid-val').innerText = currencyPrefix + annualOutstanding.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + currencySuffix;
                 }
             }
@@ -2091,9 +2109,9 @@
             const juristicLbl = document.getElementById('lbl-metric-juristic');
             if (juristicLbl) {
                 if (isTenant) {
-                    juristicLbl.innerText = isEn ? 'Tenant Monthly Water Bill' : 'à¸à¹à¸²à¸à¹à¸³à¸à¸£à¸°à¸à¸²à¸£à¸²à¸¢à¹à¸à¸·à¸­à¸à¸à¸¹à¹à¹à¸à¹à¸²';
+                    juristicLbl.innerText = isEn ? 'Tenant Monthly Water Bill' : 'ค่าน้ำประปารายเดือนผู้เช่า';
                 } else {
-                    juristicLbl.innerText = isEn ? 'July Invitation Total' : 'à¸¢à¸­à¸à¹à¸£à¸µà¸¢à¸à¸à¸³à¸£à¸°à¹à¸à¹à¸à¹à¸à¸«à¸à¸µà¹ à¸.à¸.';
+                    juristicLbl.innerText = isEn ? 'July Invitation Total' : 'ยอดเรียกชำระใบแจ้งหนี้ ก.ค.';
                 }
             }
 
@@ -2188,7 +2206,7 @@
                 if (currentLang === 'EN') {
                     statusTextEl.innerHTML = `Dynamic invoice total: <strong style="color: var(--primary-accent);">THB ${amountText}</strong>`;
                 } else {
-                    statusTextEl.innerHTML = `à¸¢à¸­à¸à¸£à¸§à¸¡à¹à¸£à¸µà¸¢à¸à¸à¸³à¸£à¸°à¸ªà¹à¸§à¸à¸à¸´à¸à¸´à¸à¸²à¸¡à¸à¸£à¸´à¸: <strong style="color: var(--primary-accent);">${amountText} à¸à¸²à¸</strong>`;
+                    statusTextEl.innerHTML = `ยอดรวมเรียกชำระส่วนนิติตามจริง: <strong style="color: var(--primary-accent);">${amountText} บาท</strong>`;
                 }
             }
             const payloadCodeEl = document.getElementById('qr-payload-code');
@@ -2199,18 +2217,18 @@
 
         // DeepL translation glossary mock simulation engine
         const glossary = {
-            "Sinking Fund": "à¹à¸à¸´à¸à¸à¸­à¸à¸à¸¸à¸",
-            "CAM fee": "à¸à¹à¸²à¸ªà¹à¸§à¸à¸à¸¥à¸²à¸",
-            "Juristic Person": "à¸à¸´à¸à¸´à¸à¸¸à¸à¸à¸¥à¸­à¸²à¸à¸²à¸£à¸à¸¸à¸",
-            "AGM": "à¸à¸²à¸£à¸à¸£à¸°à¸à¸¸à¸¡à¹à¸«à¸à¹à¸ªà¸²à¸¡à¸±à¸à¸à¸£à¸°à¸à¸³à¸à¸µ",
-            "Sauna Room": "à¸«à¹à¸­à¸à¸à¸²à¸§à¸à¹à¸²"
+            "Sinking Fund": "เงินกองทุน",
+            "CAM fee": "ค่าส่วนกลาง",
+            "Juristic Person": "นิติบุคคลอาคารชุด",
+            "AGM": "การประชุมใหญ่สามัญประจำปี",
+            "Sauna Room": "ห้องซาวน่า"
         };
         const reverseGlossary = {
-            "à¹à¸à¸´à¸à¸à¸­à¸à¸à¸¸à¸": "Sinking Fund",
-            "à¸à¹à¸²à¸ªà¹à¸§à¸à¸à¸¥à¸²à¸": "CAM fee",
-            "à¸à¸´à¸à¸´à¸à¸¸à¸à¸à¸¥à¸­à¸²à¸à¸²à¸£à¸à¸¸à¸": "Juristic Person",
-            "à¸à¸²à¸£à¸à¸£à¸°à¸à¸¸à¸¡à¹à¸«à¸à¹à¸ªà¸²à¸¡à¸±à¸à¸à¸£à¸°à¸à¸³à¸à¸µ": "AGM",
-            "à¸«à¹à¸­à¸à¸à¸²à¸§à¸à¹à¸²": "Sauna Room"
+            "เงินกองทุน": "Sinking Fund",
+            "ค่าส่วนกลาง": "CAM fee",
+            "นิติบุคคลอาคารชุด": "Juristic Person",
+            "การประชุมใหญ่สามัญประจำปี": "AGM",
+            "ห้องซาวน่า": "Sauna Room"
         };
 
         function translateEnToTh() {
@@ -2222,10 +2240,10 @@
                 translated = translated.replace(regex, `<span style="color: #ffd700; font-weight:600;">${glossary[term]}</span>`);
             }
             
-            translated = translated.replace(/Dear Residents/gi, "à¹à¸£à¸µà¸¢à¸à¸à¸¹à¹à¸à¸±à¸à¸­à¸²à¸¨à¸±à¸¢à¸à¸¸à¸à¸à¹à¸²à¸");
-            translated = translated.replace(/is on Saturday/gi, "à¸à¸±à¸à¸à¸¶à¹à¸à¹à¸à¸§à¸±à¸à¹à¸ªà¸²à¸£à¹");
-            translated = translated.replace(/Please cast your e-voting vote or delegate a proxy/gi, "à¹à¸à¸£à¸à¸¥à¸à¸à¸°à¹à¸à¸à¹à¸ªà¸µà¸¢à¸à¸­à¸´à¹à¸¥à¹à¸à¸à¸£à¸­à¸à¸´à¸à¸ªà¹à¸«à¸£à¸·à¸­à¸¡à¸­à¸à¸à¸±à¸à¸à¸°");
-            translated = translated.replace(/updates are pending/gi, "à¹à¸à¹à¸£à¸±à¸à¸à¸²à¸£à¸­à¸±à¸à¹à¸à¸à¹à¸¥à¸°à¸£à¸­à¸à¸£à¸§à¸à¸ªà¸­à¸à¹à¸¥à¹à¸§");
+            translated = translated.replace(/Dear Residents/gi, "เรียนผู้พักอาศัยทุกท่าน");
+            translated = translated.replace(/is on Saturday/gi, "จัดขึ้นในวันเสาร์");
+            translated = translated.replace(/Please cast your e-voting vote or delegate a proxy/gi, "โปรดลงคะแนนเสียงอิเล็กทรอนิกส์หรือมอบฉันทะ");
+            translated = translated.replace(/updates are pending/gi, "ได้รับการอัปเดตและรอตรวจสอบแล้ว");
             
             const outBox = document.getElementById('trans-th-output');
             outBox.style.color = 'var(--text-main)';
@@ -2242,9 +2260,9 @@
                 translated = translated.replace(regex, `<span style="color: #ffd700; font-weight:600;">${reverseGlossary[term]}</span>`);
             }
             
-            translated = translated.replace(/à¹à¸à¹à¸à¸à¹à¸²à¸§à¸ªà¸²à¸£à¸à¸²à¸£à¸à¹à¸­à¸¡à¹à¸à¸¡à¸à¸²à¸/g, "Notice of maintenance from the ");
-            translated = translated.replace(/à¸à¸²à¸£à¸à¹à¸­à¸¡à¹à¸à¸¡à¹à¸ªà¸£à¹à¸à¸ªà¸´à¹à¸à¹à¸¥à¹à¸§à¸ªà¸³à¸«à¸£à¸±à¸/g, "The repair is now completed for");
-            translated = translated.replace(/à¹à¸à¸£à¸·à¹à¸­à¸à¹à¸à¹à¸à¹à¸à¸­à¸£à¹à¸à¸§à¸²à¸¡à¸£à¹à¸­à¸à¹à¸/g, "the heating sensor inside the ");
+            translated = translated.replace(/แจ้งข่าวสารการซ่อมแซมจาก/g, "Notice of maintenance from the ");
+            translated = translated.replace(/การซ่อมแซมเสร็จสิ้นแล้วสำหรับ/g, "The repair is now completed for");
+            translated = translated.replace(/เครื่องเซ็นเซอร์ความร้อนใน/g, "the heating sensor inside the ");
             
             const outBox = document.getElementById('trans-en-output');
             outBox.style.color = 'var(--text-main)';
@@ -2329,14 +2347,14 @@
                 
                 let restrictedBadgeHtml = "";
                 if (doc.audience === 'committee') {
-                    restrictedBadgeHtml = `<span class="priority-badge priority-high" style="background: rgba(255, 77, 77, 0.15); color: var(--danger); border: 1px solid rgba(255, 77, 77, 0.3); font-size: 0.7rem; padding: 0.1rem 0.5rem; border-radius: 4px; font-weight: 600;">ð ${isEn ? 'Confidential Board Only' : 'à¸à¸§à¸²à¸¡à¸¥à¸±à¸à¹à¸à¸à¸²à¸°à¸à¸£à¸£à¸¡à¸à¸²à¸£'}</span>`;
+                    restrictedBadgeHtml = `<span class="priority-badge priority-high" style="background: rgba(255, 77, 77, 0.15); color: var(--danger); border: 1px solid rgba(255, 77, 77, 0.3); font-size: 0.7rem; padding: 0.1rem 0.5rem; border-radius: 4px; font-weight: 600;"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> ${isEn ? 'Confidential Board Only' : 'ความลับเฉพาะกรรมการ'}</span>`;
                 } else if (doc.audience === 'owners') {
-                    restrictedBadgeHtml = `<span class="priority-badge" style="background: rgba(212, 168, 83, 0.07); color: #d4a853; border: 1px solid rgba(212, 168, 83, 0.15); font-size: 0.7rem; padding: 0.1rem 0.5rem; border-radius: 4px; font-weight: 600;">ð¥ ${isEn ? 'Co-owners Only' : 'à¹à¸à¸à¸²à¸°à¹à¸à¹à¸²à¸à¸­à¸à¸£à¹à¸§à¸¡'}</span>`;
+                    restrictedBadgeHtml = `<span class="priority-badge" style="background: rgba(212, 168, 83, 0.07); color: #d4a853; border: 1px solid rgba(212, 168, 83, 0.15); font-size: 0.7rem; padding: 0.1rem 0.5rem; border-radius: 4px; font-weight: 600;"><svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg> ${isEn ? 'Co-owners Only' : 'เฉพาะเจ้าของร่วม'}</span>`;
                 }
                 
                 let langFallbackBadge = "";
                 if (!doc.file_name_th) {
-                    langFallbackBadge = `<span style="background: rgba(255, 215, 0, 0.15); color: #ffd700; border: 1px solid rgba(255, 215, 0, 0.3); font-size: 0.65rem; padding: 0.05rem 0.35rem; border-radius: 4px; margin-left: 0.5rem; font-weight: 600;">${isEn ? 'EN Only' : 'à¸ à¸²à¸©à¸²à¸­à¸±à¸à¸à¸¤à¸©à¹à¸à¹à¸²à¸à¸±à¹à¸'}</span>`;
+                    langFallbackBadge = `<span style="background: rgba(255, 215, 0, 0.15); color: #ffd700; border: 1px solid rgba(255, 215, 0, 0.3); font-size: 0.65rem; padding: 0.05rem 0.35rem; border-radius: 4px; margin-left: 0.5rem; font-weight: 600;">${isEn ? 'EN Only' : 'ภาษาอังกฤษเท่านั้น'}</span>`;
                 }
                 
                 let fileEn = doc.file_name_en;
@@ -2358,16 +2376,16 @@
                         </div>
                         <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; margin-bottom: 0.75rem;">${desc}</p>
                         <div class="ticket-meta" style="margin-top: 0; display: flex; gap: 1rem; font-size: 0.7rem;">
-                            <span>ð ${isEn ? 'Published:' : 'à¹à¸à¸¢à¹à¸à¸£à¹à¹à¸¡à¸·à¹à¸­:'} ${doc.publish_date}</span>
-                            <span>ð¾ Size: ${isEn ? (doc.file_size_en || doc.file_size_th) : (doc.file_size_th || doc.file_size_en)}</span>
+                            <span><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> ${isEn ? 'Published:' : 'เผยแพร่เมื่อ:'} ${doc.publish_date}</span>
+                            <span><svg class="icon" viewBox="0 0 24 24"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg> Size: ${isEn ? (doc.file_size_en || doc.file_size_th) : (doc.file_size_th || doc.file_size_en)}</span>
                         </div>
                     </div>
                     <div style="display: flex; flex-direction: column; gap: 0.5rem; min-width: 140px;">
                         <a href="${fileEn}" download target="_blank" rel="noopener noreferrer" class="btn-pay" style="padding: 0.4rem 0.75rem; text-align: center; text-decoration: none; font-size: 0.75rem; border-radius: 6px; margin: 0; display: flex; align-items: center; justify-content: center; gap: 0.25rem;">
-                            ð¬ð§ ${isEn ? 'Download EN' : 'à¸à¸²à¸§à¸à¹à¹à¸«à¸¥à¸ EN'}
+                            🇬🇧 ${isEn ? 'Download EN' : 'ดาวน์โหลด EN'}
                         </a>
                         <a href="${fileTh}" download target="_blank" rel="noopener noreferrer" class="btn-pay" style="padding: 0.4rem 0.75rem; text-align: center; text-decoration: none; font-size: 0.75rem; border-radius: 6px; margin: 0; background: var(--primary-gradient); box-shadow: 0 2px 8px rgba(212, 168, 83, 0.10); display: flex; align-items: center; justify-content: center; gap: 0.25rem;">
-                            ð¹ð­ ${isEn ? 'Download TH' : 'à¸à¸²à¸§à¸à¹à¹à¸«à¸¥à¸ TH'}
+                            🇹🇭 ${isEn ? 'Download TH' : 'ดาวน์โหลด TH'}
                         </a>
                     </div>
                 `;
@@ -2378,7 +2396,7 @@
             if (docCount === 0) {
                 container.innerHTML = `
                     <div style="text-align: center; padding: 3rem; color: var(--text-muted); font-size: 0.9rem;">
-                        ð­ ${isEn ? 'No documents available in this category.' : 'à¹à¸¡à¹à¸¡à¸µà¹à¸­à¸à¸ªà¸²à¸£à¹à¸à¸¢à¹à¸à¸£à¹à¹à¸à¸«à¸¡à¸§à¸à¸«à¸¡à¸¹à¹à¸à¸µà¹'}
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg> ${isEn ? 'No documents available in this category.' : 'ไม่มีเอกสารเผยแพร่ในหมวดหมู่นี้'}
                     </div>
                 `;
             }
@@ -2402,11 +2420,11 @@
             const sizeTh = document.getElementById('doc-reg-size-th').value.trim() || sizeEn;
             
             const catMapTh = {
-                'Bylaws': 'à¸à¹à¸­à¸à¸±à¸à¸à¸±à¸à¸à¸´à¸à¸´à¸à¸¸à¸à¸à¸¥',
-                'AGM Minutes': 'à¸£à¸²à¸¢à¸à¸²à¸à¸à¸²à¸£à¸à¸£à¸°à¸à¸¸à¸¡ AGM',
-                'Meeting Minutes': 'à¸£à¸²à¸¢à¸à¸²à¸à¸à¸²à¸£à¸à¸£à¸°à¸à¸¸à¸¡à¸à¸à¸°à¸à¸£à¸£à¸¡à¸à¸²à¸£',
-                'Committee Minutes': 'à¸à¸±à¸à¸à¸¶à¸à¸à¸²à¸£à¸à¸£à¸°à¸à¸¸à¸¡à¸à¸£à¸£à¸¡à¸à¸²à¸£à¸à¸´à¸à¸´à¸à¸¸à¸à¸à¸¥',
-                'Announcements': 'à¸à¸£à¸°à¸à¸²à¸¨à¸à¸´à¸à¸´à¸à¸¸à¸à¸à¸¥'
+                'Bylaws': 'ข้อบังคับนิติบุคคล',
+                'AGM Minutes': 'รายงานการประชุม AGM',
+                'Meeting Minutes': 'รายงานการประชุมคณะกรรมการ',
+                'Committee Minutes': 'บันทึกการประชุมกรรมการนิติบุคคล',
+                'Announcements': 'ประกาศนิติบุคคล'
             };
             
             const newDoc = {
