@@ -9,33 +9,52 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Modern Glassmorphic Dark Mode Styling */
+        /* Modern Premium Dark Mode — DLV Brand Colors */
         :root {
-            /* Open Design Premium Color System */
-            --bg-gradient: linear-gradient(135deg, #0b0816 0%, #100b25 50%, #030107 100%);
-            --glass-bg: rgba(22, 17, 45, 0.55);
-            --glass-border: rgba(255, 255, 255, 0.07);
-            --glass-hover: rgba(255, 255, 255, 0.12);
-            --primary-accent: #8c5eff;
-            --primary-gradient: linear-gradient(135deg, #8c5eff 0%, #b388ff 100%);
-            --secondary-accent: #00f0ff;
-            --secondary-gradient: linear-gradient(135deg, #00f0ff 0%, #00a8ff 100%);
-            --text-main: #f5f3ff;
-            --text-muted: #a5aedb;
-            --shadow-glow: 0 8px 32px 0 rgba(140, 94, 255, 0.22);
+            /* Background: deep warm navy, not pure black */
+            --bg-base: #0d1117;
+            --bg-gradient: linear-gradient(135deg, #0d1117 0%, #111827 50%, #0a0f14 100%);
+            --glass-bg: rgba(17, 24, 39, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.06);
+            --glass-hover: rgba(255, 255, 255, 0.10);
+
+            /* Single accent: warm gold — premium, Thai-appropriate, NOT purple */
+            --primary-accent: #d4a853;
+            --primary-accent-light: #e8c97a;
+            --primary-accent-dark: #b8923f;
+            --primary-gradient: linear-gradient(135deg, #d4a853 0%, #e8c97a 100%);
+
+            /* Text: warm whites, not cool violet-tinted */
+            --text-main: #f0f2f5;
+            --text-muted: #8b95a5;
+
+            /* Shadows: warm-tinted, not purple */
+            --shadow-glow: 0 8px 32px 0 rgba(212, 168, 83, 0.12);
             --card-shadow: 0 16px 36px 0 rgba(0, 0, 0, 0.45);
             
-            /* Custom Spacing Tokens */
+            /* Semantic */
+            --success: #22c55e;
+            --warn: #f59e0b;
+            --danger: #ef4444;
+
+            /* Spacing Tokens */
             --space-xs: 0.5rem;
             --space-sm: 0.75rem;
             --space-md: 1.25rem;
             --space-lg: 2rem;
             --space-xl: 3rem;
 
-            /* Visual Accents & Animation */
-            --focus-ring: 0 0 0 3px rgba(140, 94, 255, 0.35);
-            --border-glow: rgba(140, 94, 255, 0.25);
+            /* Animation */
+            --focus-ring: 0 0 0 3px rgba(212, 168, 83, 0.30);
+            --border-glow: rgba(212, 168, 83, 0.20);
             --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+            /* Z-index scale */
+            --z-base: 1;
+            --z-dropdown: 100;
+            --z-sticky: 200;
+            --z-overlay: 500;
+            --z-modal: 1000;
         }
 
         * {
@@ -103,7 +122,7 @@
             justify-content: center;
             font-weight: 700;
             color: #fff;
-            box-shadow: 0 0 15px rgba(124, 77, 255, 0.4);
+            box-shadow: 0 0 15px rgba(212, 168, 83, 0.4);
         }
 
         .brand-name h1 {
@@ -149,19 +168,19 @@
         .lang-btn.active {
             background: var(--primary-gradient);
             color: white;
-            box-shadow: 0 0 10px rgba(124, 77, 255, 0.5);
+            box-shadow: 0 0 10px rgba(212, 168, 83, 0.5);
         }
 
         .badge-pilot {
-            background: rgba(0, 229, 255, 0.15);
-            border: 1px solid var(--secondary-accent);
-            color: var(--secondary-accent);
+            background: rgba(212, 168, 83, 0.07);
+            border: 1px solid var(--primary-accent);
+            color: var(--primary-accent);
             padding: 0.25rem 0.75rem;
             border-radius: 20px;
             font-size: 0.75rem;
             font-weight: 500;
             letter-spacing: 0.5px;
-            box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
+            box-shadow: 0 0 10px rgba(212, 168, 83, 0.10);
         }
 
         /* Main Workspace */
@@ -236,7 +255,7 @@
 
         .profile-role {
             font-size: 0.8rem;
-            color: var(--secondary-accent);
+            color: var(--primary-accent);
             text-transform: uppercase;
             font-weight: 500;
             margin-top: 0.25rem;
@@ -295,15 +314,15 @@
         }
 
         .bg-purple {
-            background: rgba(124, 77, 255, 0.15);
-            color: #b388ff;
-            border: 1px solid rgba(124, 77, 255, 0.3);
+            background: rgba(212, 168, 83, 0.15);
+            color: #e8c97a;
+            border: 1px solid rgba(212, 168, 83, 0.3);
         }
 
         .bg-cyan {
-            background: rgba(0, 229, 255, 0.15);
-            color: #00e5ff;
-            border: 1px solid rgba(0, 229, 255, 0.3);
+            background: rgba(212, 168, 83, 0.07);
+            color: #d4a853;
+            border: 1px solid rgba(212, 168, 83, 0.15);
         }
 
         .bg-gold {
@@ -362,7 +381,7 @@
             height: 3px;
             background: var(--primary-gradient);
             border-radius: 3px 3px 0 0;
-            box-shadow: 0 0 10px rgba(124, 77, 255, 0.6);
+            box-shadow: 0 0 10px rgba(212, 168, 83, 0.6);
         }
 
         /* Feature Section */
@@ -456,7 +475,7 @@
             border-radius: 12px;
             font-weight: 600;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(140, 94, 255, 0.25);
+            box-shadow: 0 4px 15px rgba(212, 168, 83, 0.25);
             transition: var(--transition-smooth);
             margin-top: 1rem;
             display: flex;
@@ -467,7 +486,7 @@
 
         .btn-pay:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(140, 94, 255, 0.45);
+            box-shadow: 0 8px 24px rgba(212, 168, 83, 0.45);
         }
 
         .qr-card {
@@ -549,14 +568,14 @@
 
         .priority-high {
             background: rgba(255,77,77,0.15);
-            color: #ff4d4d;
+            color: var(--danger);
             border: 1px solid rgba(255,77,77,0.3);
         }
 
         .status-badge {
-            background: rgba(0, 229, 255, 0.1);
-            color: var(--secondary-accent);
-            border: 1px solid rgba(0, 229, 255, 0.2);
+            background: rgba(212, 168, 83, 0.05);
+            color: var(--primary-accent);
+            border: 1px solid rgba(212, 168, 83, 0.10);
             padding: 0.25rem 0.75rem;
             border-radius: 12px;
             font-size: 0.8rem;
@@ -590,7 +609,7 @@
 
         .glossary-title {
             font-size: 0.9rem;
-            color: var(--secondary-accent);
+            color: var(--primary-accent);
             font-weight: 600;
             margin-bottom: 0.5rem;
         }
@@ -649,7 +668,7 @@
             font-size: 3rem;
             font-weight: 700;
             line-height: 1.25;
-            background: linear-gradient(135deg, #fff 30%, #b388ff 100%);
+            background: linear-gradient(135deg, #fff 30%, #e8c97a 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 1.5rem;
@@ -767,15 +786,15 @@
                 <div class="hero-text">
                     <div class="brand-logo" style="width: 50px; height: 50px; font-size: 1.5rem; margin-bottom: 1.5rem;">DLV</div>
                     <h1>DLV Thong Lo 20</h1>
-                    <p style="font-size: 1.40rem; font-weight: 500; color: var(--secondary-accent); margin-bottom: 1rem;">Experience Premium Urban Living in Bangkok</p>
+                    <p style="font-size: 1.40rem; font-weight: 500; color: var(--primary-accent); margin-bottom: 1rem;">Experience Premium Urban Living in Bangkok</p>
                     <p>Located in the heart of Sukhumvit 55 (Thong Lo), DLV Thong Lo 20 offers exclusive, high-end residential living. Boasting modern architecture, complete privacy, and elite amenities including a state-of-the-art fitness center, a full-length swimming pool, and pristine Finnish saunas.</p>
                     <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 2rem;">
                         <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); padding: 1rem; border-radius: 16px; min-width: 140px; text-align: center;">
-                            <h3 style="color: var(--secondary-accent); font-size: 1.5rem; font-weight: 700;">55.1 - 262.46</h3>
+                            <h3 style="color: var(--primary-accent); font-size: 1.5rem; font-weight: 700;">55.1 - 262.46</h3>
                             <p style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; margin-top: 0.25rem;">Square Meters</p>
                         </div>
                         <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); padding: 1rem; border-radius: 16px; min-width: 140px; text-align: center;">
-                            <h3 style="color: var(--secondary-accent); font-size: 1.5rem; font-weight: 700;">Sukhumvit 55</h3>
+                            <h3 style="color: var(--primary-accent); font-size: 1.5rem; font-weight: 700;">Sukhumvit 55</h3>
                             <p style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; margin-top: 0.25rem;">Prime Location</p>
                         </div>
                     </div>
@@ -783,8 +802,8 @@
 
                 <!-- Glassmorphic Login Card -->
                 <div class="glass-card" style="padding: 2.5rem; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: var(--card-shadow); display: flex; flex-direction: column; gap: 1.25rem; overflow: hidden; position: relative;">
-                    <div style="position: absolute; top: -10%; left: -10%; width: 120px; height: 120px; background: rgba(124, 77, 255, 0.15); border-radius: 50%; filter: blur(40px);"></div>
-                    <div style="position: absolute; bottom: -10%; right: -10%; width: 120px; height: 120px; background: rgba(0, 229, 255, 0.15); border-radius: 50%; filter: blur(40px);"></div>
+                    <div style="position: absolute; top: -10%; left: -10%; width: 120px; height: 120px; background: rgba(212, 168, 83, 0.15); border-radius: 50%; filter: blur(40px);"></div>
+                    <div style="position: absolute; bottom: -10%; right: -10%; width: 120px; height: 120px; background: rgba(212, 168, 83, 0.07); border-radius: 50%; filter: blur(40px);"></div>
                     
                     <h2 style="font-size: 1.4rem; font-weight: 700; color: #fff; letter-spacing: 0.5px;">Resident Sign In</h2>
                     <p style="font-size: 0.85rem; color: var(--text-muted);">Access juristic services, water billing, and documents</p>
@@ -804,8 +823,8 @@
                     <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 1rem; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
                         <p style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">â¡ Quick Demo Access:</p>
                         <div style="display: grid; grid-template-columns: 1fr; gap: 0.4rem;">
-                            <button class="lang-btn" onclick="demoLogin('gaetanhk@gmail.com')" style="padding: 0.4rem; text-align: left; font-size: 0.7rem; border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; width: 100%; background: rgba(124, 77, 255, 0.1);">ð¤ <strong>Unit 18/78</strong> (Committee: Gaetan)</button>
-                            <button class="lang-btn" onclick="demoLogin('benjamin.pla@example.com')" style="padding: 0.4rem; text-align: left; font-size: 0.7rem; border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; width: 100%; background: rgba(0, 229, 255, 0.06);">ð¥ <strong>Unit 18/79</strong> (Co-owner: Benjamin & Pla)</button>
+                            <button class="lang-btn" onclick="demoLogin('gaetanhk@gmail.com')" style="padding: 0.4rem; text-align: left; font-size: 0.7rem; border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; width: 100%; background: rgba(212, 168, 83, 0.1);">ð¤ <strong>Unit 18/78</strong> (Committee: Gaetan)</button>
+                            <button class="lang-btn" onclick="demoLogin('benjamin.pla@example.com')" style="padding: 0.4rem; text-align: left; font-size: 0.7rem; border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; width: 100%; background: rgba(212, 168, 83, 0.03);">ð¥ <strong>Unit 18/79</strong> (Co-owner: Benjamin & Pla)</button>
                             <button class="lang-btn" onclick="demoLogin('alice.tenant@example.com')" style="padding: 0.4rem; text-align: left; font-size: 0.7rem; border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; width: 100%; background: rgba(255, 255, 255, 0.04);">ð <strong>Unit 18/12</strong> (Tenant: Alice)</button>
                             <button class="lang-btn" onclick="demoLogin('manager.juristic@dlv20.com')" style="padding: 0.4rem; text-align: left; font-size: 0.7rem; border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; width: 100%; background: rgba(255, 215, 0, 0.06);">ð¢ <strong>Juristic</strong> (Manager: Ubon)</button>
                         </div>
@@ -940,7 +959,7 @@
                 <button class="lang-btn active" id="btn-lang-en" onclick="setLanguage('EN')">EN</button>
                 <button class="lang-btn" id="btn-lang-th" onclick="setLanguage('TH')">TH</button>
             </div>
-            <button class="lang-btn" id="btn-logout" style="border: 1px solid rgba(255, 77, 77, 0.3); color: #ff4d4d; border-radius: 20px; font-size: 0.75rem; padding: 0.25rem 0.75rem; background: rgba(255, 77, 77, 0.08); font-weight:600;" onclick="handleSignOut()">Sign Out</button>
+            <button class="lang-btn" id="btn-logout" style="border: 1px solid rgba(255, 77, 77, 0.3); color: var(--danger); border-radius: 20px; font-size: 0.75rem; padding: 0.25rem 0.75rem; background: rgba(255, 77, 77, 0.08); font-weight:600;" onclick="handleSignOut()">Sign Out</button>
             <span class="badge-pilot" id="badge-pilot-text">Unit 18/78 Pilot Dashboard</span>
         </div>
     </header>
@@ -1071,14 +1090,14 @@
                             <div id="yearly-progress-container" style="margin: 1.5rem 0; background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); padding: 1.25rem; border-radius: 16px;">
                                 <h4 style="font-size: 0.9rem; font-weight: 600; color: #fff; margin-bottom: 0.5rem; display: flex; justify-content: space-between; margin-top: 0;">
                                     <span id="lbl-progress-title">Annual Common Fees Progress (2026)</span>
-                                    <span id="lbl-progress-percent" style="color: var(--secondary-accent);">65.0% Paid</span>
+                                    <span id="lbl-progress-percent" style="color: var(--primary-accent);">65.0% Paid</span>
                                 </h4>
                                 <div style="width: 100%; height: 10px; background: rgba(255,255,255,0.08); border-radius: 5px; overflow: hidden; margin-bottom: 0.75rem; position: relative;">
-                                    <div id="progress-bar-fill" style="width: 65.0%; height: 100%; background: linear-gradient(90deg, var(--primary-accent), var(--secondary-accent)); transition: width 0.8s ease-in-out;"></div>
+                                    <div id="progress-bar-fill" style="width: 65.0%; height: 100%; background: linear-gradient(90deg, var(--primary-accent), var(--primary-accent)); transition: width 0.8s ease-in-out;"></div>
                                 </div>
                                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.75rem; color: var(--text-muted);">
                                     <div>
-                                        <span style="display:inline-block; width: 6px; height: 6px; background: var(--secondary-accent); border-radius: 50%; margin-right: 4px; vertical-align: middle;"></span>
+                                        <span style="display:inline-block; width: 6px; height: 6px; background: var(--primary-accent); border-radius: 50%; margin-right: 4px; vertical-align: middle;"></span>
                                         <strong style="color: #fff;" id="lbl-prog-paid-text">Paid to Date (July Inv.):</strong>
                                         <span id="lbl-prog-paid-val">THB 111,415.39</span>
                                     </div>
@@ -1112,7 +1131,7 @@
 
                         <!-- Dynamic QR Card -->
                         <div class="qr-card">
-                            <h4 style="font-size: 0.95rem; margin-bottom: 0.75rem; color: var(--secondary-accent);" id="lbl-qr-title">Dynamic PromptPay QR</h4>
+                            <h4 style="font-size: 0.95rem; margin-bottom: 0.75rem; color: var(--primary-accent);" id="lbl-qr-title">Dynamic PromptPay QR</h4>
                             <div class="qr-placeholder" id="qr-container">
                                 <p style="font-size: 0.8rem; color: #15102a; font-weight: 600;" id="lbl-qr-generate-hint">Tap Generate to load EMVCo code</p>
                             </div>
@@ -1154,7 +1173,7 @@
                             <div class="ticket-info">
                                 <div style="display: flex; align-items: center; gap: 0.75rem;">
                                     <span class="ticket-title" id="maint-lift-title">Elevator 1 KONE Spares</span>
-                                    <span class="priority-badge" style="background: rgba(0, 229, 255, 0.15); color: #00e5ff; border: 1px solid rgba(0, 229, 255, 0.3);" id="maint-badge-med">Medium</span>
+                                    <span class="priority-badge" style="background: rgba(212, 168, 83, 0.07); color: #d4a853; border: 1px solid rgba(212, 168, 83, 0.15);" id="maint-badge-med">Medium</span>
                                 </div>
                                 <span class="ticket-desc" id="maint-lift-desc">Scheduled preventative maintenance for lift guide rails (spares ordered directly from KONE Public Company Limited).</span>
                                 <div class="ticket-meta">
@@ -1181,7 +1200,7 @@
                         <!-- English to Thai -->
                         <div class="trans-box">
                             <div class="trans-header">
-                                <h4 style="font-size: 0.9rem; color: var(--secondary-accent);" id="lbl-trans-en-hdr">English Draft (Notice / Invoices)</h4>
+                                <h4 style="font-size: 0.9rem; color: var(--primary-accent);" id="lbl-trans-en-hdr">English Draft (Notice / Invoices)</h4>
                                 <button class="btn-pay" style="padding: 0.35rem 0.75rem; font-size: 0.75rem; margin-top:0;" onclick="translateEnToTh()" id="btn-trans-en">Translate EN â TH</button>
                             </div>
                             <textarea id="trans-en-input" class="input-field" style="height: 120px; font-size: 0.85rem; resize: none;">Dear Residents, the AGM is on Saturday. Please cast your e-voting vote or delegate a proxy. Sinking Fund updates are pending.</textarea>
@@ -1193,7 +1212,7 @@
                         <!-- Thai to English -->
                         <div class="trans-box">
                             <div class="trans-header">
-                                <h4 style="font-size: 0.9rem; color: var(--secondary-accent);" id="lbl-trans-th-hdr">Thai Draft (Staff Input)</h4>
+                                <h4 style="font-size: 0.9rem; color: var(--primary-accent);" id="lbl-trans-th-hdr">Thai Draft (Staff Input)</h4>
                                 <button class="btn-pay" style="padding: 0.35rem 0.75rem; font-size: 0.75rem; margin-top:0;" onclick="translateThToEn()" id="btn-trans-th">Translate TH â EN</button>
                             </div>
                             <textarea id="trans-th-input" class="input-field" style="height: 120px; font-size: 0.85rem; resize: none;">à¹à¸à¹à¸à¸à¹à¸²à¸§à¸ªà¸²à¸£à¸à¸²à¸£à¸à¹à¸­à¸¡à¹à¸à¸¡à¸à¸²à¸à¸à¸´à¸à¸´à¸à¸¸à¸à¸à¸¥à¸­à¸²à¸à¸²à¸£à¸à¸¸à¸: à¸à¸²à¸£à¸à¹à¸­à¸¡à¹à¸à¸¡à¹à¸ªà¸£à¹à¸à¸ªà¸´à¹à¸à¹à¸¥à¹à¸§à¸ªà¸³à¸«à¸£à¸±à¸ à¹à¸à¸£à¸·à¹à¸­à¸à¹à¸à¹à¸à¹à¸à¸­à¸£à¹à¸à¸§à¸²à¸¡à¸£à¹à¸­à¸à¹à¸ à¸«à¹à¸­à¸à¸à¸²à¸§à¸à¹à¸²</textarea>
@@ -1233,7 +1252,7 @@
                     
                     <div class="translation-layout" style="grid-template-columns: 1fr 1.2fr; gap: 2rem;">
                         <div class="trans-box">
-                            <h4 style="font-size: 0.95rem; color: var(--secondary-accent); margin-bottom: 0.5rem;">1. Log Water Meter</h4>
+                            <h4 style="font-size: 0.95rem; color: var(--primary-accent); margin-bottom: 0.5rem;">1. Log Water Meter</h4>
                             <div class="input-group">
                                 <label for="admin-meter-unit">Select Unit:</label>
                                 <select id="admin-meter-unit" class="input-field" onchange="loadAdminUnitData()"></select>
@@ -1246,7 +1265,7 @@
                         </div>
                         
                         <div class="trans-box">
-                            <h4 style="font-size: 0.95rem; color: var(--secondary-accent); margin-bottom: 0.5rem;">2. Courier Package Logger</h4>
+                            <h4 style="font-size: 0.95rem; color: var(--primary-accent); margin-bottom: 0.5rem;">2. Courier Package Logger</h4>
                             <div class="input-group">
                                 <label for="admin-pkg-unit">Recipient Unit:</label>
                                 <select id="admin-pkg-unit" class="input-field"></select>
@@ -1261,7 +1280,7 @@
 
                     <!-- Document Registration Form -->
                     <div class="trans-box" style="margin-top: 2rem;">
-                        <h4 style="font-size: 0.95rem; color: var(--secondary-accent); margin-bottom: 0.5rem;" id="lbl-admin-doc-title">3. Register Bilingual Juristic Document</h4>
+                        <h4 style="font-size: 0.95rem; color: var(--primary-accent); margin-bottom: 0.5rem;" id="lbl-admin-doc-title">3. Register Bilingual Juristic Document</h4>
                         <form onsubmit="registerNewDocument(event)" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; text-align: left;">
                             <div style="display: flex; flex-direction: column; gap: 1rem;">
                                 <div class="input-group">
@@ -1332,7 +1351,7 @@
 
                     <!-- Live System Audit Logs -->
                     <div class="trans-box" style="margin-top: 2rem;">
-                        <h4 style="font-size: 0.95rem; color: #ff4d4d; margin-bottom: 0.5rem;" id="lbl-admin-audit-title">4. Live System Audit Logs (FileSystem: login_audit.log)</h4>
+                        <h4 style="font-size: 0.95rem; color: var(--danger); margin-bottom: 0.5rem;" id="lbl-admin-audit-title">4. Live System Audit Logs (FileSystem: login_audit.log)</h4>
                         <pre id="admin-audit-log-box" style="height: 200px; overflow-y: auto; background: rgba(0,0,0,0.5); color: #ffd700; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; padding: 1rem; font-family: monospace; font-size: 0.75rem; text-align: left; white-space: pre-wrap; margin-bottom: 1rem; box-shadow: inset 0 2px 8px rgba(0,0,0,0.5);"></pre>
                         <button class="btn-pay" onclick="loadAuditLogs()" style="font-size:0.75rem; padding: 0.4rem 1rem;" id="lbl-btn-refresh-log">ð Refresh Log File</button>
                     </div>
@@ -1350,7 +1369,7 @@
                     <div style="display: grid; grid-template-columns: 200px 1fr; gap: 2rem; align-items: start;">
                         <!-- Category Sidebar filter -->
                         <div class="trans-box" style="padding: 1rem; display: flex; flex-direction: column; gap: 0.5rem;">
-                            <h4 style="font-size: 0.9rem; color: var(--secondary-accent); margin-bottom: 0.5rem;" id="lbl-docs-categories">Filter Categories</h4>
+                            <h4 style="font-size: 0.9rem; color: var(--primary-accent); margin-bottom: 0.5rem;" id="lbl-docs-categories">Filter Categories</h4>
                             <button class="lang-btn active" id="btn-doc-filter-all" onclick="filterDocuments('all')" style="width:100%; text-align:left; border-radius: 8px; font-size:0.8rem; padding: 0.5rem 0.75rem;">ð All Documents</button>
                             <button class="lang-btn" id="btn-doc-filter-bylaws" onclick="filterDocuments('Bylaws')" style="width:100%; text-align:left; border-radius: 8px; font-size:0.8rem; padding: 0.5rem 0.75rem;">ð Bylaws</button>
                             <button class="lang-btn" id="btn-doc-filter-agm" onclick="filterDocuments('AGM Minutes')" style="width:100%; text-align:left; border-radius: 8px; font-size:0.8rem; padding: 0.5rem 0.75rem;">ð³ï¸ AGM Minutes</button>
@@ -2167,9 +2186,9 @@
             const statusTextEl = document.getElementById('qr-status-text');
             if (statusTextEl) {
                 if (currentLang === 'EN') {
-                    statusTextEl.innerHTML = `Dynamic invoice total: <strong style="color: var(--secondary-accent);">THB ${amountText}</strong>`;
+                    statusTextEl.innerHTML = `Dynamic invoice total: <strong style="color: var(--primary-accent);">THB ${amountText}</strong>`;
                 } else {
-                    statusTextEl.innerHTML = `à¸¢à¸­à¸à¸£à¸§à¸¡à¹à¸£à¸µà¸¢à¸à¸à¸³à¸£à¸°à¸ªà¹à¸§à¸à¸à¸´à¸à¸´à¸à¸²à¸¡à¸à¸£à¸´à¸: <strong style="color: var(--secondary-accent);">${amountText} à¸à¸²à¸</strong>`;
+                    statusTextEl.innerHTML = `à¸¢à¸­à¸à¸£à¸§à¸¡à¹à¸£à¸µà¸¢à¸à¸à¸³à¸£à¸°à¸ªà¹à¸§à¸à¸à¸´à¸à¸´à¸à¸²à¸¡à¸à¸£à¸´à¸: <strong style="color: var(--primary-accent);">${amountText} à¸à¸²à¸</strong>`;
                 }
             }
             const payloadCodeEl = document.getElementById('qr-payload-code');
@@ -2310,9 +2329,9 @@
                 
                 let restrictedBadgeHtml = "";
                 if (doc.audience === 'committee') {
-                    restrictedBadgeHtml = `<span class="priority-badge priority-high" style="background: rgba(255, 77, 77, 0.15); color: #ff4d4d; border: 1px solid rgba(255, 77, 77, 0.3); font-size: 0.7rem; padding: 0.1rem 0.5rem; border-radius: 4px; font-weight: 600;">ð ${isEn ? 'Confidential Board Only' : 'à¸à¸§à¸²à¸¡à¸¥à¸±à¸à¹à¸à¸à¸²à¸°à¸à¸£à¸£à¸¡à¸à¸²à¸£'}</span>`;
+                    restrictedBadgeHtml = `<span class="priority-badge priority-high" style="background: rgba(255, 77, 77, 0.15); color: var(--danger); border: 1px solid rgba(255, 77, 77, 0.3); font-size: 0.7rem; padding: 0.1rem 0.5rem; border-radius: 4px; font-weight: 600;">ð ${isEn ? 'Confidential Board Only' : 'à¸à¸§à¸²à¸¡à¸¥à¸±à¸à¹à¸à¸à¸²à¸°à¸à¸£à¸£à¸¡à¸à¸²à¸£'}</span>`;
                 } else if (doc.audience === 'owners') {
-                    restrictedBadgeHtml = `<span class="priority-badge" style="background: rgba(0, 229, 255, 0.15); color: #00e5ff; border: 1px solid rgba(0, 229, 255, 0.3); font-size: 0.7rem; padding: 0.1rem 0.5rem; border-radius: 4px; font-weight: 600;">ð¥ ${isEn ? 'Co-owners Only' : 'à¹à¸à¸à¸²à¸°à¹à¸à¹à¸²à¸à¸­à¸à¸£à¹à¸§à¸¡'}</span>`;
+                    restrictedBadgeHtml = `<span class="priority-badge" style="background: rgba(212, 168, 83, 0.07); color: #d4a853; border: 1px solid rgba(212, 168, 83, 0.15); font-size: 0.7rem; padding: 0.1rem 0.5rem; border-radius: 4px; font-weight: 600;">ð¥ ${isEn ? 'Co-owners Only' : 'à¹à¸à¸à¸²à¸°à¹à¸à¹à¸²à¸à¸­à¸à¸£à¹à¸§à¸¡'}</span>`;
                 }
                 
                 let langFallbackBadge = "";
@@ -2332,7 +2351,7 @@
                 card.innerHTML = `
                     <div style="flex: 1;">
                         <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
-                            <span class="status-badge" style="background: rgba(124, 77, 255, 0.1); color: #b388ff; border: 1px solid rgba(124, 77, 255, 0.2); font-size: 0.7rem; padding: 0.1rem 0.5rem; border-radius: 4px; margin-bottom:0;">${cat}</span>
+                            <span class="status-badge" style="background: rgba(212, 168, 83, 0.1); color: #e8c97a; border: 1px solid rgba(212, 168, 83, 0.2); font-size: 0.7rem; padding: 0.1rem 0.5rem; border-radius: 4px; margin-bottom:0;">${cat}</span>
                             <span style="font-weight: 700; font-size: 0.95rem; color: #fff;">${title}</span>
                             ${restrictedBadgeHtml}
                             ${langFallbackBadge}
@@ -2347,7 +2366,7 @@
                         <a href="${fileEn}" download target="_blank" rel="noopener noreferrer" class="btn-pay" style="padding: 0.4rem 0.75rem; text-align: center; text-decoration: none; font-size: 0.75rem; border-radius: 6px; margin: 0; display: flex; align-items: center; justify-content: center; gap: 0.25rem;">
                             ð¬ð§ ${isEn ? 'Download EN' : 'à¸à¸²à¸§à¸à¹à¹à¸«à¸¥à¸ EN'}
                         </a>
-                        <a href="${fileTh}" download target="_blank" rel="noopener noreferrer" class="btn-pay" style="padding: 0.4rem 0.75rem; text-align: center; text-decoration: none; font-size: 0.75rem; border-radius: 6px; margin: 0; background: var(--secondary-gradient); box-shadow: 0 2px 8px rgba(0, 229, 255, 0.2); display: flex; align-items: center; justify-content: center; gap: 0.25rem;">
+                        <a href="${fileTh}" download target="_blank" rel="noopener noreferrer" class="btn-pay" style="padding: 0.4rem 0.75rem; text-align: center; text-decoration: none; font-size: 0.75rem; border-radius: 6px; margin: 0; background: var(--primary-gradient); box-shadow: 0 2px 8px rgba(212, 168, 83, 0.10); display: flex; align-items: center; justify-content: center; gap: 0.25rem;">
                             ð¹ð­ ${isEn ? 'Download TH' : 'à¸à¸²à¸§à¸à¹à¹à¸«à¸¥à¸ TH'}
                         </a>
                     </div>
