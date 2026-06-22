@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit Directory MVP</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<link href="https://cdn.tailwindcss.com" rel="stylesheet">
+<style>
+:root {
+  --gold: #d4a853;
+  --gold-bg: rgba(212,168,83,0.06);
+  --gold-border: rgba(212,168,83,0.2);
+}
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: #fafafa;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+header {
+  @apply bg-gold text-white font-semibold py-4;
+  text-align: center;
+}
+.container {
+  @apply max-w-4xl mx-auto p-6;
+}
+.table-responsive {
+  @apply overflow-x-auto;
+}
+table {
+  @apply w-full bg-white divide-divide;
+  border-radius: .5rem;
+}
+th, td {
+  @apply px-4 py-2.5 text-left text-sm font-medium text-gray-900 whitespace-nowrap;
+}
+th {
+  @apply bg-gray-50;
+}
+tr:nth-child(even) {
+  @apply bg-gray-50;
+}
+.badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gold-bg text-gold border border-gold-border;
+}
+.card {
+  @apply bg-white rounded-lg shadow-sm;
+}
+.unit-card {
+  @apply p-4 border border-gray-200 rounded-lg;
+}
+.unit-header {
+  @apply flex justify-between items-center;
+}
+.unit-number {
+  @apply font-medium;
+}
+.unit-details {
+  @apply grid grid-cols-2 gap-1.5 text-sm text-gray-600;
+}
+.unit-details div {
+  @apply flex items-center justify-between;
+}
+</style>
+</head>
+<body class="bg-gray-100">
+<header class="text-center">
+  <h1 class="text-2xl font-bold">Unit Directory</h1>
+</header>
+<main class="container">
+  <div class="table-responsive">
+    <table class="divide-y divide-gray-200">
+      <thead>
+        <tr class="bg-gray-50">
+          <th class="text-left">Unit</th>
+          <th class="text-left">Owners</th>
+          <th class="text-left">Status</th>
+          <th class="text-right">Weight</th>
+        </tr>
+      </thead>
+      <tbody id="unit-body">
+        <!-- Sample rows – replace / expand with real data -->
+        <tr class="unit-card">
+          <div class="unit-header">
+            <div class="unit-number font-semibold">18/1</div>
+            <div class="unit-details">
+              <div><span>Owner:</span> Sakda Chaiyaporn & Pichai Wongsa</div>
+              <div><span>Status:</span> <span class="badge">Owner-occupied</span></div>
+              <div><span>Weight:</span> 121.54</div>
+            </div>
+          </div>
+        </tr>
+        <tr class="unit-card">
+          <div class="unit-header">
+            <div class="unit-number font-semibold">18/12</div>
+            <div class="unit-details">
+              <div><span>Owner:</span> Somsak Jaidee</div>
+              <div><span>Status:</span> <span class="badge">Rented</span></div>
+              <div><span>Weight:</span> 107.57</div>
+            </div>
+          </div>
+        </tr>
+        <!-- Add more rows as needed -->
+      </tbody>
+    </table>
+  </div>
+</main>
+</body>
+</html>
